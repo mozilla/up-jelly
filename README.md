@@ -1,6 +1,7 @@
-# Firefox 3.6 Start Page
+# Firefox Health Report - Jelly 
 
-This is a very simple static website generator for the Firefox 3.6 start page.
+This is a very simple static website generator for the content ("jelly") that will be injected 
+into the about:healthreport page.
 
 Based on [nocturnal](https://github.com/mozilla/nocturnal/), it takes a single
 jinja2 template, throws in some translations from .lang files,, and generates a
@@ -10,13 +11,14 @@ bunch of static, localized output files.
 
 ### Checkout
 
-    git clone git://github.com/mozilla/fx36start.git
+    git clone git://github.com/mozilla/fhr-jelly.git
 
-The localization files live in SVN. Check them out into the subdirectory
+The localization files will live in SVN, but do not exist yet. 
+Check them out into the subdirectory
 "locale" to pull in translations.
 
-    cd fx36start
-    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
+    cd fhr-jelly
+    (anticipated) svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fhr-jelly/locale/
 
 ### Choosing a build version
 
