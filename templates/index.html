@@ -1,223 +1,212 @@
-<!doctype html>
-<html lang="{{ LANG }}" dir="{{ DIR }}">
-<head>
-  <meta charset="utf-8">
-  <title>{{ _('Mozilla Firefox Start Page') }}</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Firefox Health Report</title>    
+    <meta charset="utf-8">
+    
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+	</head>
+	<body>
+		
+		
+    <div class="persistentHeader">
+      
+      <div class="headerContainer">
+      
+        <div class="navAndBlurb">
+          <div class="nav">
+            <div class="nav-category active">Firefox Health Report</div>
+            <div class="nav-separator"></div>
+            <div class="nav-category">Raw Data</div>
+          </div>
+          <div class="blurb">Firefox Health Report provides you with insights about your browser's performance. <a href="">Learn more…</a></div>
+        </div>
   
-  <script type="text/javascript">
+        <div class="activationWidget">
+          <div class="activationTextContainer">Share with Mozilla<br><span class="tabEnabledText">Enabled</span></div>
+          <div class="activationTabContainer">
+            <div class="activationTabOverlay"></div>
+            <div class="activationTab"></div>
+          </div>
+          
+          <div class="panelContainer disabledPanel">
+            <div class="panelContainerArrow"></div>
+            <div class="panelContainerBase">
+              <div class="panelContainerContent">
+                <p>Data about your browser use won't be shared with Mozilla anymore.</p>
+                <p>You will still be able to see information about your browser's health even though sharing is disabled.</p>
+                <p class="greyText">Learn how we handle your data in our <a href="">privacy policy.</a></p>
+              </div>
+            </div>
+          </div>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35433268-25']);
-  _gaq.push(['_trackPageview']);
+        </div>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+      </div>
+      
+    </div>
+    
+		<div class="outerContainer">
+		
+		  <div class="outerContainer-lightBox">
+  		  <div class="outerContainer-introSheet">
+    		  <div class="outerContainer-introSheet-introImage"></div>
+    		  <div class="outerContainer-introSheet-button">
+    		    <div class="spacer"></div>
+    		    <button class="button default" id="button-goToMyReport">Go to My Report</button>
+    		  </div>
+  		  </div>
+		  </div>
+		  
+  		<div class="sidebar">
+    		<div class="statsBox">
+    		
+          <div class="statsBoxSection">
+            <div class="statsBoxSection-header"><img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-vitalStats.png" height="16" width="28">Vital Stats</div>
+            <div class="statsBoxSection-content">
+              <ul>
+                <li>version<span class="statsBoxSection-value">Firefox 22.0b1</span></li>
+                <li>open for<span class="statsBoxSection-value">10:23 hrs</span></li>
+                <li>last crash<span class="statsBoxSection-value">6/12/2012</span></li>
+                <li>bookmarks<span class="statsBoxSection-value">3,456,098</span></li>
+              </ul>
+            </div>
+      		</div>
+      		<div class="statsBoxSection-separator"></div>
 
- </script>
-  
-</head>
-<body>
+          <div class="statsBoxSection">
+            <div class="statsBoxSection-header"><img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-thisMonth.png" height="16" width="16">This Month</div>
+            <div class="statsBoxSection-content">
+              <ul>
+                <li>time open<span class="statsBoxSection-value">44 hrs</span></li>
+                <li>page visted<span class="statsBoxSection-value">3,458</span></li>
+                <li>crashes<span class="statsBoxSection-value">1.5</span></li>
+              </ul>
+            </div>
+      		</div>
+      		<div class="statsBoxSection-separator"></div>
 
-<div style="margin-top: 40px;">
-  <form action="http://google.com/search" name="f">
-    <table id="frame" style="margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
-      <tbody>
-        <tr>
-          <td><img height="20" width="1"></td>
-        </tr>
-        <tr>
-          <td>
-            <table border="0" cellpadding="0" cellspacing="0" dir="ltr">
-              <tbody>
-                <tr>
-                  <td>
-                    <div title="{{ _('Firefox Start') }}" style="background: url('img/sprite2.png') no-repeat scroll 0% 0% transparent; height: 95px; margin-top: 21px; width: 430px;"></div>
-                  </td>
-                  <td style="overflow: hidden;" width="100%">
-                    <div style="background: url('img/gradsprite2.png') repeat-x scroll 0pt 0pt transparent; height: 95px; margin-top: 21px; width: 100%;"></div>
-                  </td>
-                  <td>
-                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -440px 0pt transparent; height: 116px; width: 105px;"></div>
-                  </td>
-                  <td>
-                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -545px 0pt transparent; height: 116px; margin-right: 4px; width: 15px;"></div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" dir="ltr">
-              <tbody>
-                <tr>
-                  <td style="border-left: 1px solid #ababab;" width="4">&nbsp;</td>
-                  <td width="534">
-                    <table cellpadding="0" cellspacing="0" dir="{{ DIR }}">
-                      <tbody>
-                        <tr>
-                          <td width="40">
-                            <img height="1" width="40">
-                          </td>
-                          <td width="494">
-                            <table cellpadding="0" cellspacing="0">
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <div title="Google" style="background: url('img/sprite2.png') no-repeat scroll 0pt -95px transparent; height: 23px; margin: 5px 0pt 4px 4px; width: 80px;"></div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <table cellpadding="0" cellspacing="0" width="494" dir="{{ DIR }}">
-                              <tbody>
-                                <tr>
-                                  <td nowrap="nowrap" style="width: 394; overflow: hidden;">
-                                    <input name="client" value="firefox-a" type="hidden">
-                                    <input name="rls" value="org.mozilla:{{ LANG }}:official" type="hidden">
-                                    <input name="channel" value="s" type="hidden">
-                                    <input name="hl" value="{{ LANG }}" type="hidden">
-                                    <input name="source" value="hp" type="hidden">
-                                    <input name="biw" type="hidden">
-                                    <input name="bih" type="hidden">
-                                    <input style="outline: medium none; width: 374px;" spellcheck="false" autocomplete="off" id="sf" maxlength="256" name="q" dir="{{ DIR }}">
-                                    <br>
-                                    <input value="{{ _('Google Search') }}" name="btnG" type="submit">
-                                  </td>
-                                  <td nowrap="nowrap" valign="top" style="width: 100px; line-height: 12px;">
-                                    <font size="-2">
-                                        <a href="http://www.google.com/advanced_search?hl={{ LANG }}">{{ _('Advanced search') }}</a>
-                                        <br>
-                                        <a href="http://www.google.com/preferences?hl={{ LANG }}">{{ _('Preferences') }}</a>
-                                    </font>
-                                  </td>
-                                  <td>&nbsp;</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td style="border-right: 1px solid #b0b0b0;" width="5">&nbsp;</td>
-                  <td width="19">&nbsp;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <table cellpadding="0" cellspacing="0" dir="ltr">
-              <tbody>
-                <tr>
-                  <td width="47">
-                    <div style="background: url('img/sprite2.png') no-repeat scroll 0pt -118px transparent; height: 34px; width: 47px;"></div>
-                  </td>
-                  <td valign="bottom" width="1">
-                    <div style="background: none repeat scroll 0% 0% rgb(176, 176, 176); height: 1px; width: 1px"></div>
-                  </td>
-                  <td width="497">
-                    <div style="background: url('img/sprite2.png') no-repeat scroll -48px -118px transparent; height: 34px; width: 497px;"></div>
-                  </td>
-                  <td width="19">&nbsp;</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <table cellpadding="0" cellspacing="0" width="100%" dir="ltr">
-              <tbody>
-                <tr>
-                  <td>
-                    <br>
-                    <table border="0" cellpadding="4" cellspacing="0" width="545" dir="{{ DIR }}">
-                      <tbody>
-                        <tr>
-                          <td><img class="upgradable" alt="" src="img/Fx4Launch.png" height="50" width="40"></td>
-                          <td dir="{{ DIR }}">
-                            <span class="upgradable">
-                              <font size="-1">
-                                {{ _("You're not on the latest version of Firefox.") }}
-                                {{ _('<a href="{0}">Upgrade today</a> to get the best of the Web!')|f('http://www.mozilla.com/?WT.mc_id=s17') }}
-                              </font>
-                            </span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <br>
-                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
-                      <tbody>
-                        <tr>
-                          <td align="center" nowrap="nowrap">
-                            <font size="-1">
-                              <a href="http://www.mozilla.org/about/">{{ _('About Mozilla') }}</a>
-                              - <a href="http://support.mozilla.org/">{{ _('Firefox Support') }}</a>
-                              - <a href="http://www.mozilla.org/en-US/privacy-policy.html">{{ _('Privacy Policy') }}</a>
-                            </font>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                  <td><img height="1" width="19"></td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <input name="oq" type="hidden">
-    <input name="aq" type="hidden">
-    <input name="aqi" type="hidden">
-    <input name="aql" type="hidden">
-    <input name="gs_l" type="hidden">
-  </form>
-</div>
+          <div class="statsBoxSection">
+            <div class="statsBoxSection-header">
+              <img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-addons.png" height="16" width="16">Add-ons<span class="statsBoxSection-value"><a href="#">View List</a></span>
+            </div>
+            <div class="statsBoxSection-content">
+              <ul>
+                <li>enabled<span class="statsBoxSection-value">2</span></li>
+                <li>disabled<span class="statsBoxSection-value">4</span></li>
+              </ul>
+            </div>
+      		</div>
+      		<div class="statsBoxSection-separator"></div>
 
-<div id="modal">
-  <div id="modal-top"></div>
-  <img id="alert" src="img/alert.png" alt="" width="54" height="46" />
-  <div id="modal-content">
+          <div class="statsBoxSection">
+            <div class="statsBoxSection-header">
+              <img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-plugins.png" height="16" width="16">Plugins<span class="statsBoxSection-value"><a href="#">View List</a></span>
+            </div>
+            <div class="statsBoxSection-content">
+              <ul>
+                <li>enabled<span class="statsBoxSection-value">2</span></li>
+                <li>disabled<span class="statsBoxSection-value">4</span></li>
+              </ul>
+            </div>
+      		</div>
+      		
+    		</div>
+  		</div>
+  		
+  		<div class="mainContent">
+  		
+        <div class="tipBoxes">
+          <div class="tipBox-container">
+            <div class="icon closeTip"></div>
+            <div class="tipBox-header">
+              <div class="icon expanderArrow"></div>
+              <div class="text">Tips</div>
+            </div>
+            <div class="tipBox-content">
+              <p>Your browser has crashed frequently within the last few days. You might want to:</p>
+              <ul>
+               <li>Visit our <a href="">support website</a></li>
+               <li>View more <a href="">detailed diagnostics</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="tipBox-container">
+            <div class="icon closeTip"></div>
+            <div class="tipBox-header">
+              <div class="icon expanderArrow"></div>
+              <div class="text">Tips</div>
+            </div>
+            <div class="tipBox-content">
+              <p>Your browser is <strong>5</strong> versions behind the latest one. Updating your browser now may improve your security, performance, and stability.</p>
+            </div>
+            <div class="tipBox buttonRow">
+              <div class="spacer"></div>
+              <button class="button">Not Now</button>
+              <div class="separator"></div>
+              <button class="button default">Update Now</button>
+            </div>
+          </div>
+        </div>
+    		
+    		<div class="graphBox">
+      		<div class="graphHeader">Daily Performance Trends <div class="icon"></div></div>
+      		<div class="graph"></div>
+    		</div>
+    		
+  		</div>
 
-  {% if VERSION == 'urgent' %}
-    <strong>{{ _('Important') }}:</strong>
-    <h1>{{ _('Your Firefox is out of date!') }}</h1>
 
-    <p>{{ _('Please download the latest version to continue.') }}</p>
-  {% else %}
-    <h1>{{ _('Your browser is out of date.') }}</h1>
+      <script>
+        $("#button-goToMyReport").mouseup(function() {
+          $(".outerContainer-lightBox").toggleClass("fade"); 
+          $(".outerContainer-introSheet").toggleClass("fade"); 
+          setTimeout(function(){ $(".outerContainer-lightBox").toggleClass("toggled");}, 300);
+        });
+      </script>
 
-    <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
-  {% endif %}
+      <script>
+        $(".closeTip").mouseup(function() {
+          var tipBox = $(this).parent();
+          tipBox.toggleClass("close");
+          setTimeout(function(){ tipBox.toggleClass("hide");}, 250);
+        });
 
-    <a href="https://www.mozilla.org/firefox/?utm_source=fx36start&utm_medium=banner&utm_campaign=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}">
-      <img class="logo" src="img/firefox-logo.png" width="93" height="27" />
-      <span>{{ _('Free Download') }}</span>
-      <img class="arrow" src="img/down-arrow.png" width="34" height="27" />
-      <div class="clear"></div>
-    </a>
+        $(".tipBox-header").mouseup(function() {
+          $(this).siblings(".tipBox-content").toggleClass("collapse"); 
+          $(this).children(".tipBox-header > .expanderArrow").toggleClass("collapse"); 
+          $(this).siblings(".buttonRow").toggleClass("collapse"); 
+        });
+      </script>
+      
+      <script>
+        $(".activationWidget").mouseup(function() {
+          $(".activationWidget").toggleClass("disabled"); 
+          $(".tabEnabledText").toggleClass("disabled");
+          
+          $(".tabEnabledText").text(function() {
+            if ($(this).text() == 'Enabled') {
+              return 'Disabled';
+            } else {
+              return 'Enabled';
+            }
+          });
+        
+/*           $(".tabEnabledText").text("Disabled"); */
+          $(".disabledPanel").toggleClass("toggled");
+          setTimeout(function(){ $(".disabledPanel").toggleClass("toggled");}, 5000);
+        });
+      </script>
 
-    <a href="#close" title="{{ _("No thanks, I'll risk it.") }}" class="small dismiss">{{ _("No thanks, I'll risk it.") }}</a>
-  </div>
-  <div class="clear"></div>
-</div>
 
-<div id="shade" class="{{ VERSION }}"></div>
+		</div>
+		
+	
 
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="js/ffx36.js" type="text/javascript"></script>
 
-</body>
-</html>
+</body></html>
