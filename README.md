@@ -77,6 +77,7 @@ This software is licensed under the [Mozilla Tri-License][MPL]:
       Matthew Riley MacPherson <tofumatt@mozilla.com>
       James Long <jlong@mozilla.com>
       Fred Wenzel <fwenzel@mozilla.com>
+      Laura Thomson <lthomson@mozilla.com>
 
     Alternatively, the contents of this file may be used under the terms of
     either the GNU General Public License Version 2 or later (the "GPL"), or
