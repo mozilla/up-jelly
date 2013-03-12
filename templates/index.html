@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="{{ LANG }}" dir="{{ DIR }}" >
+<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Firefox Health Report</title>    
+		<title>{{ _('Firefox Health Report') }}</title>    
     <meta charset="utf-8">
     
     <link href="css/styles.css" type="text/css" rel="stylesheet">
@@ -19,15 +20,15 @@
       
         <div class="navAndBlurb">
           <div class="nav">
-            <div class="nav-category active">Firefox Health Report</div>
+            <div class="nav-category active">{{ _('Firefox Health Report') }}</div>
             <div class="nav-separator"></div>
-            <div class="nav-category">Raw Data</div>
+            <div class="nav-category">{{ _('Raw Data') }}</div>
           </div>
-          <div class="blurb">Firefox Health Report provides you with insights about your browser's performance. <a href="">Learn more…</a></div>
+          <div class="blurb">{{ _('Firefox Health Report provides you with insights about your browser\'s performance.') }} <a href="">{{ _('Learn more...') }}</a></div>
         </div>
-  
+
         <div class="activationWidget">
-          <div class="activationTextContainer">Share with Mozilla<br><span class="tabEnabledText">Enabled</span></div>
+          <div class="activationTextContainer">{{ _('Share with Mozilla') }}<br><span class="tabEnabledText">{{ _('Enabled') }}</span></div>
           <div class="activationTabContainer">
             <div class="activationTabOverlay"></div>
             <div class="activationTab"></div>
@@ -37,9 +38,9 @@
             <div class="panelContainerArrow"></div>
             <div class="panelContainerBase">
               <div class="panelContainerContent">
-                <p>Data about your browser use won't be shared with Mozilla anymore.</p>
-                <p>You will still be able to see information about your browser's health even though sharing is disabled.</p>
-                <p class="greyText">Learn how we handle your data in our <a href="">privacy policy.</a></p>
+                <p>{{ _('Data about your browser use won\'t be shared with Mozilla anymore.') }}</p>
+                <p>{{ _('You will still be able to see information about your browser\'s health even though sharing is disabled.') }}</p>
+                <p class="greyText">{{ _('Learn how we handle your data in our ') }}<a href="">{{ _('privacy policy.') }}</a></p>
               </div>
             </div>
           </div>
@@ -57,7 +58,7 @@
     		  <div class="outerContainer-introSheet-introImage"></div>
     		  <div class="outerContainer-introSheet-button">
     		    <div class="spacer"></div>
-    		    <button class="button default" id="button-goToMyReport">Go to My Report</button>
+    		    <button class="button default" id="button-goToMyReport">{{ _('Go to My Report') }}</button>
     		  </div>
   		  </div>
 		  </div>
@@ -66,7 +67,7 @@
     		<div class="statsBox">
     		
           <div class="statsBoxSection">
-            <div class="statsBoxSection-header"><img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-vitalStats.png" height="16" width="28">Vital Stats</div>
+            <div class="statsBoxSection-header"><img class="icon" src="img/icon-vitalStats.png" height="16" width="28">{{ _('Vital Stats') }}</div>
             <div class="statsBoxSection-content">
               <ul>
                 <li>version<span class="statsBoxSection-value">Firefox 22.0b1</span></li>
@@ -79,7 +80,7 @@
       		<div class="statsBoxSection-separator"></div>
 
           <div class="statsBoxSection">
-            <div class="statsBoxSection-header"><img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-thisMonth.png" height="16" width="16">This Month</div>
+            <div class="statsBoxSection-header"><img class="icon" src="img/icon-thisMonth.png" height="16" width="16">{{ _('This Month') }}</div>
             <div class="statsBoxSection-content">
               <ul>
                 <li>time open<span class="statsBoxSection-value">44 hrs</span></li>
@@ -92,7 +93,7 @@
 
           <div class="statsBoxSection">
             <div class="statsBoxSection-header">
-              <img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-addons.png" height="16" width="16">Add-ons<span class="statsBoxSection-value"><a href="#">View List</a></span>
+              <img class="icon" src="img/icon-addons.png" height="16" width="16">{{ _('Add-ons') }}<span class="statsBoxSection-value"><a href="#">{{ _('View List') }}</a></span>
             </div>
             <div class="statsBoxSection-content">
               <ul>
@@ -105,7 +106,7 @@
 
           <div class="statsBoxSection">
             <div class="statsBoxSection-header">
-              <img class="icon" src="Firefox%20Health%20Report%20-%2001_files/icon-plugins.png" height="16" width="16">Plugins<span class="statsBoxSection-value"><a href="#">View List</a></span>
+              <img class="icon" src="img/icon-plugins.png" height="16" width="16">{{ _('Plugins') }}<span class="statsBoxSection-value"><a href="#">{{ _('View List') }}</a></span>
             </div>
             <div class="statsBoxSection-content">
               <ul>
@@ -125,13 +126,13 @@
             <div class="icon closeTip"></div>
             <div class="tipBox-header">
               <div class="icon expanderArrow"></div>
-              <div class="text">Tips</div>
+              <div class="text">{{ _('Tips') }}</div>
             </div>
             <div class="tipBox-content">
-              <p>Your browser has crashed frequently within the last few days. You might want to:</p>
+              <p>{{ _('Your browser has crashed frequently within the last few days. You might want to:') }}</p>
               <ul>
-               <li>Visit our <a href="">support website</a></li>
-               <li>View more <a href="">detailed diagnostics</a></li>
+               <li>{{ _('Visit our ') }}<a href="">{{ _('support website') }}</a></li>
+               <li>{{ _('View more ') }}<a href="">{{ _('detailed diagnostics') }}</a></li>
               </ul>
             </div>
           </div>
@@ -140,22 +141,22 @@
             <div class="icon closeTip"></div>
             <div class="tipBox-header">
               <div class="icon expanderArrow"></div>
-              <div class="text">Tips</div>
+              <div class="text">{{ _('Tips') }}</div>
             </div>
             <div class="tipBox-content">
-              <p>Your browser is <strong>5</strong> versions behind the latest one. Updating your browser now may improve your security, performance, and stability.</p>
+              <p>{{ _('Your browser is ') }}<strong>5</strong> {{ _('versions behind the latest one. Updating your browser now may improve your security, performance, and stability.') }}</p>
             </div>
             <div class="tipBox buttonRow">
               <div class="spacer"></div>
-              <button class="button">Not Now</button>
+              <button class="button">{{ _('Not Now') }}</button>
               <div class="separator"></div>
-              <button class="button default">Update Now</button>
+              <button class="button default">{{ _('Update Now') }}</button>
             </div>
           </div>
         </div>
     		
     		<div class="graphBox">
-      		<div class="graphHeader">Daily Performance Trends <div class="icon"></div></div>
+      		<div class="graphHeader">{{ _('Daily Performance Trends') }}<div class="icon"></div></div>
       		<div class="graph"></div>
     		</div>
     		
@@ -190,10 +191,10 @@
           $(".tabEnabledText").toggleClass("disabled");
           
           $(".tabEnabledText").text(function() {
-            if ($(this).text() == 'Enabled') {
-              return 'Disabled';
+            if ($(this).text() == '{{ _('Enabled') }}') {
+              return '{{ _('Disabled') }}';
             } else {
-              return 'Enabled';
+              return '{{ _('Enabled') }}';
             }
           });
         
