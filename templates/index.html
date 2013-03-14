@@ -2,22 +2,22 @@
 <html lang="{{ LANG }}" dir="{{ DIR }}" >
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>{{ _('Firefox Health Report') }}</title>    
+        <title>{{ _('Firefox Health Report') }}</title>
     <meta charset="utf-8">
-    
+
     <link href="css/styles.css" type="text/css" rel="stylesheet">
-    
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
 
-	</head>
-	<body>
-		
-		
+    </head>
+    <body>
+
+
     <div class="persistentHeader">
-      
+
       <div class="headerContainer">
-      
+
         <div class="navAndBlurb">
           <div class="nav">
             <div class="nav-category active">{{ _('Firefox Health Report') }}</div>
@@ -33,14 +33,14 @@
             <div class="activationTabOverlay"></div>
             <div class="activationTab"></div>
           </div>
-          
+
           <div class="panelContainer disabledPanel">
             <div class="panelContainerArrow"></div>
             <div class="panelContainerBase">
               <div class="panelContainerContent">
                 <p>{{ _('Data about your browser use won\'t be shared with Mozilla anymore.') }}</p>
                 <p>{{ _('You will still be able to see information about your browser\'s health even though sharing is disabled.') }}</p>
-                <p class="greyText">{{ _('Learn how we handle your data in our ') }}<a href="">{{ _('privacy policy.') }}</a></p>
+                <p class="greyText">{{ _('Learn how we handle your data in our <a href="">privacy policy.</a>') }}</p>
               </div>
             </div>
           </div>
@@ -48,48 +48,48 @@
         </div>
 
       </div>
-      
+
     </div>
-    
-		<div class="outerContainer">
-		
-		  <div class="outerContainer-lightBox">
-  		  <div class="outerContainer-introSheet">
-    		  <div class="outerContainer-introSheet-introImage"></div>
-    		  <div class="outerContainer-introSheet-button">
-    		    <div class="spacer"></div>
-    		    <button class="button default" id="button-goToMyReport">{{ _('Go to My Report') }}</button>
-    		  </div>
-  		  </div>
-		  </div>
-		  
-  		<div class="sidebar">
-    		<div class="statsBox">
-    		
+
+        <div class="outerContainer">
+
+          <div class="outerContainer-lightBox">
+          <div class="outerContainer-introSheet">
+              <div class="outerContainer-introSheet-introImage"></div>
+              <div class="outerContainer-introSheet-button">
+                <div class="spacer"></div>
+                <button class="button default" id="button-goToMyReport">{{ _('Go to My Report') }}</button>
+              </div>
+          </div>
+          </div>
+
+        <div class="sidebar">
+            <div class="statsBox">
+
           <div class="statsBoxSection">
             <div class="statsBoxSection-header"><img class="icon" src="img/icon-vitalStats.png" height="16" width="28">{{ _('Vital Stats') }}</div>
             <div class="statsBoxSection-content">
               <ul>
-                <li>version<span class="statsBoxSection-value">Firefox 22.0b1</span></li>
-                <li>open for<span class="statsBoxSection-value">10:23 hrs</span></li>
-                <li>last crash<span class="statsBoxSection-value">6/12/2012</span></li>
-                <li>bookmarks<span class="statsBoxSection-value">3,456,098</span></li>
+                <li>{{ _('Version') }}<span class="statsBoxSection-value">Firefox 22.0b1</span></li>
+                <li>{{ _('Open for') }}<span class="statsBoxSection-value">10:23 hrs</span></li>
+                <li>{{ _('Last crash') }}<span class="statsBoxSection-value">6/12/2012</span></li>
+                <li>{{ _('Bookmarks') }}<span class="statsBoxSection-value">3,456,098</span></li>
               </ul>
             </div>
-      		</div>
-      		<div class="statsBoxSection-separator"></div>
+            </div>
+            <div class="statsBoxSection-separator"></div>
 
           <div class="statsBoxSection">
             <div class="statsBoxSection-header"><img class="icon" src="img/icon-thisMonth.png" height="16" width="16">{{ _('This Month') }}</div>
             <div class="statsBoxSection-content">
               <ul>
-                <li>time open<span class="statsBoxSection-value">44 hrs</span></li>
-                <li>page visted<span class="statsBoxSection-value">3,458</span></li>
-                <li>crashes<span class="statsBoxSection-value">1.5</span></li>
+                <li>{{ _('Time open') }}<span class="statsBoxSection-value">44 hrs</span></li>
+                <li>{{ _('Pages visited') }}<span class="statsBoxSection-value">3,458</span></li>
+                <li>{{ _('Crashes') }}<span class="statsBoxSection-value">1.5</span></li>
               </ul>
             </div>
-      		</div>
-      		<div class="statsBoxSection-separator"></div>
+            </div>
+            <div class="statsBoxSection-separator"></div>
 
           <div class="statsBoxSection">
             <div class="statsBoxSection-header">
@@ -97,12 +97,12 @@
             </div>
             <div class="statsBoxSection-content">
               <ul>
-                <li>enabled<span class="statsBoxSection-value">2</span></li>
-                <li>disabled<span class="statsBoxSection-value">4</span></li>
+                <li>{{ _('Enabled') }}<span class="statsBoxSection-value">2</span></li>
+                <li>{{ _('Disabled') }}<span class="statsBoxSection-value">4</span></li>
               </ul>
             </div>
-      		</div>
-      		<div class="statsBoxSection-separator"></div>
+            </div>
+            <div class="statsBoxSection-separator"></div>
 
           <div class="statsBoxSection">
             <div class="statsBoxSection-header">
@@ -110,17 +110,17 @@
             </div>
             <div class="statsBoxSection-content">
               <ul>
-                <li>enabled<span class="statsBoxSection-value">2</span></li>
-                <li>disabled<span class="statsBoxSection-value">4</span></li>
+                <li>{{ _('Enabled') }}<span class="statsBoxSection-value">2</span></li>
+                <li>{{ _('Disabled') }}<span class="statsBoxSection-value">4</span></li>
               </ul>
             </div>
-      		</div>
-      		
-    		</div>
-  		</div>
-  		
-  		<div class="mainContent">
-  		
+            </div>
+
+            </div>
+        </div>
+
+        <div class="mainContent">
+
         <div class="tipBoxes">
           <div class="tipBox-container">
             <div class="icon closeTip"></div>
@@ -131,12 +131,12 @@
             <div class="tipBox-content">
               <p>{{ _('Your browser has crashed frequently within the last few days. You might want to:') }}</p>
               <ul>
-               <li>{{ _('Visit our ') }}<a href="">{{ _('support website') }}</a></li>
-               <li>{{ _('View more ') }}<a href="">{{ _('detailed diagnostics') }}</a></li>
+               <li>{{ _('Visit our <a href="">support website</a>') }}</li>
+               <li>{{ _('View more <a href="">detailed diagnostics</a>') }}</li>
               </ul>
             </div>
           </div>
-          
+
           <div class="tipBox-container">
             <div class="icon closeTip"></div>
             <div class="tipBox-header">
@@ -144,7 +144,7 @@
               <div class="text">{{ _('Tips') }}</div>
             </div>
             <div class="tipBox-content">
-              <p>{{ _('Your browser is ') }}<strong>5</strong> {{ _('versions behind the latest one. Updating your browser now may improve your security, performance, and stability.') }}</p>
+              <p>{{ _('Your version of Firefox is not the latest available. Updating your browser now may improve your security, performance, and stability.') }}</p>
             </div>
             <div class="tipBox buttonRow">
               <div class="spacer"></div>
@@ -154,19 +154,19 @@
             </div>
           </div>
         </div>
-    		
-    		<div class="graphBox">
-      		<div class="graphHeader">{{ _('Daily Performance Trends') }}<div class="icon"></div></div>
-      		<div class="graph"></div>
-    		</div>
-    		
-  		</div>
+
+            <div class="graphBox">
+            <div class="graphHeader">{{ _('Daily Performance Trends') }}<div class="icon"></div></div>
+            <div class="graph"></div>
+            </div>
+
+        </div>
 
 
       <script>
         $("#button-goToMyReport").mouseup(function() {
-          $(".outerContainer-lightBox").toggleClass("fade"); 
-          $(".outerContainer-introSheet").toggleClass("fade"); 
+          $(".outerContainer-lightBox").toggleClass("fade");
+          $(".outerContainer-introSheet").toggleClass("fade");
           setTimeout(function(){ $(".outerContainer-lightBox").toggleClass("toggled");}, 300);
         });
       </script>
@@ -179,17 +179,17 @@
         });
 
         $(".tipBox-header").mouseup(function() {
-          $(this).siblings(".tipBox-content").toggleClass("collapse"); 
-          $(this).children(".tipBox-header > .expanderArrow").toggleClass("collapse"); 
-          $(this).siblings(".buttonRow").toggleClass("collapse"); 
+          $(this).siblings(".tipBox-content").toggleClass("collapse");
+          $(this).children(".tipBox-header > .expanderArrow").toggleClass("collapse");
+          $(this).siblings(".buttonRow").toggleClass("collapse");
         });
       </script>
-      
+
       <script>
         $(".activationWidget").mouseup(function() {
-          $(".activationWidget").toggleClass("disabled"); 
+          $(".activationWidget").toggleClass("disabled");
           $(".tabEnabledText").toggleClass("disabled");
-          
+
           $(".tabEnabledText").text(function() {
             if ($(this).text() == '{{ _('Enabled') }}') {
               return '{{ _('Disabled') }}';
@@ -197,7 +197,7 @@
               return '{{ _('Enabled') }}';
             }
           });
-        
+
 /*           $(".tabEnabledText").text("Disabled"); */
           $(".disabledPanel").toggleClass("toggled");
           setTimeout(function(){ $(".disabledPanel").toggleClass("toggled");}, 5000);
@@ -205,9 +205,9 @@
       </script>
 
 
-		</div>
-		
-	
+        </div>
+
+
 
 
 </body></html>
