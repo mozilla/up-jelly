@@ -40,7 +40,7 @@
               <div class="panelContainerContent">
                 <p>{{ _('Data about your browser use won\'t be shared with Mozilla anymore.') }}</p>
                 <p>{{ _('You will still be able to see information about your browser\'s health even though sharing is disabled.') }}</p>
-                <p class="greyText">{{ _('Learn how we handle your data in our <a href="">privacy policy.</a>') }}</p>
+                <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy.</a>')|format(privacy_url='https://mozilla.org/privacy/') }}</p>
               </div>
             </div>
           </div>
@@ -131,8 +131,8 @@
             <div class="tipBox-content">
               <p>{{ _('Your browser has crashed frequently within the last few days. You might want to:') }}</p>
               <ul>
-               <li>{{ _('Visit our <a href="">support website</a>') }}</li>
-               <li>{{ _('View more <a href="">detailed diagnostics</a>') }}</li>
+               <li>{{ _('Visit our <a href="%(sumo_url)s">support website</a>')|format(sumo_url='https://support.mozilla.org/') }}</li>
+               <li>{{ _('View more <a href="%(details_url)s">detailed diagnostics</a>')|format(details_url='') }}</li>
               </ul>
             </div>
           </div>
