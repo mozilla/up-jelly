@@ -24,11 +24,11 @@
             <div class="nav-separator"></div>
             <div class="nav-category">{{ _('Raw Data') }}</div>
           </div>
-          <div class="blurb">{{ _('Firefox Health Report provides you with insights about your browser\'s performance.') }} <a href="">{{ _('Learn more...') }}</a></div>
+          <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="">{{ _('Learn more...') }}</a></div>
         </div>
 
         <div class="activationWidget">
-          <div class="activationTextContainer">{{ _('Share with Mozilla') }}<br><span class="tabEnabledText">{{ _('Enabled') }}</span></div>
+          <div class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="tabEnabledText">{{ _('ON') }}</span></div>
           <div class="activationTabContainer">
             <div class="activationTabOverlay"></div>
             <div class="activationTab"></div>
@@ -38,8 +38,7 @@
             <div class="panelContainerArrow"></div>
             <div class="panelContainerBase">
               <div class="panelContainerContent">
-                <p>{{ _('Data about your browser use won\'t be shared with Mozilla anymore.') }}</p>
-                <p>{{ _('You will still be able to see information about your browser\'s health even though sharing is disabled.') }}</p>
+                <p>{{ _('You\'ve chosen to stop sharing data with Mozilla, but you\'ll still be able to see how your browser is performing.') }}</p>
                 <p class="greyText">{{ _('Learn how we handle your data in our <a href="">privacy policy.</a>') }}</p>
               </div>
             </div>
@@ -55,10 +54,13 @@
 
           <div class="outerContainer-lightBox">
           <div class="outerContainer-introSheet">
-              <div class="outerContainer-introSheet-introImage"></div>
+              <div class="outerContainer-introSheet-header">{{ _('Welcome!') }}</div>
+              <div class="outerContainer-introSheet-introImage">
+                {{ _('Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.') }}
+              </div>
               <div class="outerContainer-introSheet-button">
                 <div class="spacer"></div>
-                <button class="button default" id="button-goToMyReport">{{ _('Go to My Report') }}</button>
+                <button class="button default" id="button-goToMyReport">{{ _('See My Report') }}</button>
               </div>
           </div>
           </div>
@@ -129,10 +131,10 @@
               <div class="text">{{ _('Tips') }}</div>
             </div>
             <div class="tipBox-content">
-              <p>{{ _('Your browser has crashed frequently within the last few days. You might want to:') }}</p>
+              <p>{{ _('It looks like your browser has crashed a number of times recently. To learn more:') }}</p>
               <ul>
-               <li>{{ _('Visit our <a href="">support website</a>') }}</li>
-               <li>{{ _('View more <a href="">detailed diagnostics</a>') }}</li>
+               <li>{{ _('Visit our <a href="https://support.mozilla.org">support website</a>') }}</li>
+               <li>{{ _('View more <a href="">detailed information</a>') }}</li>
               </ul>
             </div>
           </div>
@@ -144,15 +146,25 @@
               <div class="text">{{ _('Tips') }}</div>
             </div>
             <div class="tipBox-content">
-              <p>{{ _('Your version of Firefox is not the latest available. Updating your browser now may improve your security, performance, and stability.') }}</p>
-            </div>
-            <div class="tipBox buttonRow">
-              <div class="spacer"></div>
-              <button class="button">{{ _('Not Now') }}</button>
-              <div class="separator"></div>
-              <button class="button default">{{ _('Update Now') }}</button>
+              <p>{{ _('Your browser seems to be running slower than usual. To learn more:') }}</p>
+               <li>{{ _('Visit our <a href="https://support.mozilla.org">support website</a>') }}</li>
+               <li>{{ _('View more <a href="">detailed information</a>') }}</li>
             </div>
           </div>
+
+          <div class="tipBox-container">
+            <div class="icon closeTip"></div>
+            <div class="tipBox-header">
+              <div class="icon expanderArrow"></div>
+              <div class="text">{{ _('Tips') }}</div>
+            </div>
+            <div class="tipBox-content">
+              <p>{{ _('You\'ll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.') }}</p>
+            </div>
+          </div>
+
+
+
         </div>
 
             <div class="graphBox">
@@ -191,10 +203,10 @@
           $(".tabEnabledText").toggleClass("disabled");
 
           $(".tabEnabledText").text(function() {
-            if ($(this).text() == '{{ _('Enabled') }}') {
-              return '{{ _('Disabled') }}';
+            if ($(this).text() == '{{ _('ON') }}') {
+              return '{{ _('OFF') }}';
             } else {
-              return '{{ _('Enabled') }}';
+              return '{{ _('ON') }}';
             }
           });
 
