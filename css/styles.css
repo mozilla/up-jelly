@@ -23,7 +23,7 @@ body {
   margin: 0;
   height: 100%;
   background-color: #fafafa;
-  background-image: url(images/noise.png);
+  background-image: url(../img/noise.png);
   color: #393d40;
   font-family: Segoe UI, Helvetica, Helvetica Neue, sans-serif;
   font-size: 14px;
@@ -51,7 +51,7 @@ p:last-child {
   width: 100%;
   height: 110px;
   background-color: #f2f4f5;
-  background-image: url(images/noise.png);
+  background-image: url(../img/noise.png);
   box-shadow: 0 -1px 4px hsla(210,35%,8%,.03) inset,
               0 -1px 0 hsla(210,35%,8%,.05) inset;
   z-index: 100;
@@ -76,7 +76,7 @@ p:last-child {
   flex: 0;
   margin-top: 110px;
   min-width: 360px;
-  background-image: url(images/sidebarSeparator.png);
+  background-image: url(../img/sidebarSeparator.png);
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 13px 100%;
@@ -228,7 +228,7 @@ p:last-child {
   position: absolute;
   width: 50px;
   height: 72px;
-  background-image: url(images/tab-shadow.png);
+  background-image: url(../img/tab-shadow.png);
   background-repeat: no-repeat;
   background-position: left center;
 }
@@ -237,7 +237,7 @@ p:last-child {
   margin: 20px 0;
   width: 50px;
   height: 32px;
-  background-image: url(images/tab-checkmark-enabled.png),
+  background-image: url(../img/tab-checkmark-enabled.png),
                     -moz-linear-gradient(top, #6ab205, #64a608);
   background-repeat: no-repeat, repeat-x;
   background-position: right center, left top;
@@ -247,7 +247,7 @@ p:last-child {
 }
 .activationWidget.disabled .activationTab {
   margin-left: -30px;
-  background-image: url(images/tab-checkmark-disabled.png),
+  background-image: url(../img/tab-checkmark-disabled.png),
                     -moz-linear-gradient(top, #aaaeb2, #919599);
 }
 
@@ -442,7 +442,7 @@ p:last-child {
 }
 
 .tipBox-header > .icon.expanderArrow {
-  background-image: url(images/icon-expanderArrow.png);
+  background-image: url(../img/icon-expanderArrow.png);
   transition-property: transform;
   transition-duration: 250ms;
 }
@@ -456,7 +456,7 @@ p:last-child {
 }
 @media (min-resolution: 2dppx) {
   .tipBox-header > .icon.expanderArrow {
-    background-image: url(images/icon-expanderArrow@2x.png);
+    background-image: url(../img/icon-expanderArrow@2x.png);
   }
 }
 
@@ -467,7 +467,7 @@ p:last-child {
   width: 16px;
   height: 32px;
   min-width: 16px;
-  background-image: url(images/icon-closeTip.png);
+  background-image: url(../img/icon-closeTip.png);
   background-position: left center;
   background-repeat: no-repeat;
   background-size: auto 16px;
@@ -480,7 +480,7 @@ p:last-child {
 }
 @media (min-resolution: 2dppx) {
   .icon.closeTip {
-    background-image: url(images/icon-closeTip@2x.png);
+    background-image: url(../img/icon-closeTip@2x.png);
   }
 }
 
@@ -582,14 +582,14 @@ p:last-child {
 }
 .graph {
   height: 292px;
-  background-image: url(images/graph.png);
+  background-image: url(../img/graph.png);
 }
 .graphBox .icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   margin-left: 8px;
-  background-image: url(images/icon-helpBubble.png);
+  background-image: url(../img/icon-helpBubble.png);
   background-position: center center;
 }
 
@@ -618,7 +618,7 @@ p:last-child {
 .panelContainerArrow {
   position: relative;
   height: 14px;
-  background-image: url(images/panelArrow-up.png);
+  background-image: url(../img/panelArrow-up.png);
   background-repeat: no-repeat;
   background-position: 232px bottom;
   z-index: 201;
