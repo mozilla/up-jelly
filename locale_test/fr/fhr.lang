@@ -1,0 +1,124 @@
+;Firefox Health Report
+Rapport de santé de Firefox
+
+
+;Raw Data
+Données brutes
+
+
+;Firefox Health Report provides you with insights about your browser's performance.
+Le rapport de santé de Firefox vous informe sur les performances de votre navigateur.
+
+
+;Learn more...
+En savoir plus&hellip;
+
+
+;Share with Mozilla
+Partager avec Mozilla
+
+
+;Enabled
+Activé
+
+
+;Data about your browser use won't be shared with Mozilla anymore.
+Les données concernant votre utilisation du navigateur ne seront plus partagées avec Mozilla.
+
+
+;You will still be able to see information about your browser's health even though sharing is disabled.
+Vous pourrez toujours consulter les informations concernant la santé de votre navigateur bien que le partage soit désactivé.
+
+
+;Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy</a>.
+Découvrez comment nous gérons vos données dans notre <a href="%(privacy_url)s">politique de confidentialité.</a>
+
+
+;Go to My Report
+Voir mon rapport
+
+
+;Vital Stats
+Statistiques clefs
+
+
+;Version
+Version {ok}
+
+
+;Open for
+Open for
+
+
+;Last crash
+Last crash
+
+
+;Bookmarks
+Bookmarks
+
+
+;This Month
+Ce mois
+
+
+;Time open
+Time open
+
+
+;Pages visited
+Pages visited
+
+
+;Crashes
+Crashes
+
+
+;Add-ons
+Modules complémentaires
+
+
+;View List
+Afficher la liste
+
+
+;Disabled
+Disabled
+
+
+;Plugins
+Plugins {ok}
+
+
+;Tips
+Astuces
+
+
+;Your browser has crashed frequently within the last few days. You might want to:
+Votre navigateur a beaucoup planté ces derniers jours, il serait peut être judicieux de &nbsp;:
+
+
+;Visit our <a href="%(sumo_url)s">support website</a>
+Visiter notre <a href="%(sumo_url)s">site d'assistance</a>
+
+
+;View more <a href="%(details_url)s">detailed diagnostics</a>
+Visualiser le <a href="%(details_url)s">diagnostic détaillé</a>
+
+
+;Your version of Firefox is not the latest available. Updating your browser now may improve your security, performance, and stability.
+Vous ne disposez pas de la toute dernière version de Firefox. Vous mettre à jour maintenant pourrait améliorer la sécurité, les performances et la stabilité de votre navigateur.
+
+
+;Not Now
+Pas maintenant
+
+
+;Update Now
+Mettre à jour maintenant
+
+
+;Daily Performance Trends
+Tendance quotidienne des performances
+
+
