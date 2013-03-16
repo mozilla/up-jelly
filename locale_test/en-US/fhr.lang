@@ -30,8 +30,8 @@ Data about your browser use won't be shared with Mozilla anymore.
 You will still be able to see information about your browser's health even though sharing is disabled.
 
 
-;Learn how we handle your data in our 
-Learn how we handle your data in our 
+;Learn how we handle your data in our
+Learn how we handle your data in our
 
 
 ;privacy policy.
@@ -70,24 +70,24 @@ Tips
 Your browser has crashed frequently within the last few days. You might want to:
 
 
-;Visit our 
-Visit our 
+;Visit our
+Visit our
 
 
 ;support website
 support website
 
 
-;View more 
-View more 
+;View more
+View more
 
 
 ;detailed diagnostics
 detailed diagnostics
 
 
-;Your browser is 
-Your browser is 
+;Your browser is
+Your browser is
 
 
 ;versions behind the latest one. Updating your browser now may improve your security, performance, and stability.
@@ -110,3 +110,141 @@ Daily Performance Trends
 Disabled
 
 
+;Glossary
+Glossary
+
+
+;What the Firefox Health Report Measures
+What the Firefox Health Report Measures
+
+
+;What the Firefox Health Report Measures
+What the Firefox Health Report Measures
+
+
+;The Firefox Health Report (FHR) has 5 categories of metrics:
+The Firefox Health Report (FHR) has 5 categories of metrics:
+
+
+;Configuration
+Configuration
+
+
+;device hardware, operating system, Firefox version
+device hardware, operating system, Firefox version
+
+
+;Customizations
+Customizations
+
+
+;add-ons, count and type
+add-ons, count and type
+
+
+;Performance
+Performance
+
+
+;timing of browser events, rendering, session restores
+timing of browser events, rendering, session restores
+
+
+;Wear and Tear
+Wear and Tear
+
+
+;length of session, how old a profile is, count of crashes, count of pages
+length of session, how old a profile is, count of crashes, count of pages
+
+
+;Enveloping
+Enveloping
+
+
+;used to manage the longitudinal data series of coarse-grained daily data
+used to manage the longitudinal data series of coarse-grained daily data
+
+
+;Detailed Description
+Detailed Description
+
+
+;Device hardware, operating system, Firefox version
+Device hardware, operating system, Firefox version
+
+
+;Metric
+Metric
+
+
+;Description
+Description
+
+
+;appABI
+appABI
+
+
+;Binary interface for XPCOM
+Binary interface for XPCOM
+
+
+;appBuildID
+appBuildID
+
+
+;Identifier for this build of the application based on the date the build was started
+Identifier for this build of the application based on the date the build was started
+
+
+;appBuildTargetOS
+appBuildTargetOS
+
+
+;Operating System for which this build was configured
+Operating System for which this build was configured
+
+
+;appDistribution
+appDistribution
+
+
+;Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
+Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
+
+
+;appDistributionVersion
+appDistributionVersion
+
+
+;Version of the distribution, taken from the "distribution.version" preference
+Version of the distribution, taken from the "distribution.version" preference
+
+
+;appHotFixVersion
+appHotFixVersion
+
+
+;The version number of any Mozilla hotfix applied to the application
+The version number of any Mozilla hotfix applied to the application
+
+
+;appID
+appID
+
+
+;Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
+Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
+
+
+;appName
+appName
+
+
+;The configured name of the application (Firefox / Aurora / Nightly for instance)
+The configured name of the application (Firefox / Aurora / Nightly for instance)
+
+
+;appUpdateChannel
+appUpdateChannel
