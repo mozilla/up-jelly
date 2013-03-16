@@ -2,120 +2,8 @@
 Firefox Health Report
 
 
-;Raw Data
-Raw Data
-
-
-;Firefox Health Report provides you with insights about your browser's performance.
-Firefox Health Report provides you with insights about your browser's performance.
-
-
-;Learn more...
-Learn more...
-
-
-;Share with Mozilla
-Share with Mozilla
-
-
-;Enabled
-Enabled
-
-
-;Data about your browser use won't be shared with Mozilla anymore.
-Data about your browser use won't be shared with Mozilla anymore.
-
-
-;You will still be able to see information about your browser's health even though sharing is disabled.
-You will still be able to see information about your browser's health even though sharing is disabled.
-
-
-;Learn how we handle your data in our
-Learn how we handle your data in our
-
-
-;privacy policy.
-privacy policy.
-
-
-;Go to My Report
-Go to My Report
-
-
-;Vital Stats
-Vital Stats
-
-
-;This Month
-This Month
-
-
-;Add-ons
-Add-ons
-
-
-;View List
-View List
-
-
-;Plugins
-Plugins
-
-
-;Tips
-Tips
-
-
-;Your browser has crashed frequently within the last few days. You might want to:
-Your browser has crashed frequently within the last few days. You might want to:
-
-
-;Visit our
-Visit our
-
-
-;support website
-support website
-
-
-;View more
-View more
-
-
-;detailed diagnostics
-detailed diagnostics
-
-
-;Your browser is
-Your browser is
-
-
-;versions behind the latest one. Updating your browser now may improve your security, performance, and stability.
-versions behind the latest one. Updating your browser now may improve your security, performance, and stability.
-
-
-;Not Now
-Not Now
-
-
-;Update Now
-Update Now
-
-
-;Daily Performance Trends
-Daily Performance Trends
-
-
-;Disabled
-Disabled
-
-
 ;Glossary
 Glossary
-
-
-;What the Firefox Health Report Measures
-What the Firefox Health Report Measures
 
 
 ;What the Firefox Health Report Measures
@@ -358,10 +246,6 @@ version.version
 An application version which has been used with this installation profile
 
 
-;Customizations
-Customizations
-
-
 ;Add-ons, count and type
 Add-ons, count and type
 
@@ -462,10 +346,6 @@ version
 The current version of this add-on
 
 
-;Performance
-Performance
-
-
 ;Timing of browser events, rendering, session restores
 Timing of browser events, rendering, session restores
 
@@ -492,10 +372,6 @@ sessionRestored
 
 ;How long in milliseconds it took during startup for the application to restore tabs from the previous session
 How long in milliseconds it took during startup for the application to restore tabs from the previous session
-
-
-;Wear and Tear
-Wear and Tear
 
 
 ;Length of session, how old a profile is, count of crashes, count of pages
@@ -578,8 +454,8 @@ Total number of crashes that have been submitted
 currentSessionActiveTime
 
 
-;currentSessionActiveTime
-currentSessionActiveTime
+;Time in seconds the app has not been idle
+Time in seconds the app has not been idle
 
 
 ;currentSessionTime
@@ -614,20 +490,8 @@ uptime
 How long in minutes the current session has been running
 
 
-;Enveloping
-Enveloping
-
-
 ;Used to manage the longitudinal data series of coarse-grained daily data
 Used to manage the longitudinal data series of coarse-grained daily data
-
-
-;Metric
-Metric
-
-
-;Description
-Description
 
 
 ;docID
@@ -678,13 +542,131 @@ thisPingTime
 UTC date of this submission
 
 
-;Legal Notices
-Legal Notices
+;Raw Data
+Raw Data
 
 
-;Website Privacy Policy
-Website Privacy Policy
+;Get insights and performance information about your version of Firefox.
+Get insights and performance information about your version of Firefox.
 
 
-;Mozilla
-Mozilla
+;Learn more...
+Learn more...
+
+
+;Data Sharing
+Data Sharing
+
+
+;ON
+ON
+
+
+;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+
+
+;Learn how we handle your data in our <a href="">privacy policy.</a>
+Learn how we handle your data in our <a href="">privacy policy.</a>
+
+
+;Welcome!
+Welcome!
+
+
+;Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
+Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
+
+
+;See My Report
+See My Report
+
+
+;Vital Stats
+Vital Stats
+
+
+;Version
+Version
+
+
+;Open for
+Open for
+
+
+;Last crash
+Last crash
+
+
+;Bookmarks
+Bookmarks
+
+
+;This Month
+This Month
+
+
+;Time open
+Time open
+
+
+;Pages visited
+Pages visited
+
+
+;Crashes
+Crashes
+
+
+;Add-ons
+Add-ons
+
+
+;View List
+View List
+
+
+;Enabled
+Enabled
+
+
+;Disabled
+Disabled
+
+
+;Plugins
+Plugins
+
+
+;Tips
+Tips
+
+
+;It looks like your browser has crashed a number of times recently. To learn more:
+It looks like your browser has crashed a number of times recently. To learn more:
+
+
+;Visit our <a href="https://support.mozilla.org">support website</a>
+Visit our <a href="https://support.mozilla.org">support website</a>
+
+
+;View more <a href="">detailed information</a>
+View more <a href="">detailed information</a>
+
+
+;Your browser seems to be running slower than usual. To learn more:
+Your browser seems to be running slower than usual. To learn more:
+
+
+;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+
+
+;Daily Performance Trends
+Daily Performance Trends
+
+
+;OFF
+OFF
+
+

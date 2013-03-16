@@ -122,3 +122,611 @@ Mettre à jour maintenant
 Tendance quotidienne des performances
 
 
+;Glossary
+Glossary
+
+
+;What the Firefox Health Report Measures
+What the Firefox Health Report Measures
+
+
+;The Firefox Health Report (FHR) has 5 categories of metrics:
+The Firefox Health Report (FHR) has 5 categories of metrics:
+
+
+;Configuration
+Configuration
+
+
+;device hardware, operating system, Firefox version
+device hardware, operating system, Firefox version
+
+
+;Customizations
+Customizations
+
+
+;add-ons, count and type
+add-ons, count and type
+
+
+;Performance
+Performance
+
+
+;timing of browser events, rendering, session restores
+timing of browser events, rendering, session restores
+
+
+;Wear and Tear
+Wear and Tear
+
+
+;length of session, how old a profile is, count of crashes, count of pages
+length of session, how old a profile is, count of crashes, count of pages
+
+
+;Enveloping
+Enveloping
+
+
+;used to manage the longitudinal data series of coarse-grained daily data
+used to manage the longitudinal data series of coarse-grained daily data
+
+
+;Detailed Description
+Detailed Description
+
+
+;Device hardware, operating system, Firefox version
+Device hardware, operating system, Firefox version
+
+
+;Metric
+Metric
+
+
+;Description
+Description
+
+
+;appABI
+appABI
+
+
+;Binary interface for XPCOM
+Binary interface for XPCOM
+
+
+;appBuildID
+appBuildID
+
+
+;Identifier for this build of the application based on the date the build was started
+Identifier for this build of the application based on the date the build was started
+
+
+;appBuildTargetOS
+appBuildTargetOS
+
+
+;Operating System for which this build was configured
+Operating System for which this build was configured
+
+
+;appDistribution
+appDistribution
+
+
+;Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
+Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
+
+
+;appDistributionVersion
+appDistributionVersion
+
+
+;Version of the distribution, taken from the "distribution.version" preference
+Version of the distribution, taken from the "distribution.version" preference
+
+
+;appHotFixVersion
+appHotFixVersion
+
+
+;The version number of any Mozilla hotfix applied to the application
+The version number of any Mozilla hotfix applied to the application
+
+
+;appID
+appID
+
+
+;Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
+Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
+
+
+;appName
+appName
+
+
+;The configured name of the application (Firefox / Aurora / Nightly for instance)
+The configured name of the application (Firefox / Aurora / Nightly for instance)
+
+
+;appUpdateChannel
+appUpdateChannel
+
+
+;The channel this installation checks for application updates (nightly/aurora/beta/release)
+The channel this installation checks for application updates (nightly/aurora/beta/release)
+
+
+;appVendor
+appVendor
+
+
+;The name of the company/provider who built this version
+The name of the company/provider who built this version
+
+
+;appVersion
+appVersion
+
+
+;The current version of the product
+The current version of the product
+
+
+;cpuCount
+cpuCount
+
+
+;Number of processor cores
+Number of processor cores
+
+
+;isDefaultBrowser
+isDefaultBrowser
+
+
+;Whether the application is currently configured to be the default browser for the operating system
+Whether the application is currently configured to be the default browser for the operating system
+
+
+;locale
+locale
+
+
+;Locale currently being used
+Locale currently being used
+
+
+;memSize
+memSize
+
+
+;Amount of RAM in megabytes
+Amount of RAM in megabytes
+
+
+;osName
+osName
+
+
+;Currently running Operating System (kernel) name
+Currently running Operating System (kernel) name
+
+
+;osVersion
+osVersion
+
+
+;Currently running Operating System (kernel) version
+Currently running Operating System (kernel) version
+
+
+;platformBuildID
+platformBuildID
+
+
+;The build identifier of the Gecko platform code
+The build identifier of the Gecko platform code
+
+
+;platformVersion
+platformVersion
+
+
+;The version of the Gecko platform code
+The version of the Gecko platform code
+
+
+;processorArch
+processorArch
+
+
+;Processor architecture
+Processor architecture
+
+
+;version.date
+version.date
+
+
+;The date this version was first used with this installation profile
+The date this version was first used with this installation profile
+
+
+;version.version
+version.version
+
+
+;An application version which has been used with this installation profile
+An application version which has been used with this installation profile
+
+
+;Add-ons, count and type
+Add-ons, count and type
+
+
+;addonCounts
+addonCounts
+
+
+;The number of add-ons of this type that existed in the profile on this date
+The number of add-ons of this type that existed in the profile on this date
+
+
+;appDisabled
+appDisabled
+
+
+;True if the application automatically disabled the add-on
+True if the application automatically disabled the add-on
+
+
+;foreignInstall
+foreignInstall
+
+
+;Whether this add-on was installed by the user or automatically by another application
+Whether this add-on was installed by the user or automatically by another application
+
+
+;hasBinaryComponents
+hasBinaryComponents
+
+
+;Whether this add-on has native code.
+Whether this add-on has native code.
+
+
+;id
+id
+
+
+;The identifier of this add-on as defined by the add-on developer
+The identifier of this add-on as defined by the add-on developer
+
+
+;installDate
+installDate
+
+
+;The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
+The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
+
+
+;search
+search
+
+
+;The number of searches performed with this search engine from this part of the UI
+The number of searches performed with this search engine from this part of the UI
+
+
+;scope
+scope
+
+
+;Whether this add-on was installed in the application directory or profile directory
+Whether this add-on was installed in the application directory or profile directory
+
+
+;type
+type
+
+
+;Whether this add-on is an extension or a plug-in
+Whether this add-on is an extension or a plug-in
+
+
+;updateDate
+updateDate
+
+
+;The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
+The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
+
+
+;userDisabled
+userDisabled
+
+
+;True if the user manually disabled the add-on
+True if the user manually disabled the add-on
+
+
+;version
+version
+
+
+;The current version of this add-on
+The current version of this add-on
+
+
+;Timing of browser events, rendering, session restores
+Timing of browser events, rendering, session restores
+
+
+;firstPaint
+firstPaint
+
+
+;How long in milliseconds it took during startup for the application to render the UI and display the window
+How long in milliseconds it took during startup for the application to render the UI and display the window
+
+
+;main
+main
+
+
+;How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
+How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
+
+
+;sessionRestored
+sessionRestored
+
+
+;How long in milliseconds it took during startup for the application to restore tabs from the previous session
+How long in milliseconds it took during startup for the application to restore tabs from the previous session
+
+
+;Length of session, how old a profile is, count of crashes, count of pages
+Length of session, how old a profile is, count of crashes, count of pages
+
+
+;aborted
+aborted
+
+
+;The number of times the application was run and not cleanly shut down.
+The number of times the application was run and not cleanly shut down.
+
+
+;abortedActiveTime
+abortedActiveTime
+
+
+;The time in seconds that the aborted sessions were not idle
+The time in seconds that the aborted sessions were not idle
+
+
+;abortedTime
+abortedTime
+
+
+;The time in seconds that the aborted sessions were running
+The time in seconds that the aborted sessions were running
+
+
+;appProfileAge
+appProfileAge
+
+
+;The number of days since this application profile directory was created
+The number of days since this application profile directory was created
+
+
+;completed
+completed
+
+
+;The number of times the application was run and cleanly shut down.
+The number of times the application was run and cleanly shut down.
+
+
+;completedActiveTime
+completedActiveTime
+
+
+;The time in seconds that the completed sessions were not idle
+The time in seconds that the completed sessions were not idle
+
+
+;completedTime
+completedTime
+
+
+;The time in seconds that the completed sessions were running
+The time in seconds that the completed sessions were running
+
+
+;crashCountPending
+crashCountPending
+
+
+;Total number of crashes that were recorded but not yet submitted
+Total number of crashes that were recorded but not yet submitted
+
+
+;crashCountSubmitted
+crashCountSubmitted
+
+
+;Total number of crashes that have been submitted
+Total number of crashes that have been submitted
+
+
+;currentSessionActiveTime
+currentSessionActiveTime
+
+
+;Time in seconds the app has not been idle
+Time in seconds the app has not been idle
+
+
+;currentSessionTime
+currentSessionTime
+
+
+;Time in seconds since the app was last started
+Time in seconds since the app was last started
+
+
+;placesBookmarksCount
+placesBookmarksCount
+
+
+;Total number of bookmarks
+Total number of bookmarks
+
+
+;placesPageCount
+placesPageCount
+
+
+;Total number of pages listed in the history
+Total number of pages listed in the history
+
+
+;uptime
+uptime
+
+
+;How long in minutes the current session has been running
+How long in minutes the current session has been running
+
+
+;Used to manage the longitudinal data series of coarse-grained daily data
+Used to manage the longitudinal data series of coarse-grained daily data
+
+
+;docID
+docID
+
+
+;The ID that was generated for a single data submission
+The ID that was generated for a single data submission
+
+
+;lastPingTime
+lastPingTime
+
+
+;UTC date of the last successful submission
+UTC date of the last successful submission
+
+
+;prevDocID
+prevDocID
+
+
+;The ID that was generated for the last successful data submission
+The ID that was generated for the last successful data submission
+
+
+;reason
+reason
+
+
+;Normal or Debug submission
+Normal or Debug submission
+
+
+;schemaVersion
+schemaVersion
+
+
+;If new data types are added or the structure of the document changes, a new schemaVersion will be used.
+If new data types are added or the structure of the document changes, a new schemaVersion will be used.
+
+
+;thisPingTime
+thisPingTime
+
+
+;UTC date of this submission
+UTC date of this submission
+
+
+;Legal Notices
+Legal Notices
+
+
+;Website Privacy Policy
+Website Privacy Policy
+
+
+;Mozilla
+Mozilla
+
+
+;Get insights and performance information about your version of Firefox.
+Get insights and performance information about your version of Firefox.
+
+
+;Data Sharing
+Data Sharing
+
+
+;ON
+ON
+
+
+;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+
+
+;Learn how we handle your data in our <a href="">privacy policy.</a>
+Learn how we handle your data in our <a href="">privacy policy.</a>
+
+
+;Welcome!
+Welcome!
+
+
+;Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
+Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
+
+
+;See My Report
+See My Report
+
+
+;It looks like your browser has crashed a number of times recently. To learn more:
+It looks like your browser has crashed a number of times recently. To learn more:
+
+
+;Visit our <a href="https://support.mozilla.org">support website</a>
+Visit our <a href="https://support.mozilla.org">support website</a>
+
+
+;View more <a href="">detailed information</a>
+View more <a href="">detailed information</a>
+
+
+;Your browser seems to be running slower than usual. To learn more:
+Your browser seems to be running slower than usual. To learn more:
+
+
+;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+
+
+;OFF
+OFF
+
+
