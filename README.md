@@ -1,6 +1,6 @@
-# Firefox Health Report - Jelly 
+# Firefox Health Report - Jelly
 
-This is a very simple static website generator for the content ("jelly") that will be injected 
+This is a very simple static website generator for the content ("jelly") that will be injected
 into the about:healthreport page.
 
 Based on [nocturnal](https://github.com/mozilla/nocturnal/), it takes a single
@@ -13,12 +13,12 @@ bunch of static, localized output files.
 
     git clone git://github.com/mozilla/fhr-jelly.git
 
-The localization files will live in SVN, but do not exist yet. 
+The localization files will live in SVN, but do not exist yet.
 Check them out into the subdirectory
 "locale" to pull in translations.
 
     cd fhr-jelly
-    (anticipated) svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fhr-jelly/locale/
+    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/firefoxhealthreport/locale/
 
 ### Choosing a build version
 
