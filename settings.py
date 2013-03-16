@@ -17,18 +17,20 @@ LANG_FILENAME = 'fhr.lang'
 
 # List of languages.
 LANGS = (
-    'af', 'ar', 'as', 'ast', 'be', 'bg', 'bn-BD', 'bn-IN', 'ca', 'cs', 'cy',
-    'da', 'de', 'el', 'en-GB', 'en-US', 'eo', 'es-AR', 'es-CL', 'es-ES',
-    'es-MX', 'et', 'eu', 'fa', 'fi', 'fr', 'fy-NL', 'ga-IE', 'gd', 'gl',
-    'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ka', 'kk',
-    'kn', 'ko', 'ku', 'lt', 'lv', 'mk', 'ml', 'mn', 'mr', 'nb-NO', 'nl',
-    'nn-NO', 'oc', 'or', 'pa-IN', 'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru',
-    'si', 'sk', 'sl', 'sq', 'sr', 'sv-SE', 'ta', 'ta-LK', 'te', 'th', 'tr',
-    'uk', 'vi', 'zh-CN', 'zh-TW',
+    'ach', 'af', 'ak', 'an', 'ar', 'as', 'ast', 'az', 'be', 'bg',
+    'bn-BD', 'bn-IN', 'br', 'bs', 'ca', 'cs', 'csb', 'cy', 'da',
+    'de', 'el', 'en-US', 'eo', 'es-AR', 'es-CL', 'es-ES', 'es-MX',
+    'et', 'eu', 'fa', 'ff', 'fi', 'fr', 'fy-NL', 'ga-IE', 'gd', 'gl',
+    'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'hy-AM', 'id', 'is', 'it', 'ja',
+    'kk', 'km', 'kn', 'ko', 'ku', 'lg', 'lij', 'lt', 'lv', 'mai', 'mk',
+    'ml', 'mn', 'mr', 'my', 'nb-NO', 'nl', 'nn-NO', 'nso', 'oc', 'or',
+    'pa-IN', 'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru', 'sah', 'si', 'sk',
+    'sl', 'son', 'sq', 'sr', 'sv-SE', 'sw', 'ta', 'ta-LK', 'te', 'th',
+    'tr', 'uk', 'ur', 'vi', 'zh-CN', 'zh-TW', 'zu',
 )
 
 # RTL languages.
-RTL_LANGS = ('ar', 'fa', 'he')
+RTL_LANGS = ('ar', 'fa', 'he', 'ur')
 
 # Language fallbacks. Langs listed here will be symlinked to their respective
 # fallbacks rather than generated on their owns. Both sides must exist in
@@ -40,7 +42,6 @@ LANG_FALLBACK = {
     'es-MX': 'es-ES',
     'ka': 'en-US',
     'mn': 'ru',
-    'oc': 'fr',
 }
 
 # View to build - specify either 'passive' or 'urgent'

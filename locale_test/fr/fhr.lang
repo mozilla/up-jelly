@@ -1,5 +1,125 @@
 ;Firefox Health Report
-Firefox Health Report
+Rapport de santé de Firefox
+
+
+;Raw Data
+Données brutes
+
+
+;Firefox Health Report provides you with insights about your browser's performance.
+Le rapport de santé de Firefox vous informe sur les performances de votre navigateur.
+
+
+;Learn more...
+En savoir plus&hellip;
+
+
+;Share with Mozilla
+Partager avec Mozilla
+
+
+;Enabled
+Activé
+
+
+;Data about your browser use won't be shared with Mozilla anymore.
+Les données concernant votre utilisation du navigateur ne seront plus partagées avec Mozilla.
+
+
+;You will still be able to see information about your browser's health even though sharing is disabled.
+Vous pourrez toujours consulter les informations concernant la santé de votre navigateur bien que le partage soit désactivé.
+
+
+;Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy</a>.
+Découvrez comment nous gérons vos données dans notre <a href="%(privacy_url)s">politique de confidentialité.</a>
+
+
+;Go to My Report
+Voir mon rapport
+
+
+;Vital Stats
+Statistiques clefs
+
+
+;Version
+Version {ok}
+
+
+;Open for
+Open for
+
+
+;Last crash
+Last crash
+
+
+;Bookmarks
+Bookmarks
+
+
+;This Month
+Ce mois
+
+
+;Time open
+Time open
+
+
+;Pages visited
+Pages visited
+
+
+;Crashes
+Crashes
+
+
+;Add-ons
+Modules complémentaires
+
+
+;View List
+Afficher la liste
+
+
+;Disabled
+Disabled
+
+
+;Plugins
+Plugins {ok}
+
+
+;Tips
+Astuces
+
+
+;Your browser has crashed frequently within the last few days. You might want to:
+Votre navigateur a beaucoup planté ces derniers jours, il serait peut être judicieux de &nbsp;:
+
+
+;Visit our <a href="%(sumo_url)s">support website</a>
+Visiter notre <a href="%(sumo_url)s">site d'assistance</a>
+
+
+;View more <a href="%(details_url)s">detailed diagnostics</a>
+Visualiser le <a href="%(details_url)s">diagnostic détaillé</a>
+
+
+;Your version of Firefox is not the latest available. Updating your browser now may improve your security, performance, and stability.
+Vous ne disposez pas de la toute dernière version de Firefox. Vous mettre à jour maintenant pourrait améliorer la sécurité, les performances et la stabilité de votre navigateur.
+
+
+;Not Now
+Pas maintenant
+
+
+;Update Now
+Mettre à jour maintenant
+
+
+;Daily Performance Trends
+Tendance quotidienne des performances
 
 
 ;Glossary
@@ -542,16 +662,20 @@ thisPingTime
 UTC date of this submission
 
 
-;Raw Data
-Raw Data
+;Legal Notices
+Legal Notices
+
+
+;Website Privacy Policy
+Website Privacy Policy
+
+
+;Mozilla
+Mozilla
 
 
 ;Get insights and performance information about your version of Firefox.
 Get insights and performance information about your version of Firefox.
-
-
-;Learn more...
-Learn more...
 
 
 ;Data Sharing
@@ -582,66 +706,6 @@ Firefox Health Report lets you know how your Firefox is performing and what you 
 See My Report
 
 
-;Vital Stats
-Vital Stats
-
-
-;Version
-Version
-
-
-;Open for
-Open for
-
-
-;Last crash
-Last crash
-
-
-;Bookmarks
-Bookmarks
-
-
-;This Month
-This Month
-
-
-;Time open
-Time open
-
-
-;Pages visited
-Pages visited
-
-
-;Crashes
-Crashes
-
-
-;Add-ons
-Add-ons
-
-
-;View List
-View List
-
-
-;Enabled
-Enabled
-
-
-;Disabled
-Disabled
-
-
-;Plugins
-Plugins
-
-
-;Tips
-Tips
-
-
 ;It looks like your browser has crashed a number of times recently. To learn more:
 It looks like your browser has crashed a number of times recently. To learn more:
 
@@ -660,10 +724,6 @@ Your browser seems to be running slower than usual. To learn more:
 
 ;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
 You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
-
-
-;Daily Performance Trends
-Daily Performance Trends
 
 
 ;OFF
