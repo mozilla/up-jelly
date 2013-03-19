@@ -1,9 +1,19 @@
 /* --- General --- */
-* {
+html {
+  height: 100%;
+}
+body {
+  background-color: #fafafa;
+  background-image: url(../img/noise.png);
+  color: #393d40;
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: Segoe UI, Helvetica, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: normal;
 }
-
 a:link {
   color: #0091ff;
   text-decoration: none;
@@ -11,43 +21,27 @@ a:link {
 a:hover { 
   text-decoration: underline;
 }
-a:visited { color: #0091ff; }
-a:active { color: #0073cb; }
-
-html {
-  height: 100%;
+a:visited {
+  color: #0091ff;
 }
-
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  background-color: #fafafa;
-  background-image: url(../img/noise.png);
-  color: #393d40;
-  font-family: Segoe UI, Helvetica, Helvetica Neue, sans-serif;
-  font-size: 14px;
-  line-height: 14px;
-  font-weight: normal;
+a:active {
+  color: #0073cb;
 }
-
 p {
   margin-bottom: 1em;
 }
 p:last-child {
   margin-bottom: 0;
 }
-
+dl {
+    line-height: 1.3rem;
+}
 .spacer {
   flex: 1;
 }
 
-
-
-
 /* --- Main Layout --- */
 .persistentHeader {
-  position: fixed;
   width: 100%;
   height: 110px;
   background-color: #f2f4f5;
@@ -56,14 +50,12 @@ p:last-child {
               0 -1px 0 hsla(210,35%,8%,.05) inset;
   z-index: 100;
 }
-
 .outerContainer {
   display: flex;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .innerContainer {
   display: flex;
   flex: 1;
@@ -71,10 +63,8 @@ p:last-child {
   min-height: 50px;
   width: 100%;
 }
-
 .sidebar {
   flex: 0;
-  margin-top: 110px;
   min-width: 360px;
   background-image: url(../img/sidebarSeparator.png);
   background-repeat: no-repeat;
@@ -84,11 +74,9 @@ p:last-child {
 
 .mainContent {
   flex: 1;
-  margin-top: 110px;
-  padding-top: 30px;
+  margin-top: 30px;
   min-width: 320px;
 }
-
 .statsBox {
   display: flex;
   flex-direction: column;
@@ -97,9 +85,6 @@ p:last-child {
   color: #5c6166;
   font-weight: lighter;
 }
-
-
-
 
 /* --- Common Controls --- */
 .button {
@@ -129,7 +114,6 @@ p:last-child {
 .button:hover:active {
   background-color: hsla(210,50%,8%,.05);
 }
-
 .button.default {
   background-color: #ff6a00;
   background-image: -moz-linear-gradient(top, hsla(40,100%,50%,.65), hsla(35,100%,50%,.5));
@@ -147,9 +131,6 @@ p:last-child {
   background-color: hsl(35,100%,50%);
 }
 
-
-
-
 /* --- Header --- */
 .headerContainer {
   display: flex;
@@ -159,16 +140,18 @@ p:last-child {
   max-width: 1200px;
   min-width: 600px;
 }
-
 .navAndBlurb {
   flex: 1;
   height: 100px;
 }
-
 .nav {
   display: flex;
+  margin: 0;
+  padding: 0;
 }
-
+.nav li {
+  list-style: none;
+}
 .nav-category {
   padding: 20px 0 20px;
   color: #5c6166;
@@ -176,12 +159,16 @@ p:last-child {
   line-height: 24px;
   font-weight: lighter;
 }
+.nav-category a:hover {
+    text-decoration: none;
+}
 .nav-category.active {
   background-image: -moz-linear-gradient(top, #ffac06 1px, #f27900 2px, transparent 2px);
   background-repeat: no-repeat;
-  color: #f27900;
 }
-
+.nav-category.active a {
+    color: #333;
+}
 .nav-separator {
   flex: 0;
   margin: 10px 20px 10px;
@@ -208,7 +195,6 @@ p:last-child {
   -moz-user-select: none;
   cursor: default;
 }
-
 .activationTextContainer {
   margin-right: 10px;
   color: #737980;
@@ -216,14 +202,12 @@ p:last-child {
   line-height: 13px;
   text-align: right;
 }
-
 .activationTabContainer {
   flex: 0;
   min-width: 60px;
   width: 60px;
   overflow: hidden;
 }
-
 .activationTabOverlay {
   position: absolute;
   width: 50px;
@@ -232,7 +216,6 @@ p:last-child {
   background-repeat: no-repeat;
   background-position: left center;
 }
-
 .activationTab {
   margin: 20px 0;
   width: 50px;
@@ -250,11 +233,9 @@ p:last-child {
   background-image: url(../img/tab-checkmark-disabled.png),
                     -moz-linear-gradient(top, #aaaeb2, #919599);
 }
-
 .activationWidget:hover .activationTab {
   width: 60px;
 }
-
 .tabEnabledText {
   color: #53a600;
 }
@@ -262,32 +243,25 @@ p:last-child {
   color: #8a9199;
 }
 
-
-
-
 /* --- Intro Lightbox Overlay --- */
-.outerContainer-lightBox {
+.lightbox {
+  display: block;
   position: absolute;
   background-color: hsla(210,35%,8%,.8);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition-duration: 350ms;
   z-index: 50;
 }
-.outerContainer-lightBox.fade {
-  opacity: 0;
-}
-.outerContainer-lightBox.toggled {
-  display: none;
-}
-
-.outerContainer-introSheet {
-  margin: 200px auto;
-  width: 800px;
+.lightbox-content {
   background-color: #fff;
+  margin: 200px auto;
+  padding: 4rem;
   border-radius: 2px;
+  width: 400px;
+  text-align: center;
+  line-height: 1.2rem;
   box-shadow: 0 0 1px hsla(210,35%,8%,.25),
               0 2px 20px hsla(210,35%,8%,.5);
   overflow: hidden;
@@ -297,35 +271,9 @@ p:last-child {
   transition-delay: 250ms, 0ms;
   transition-timing-function: ease;
 }
-
-.outerContainer-introSheet-header {
-  margin: 40px 40px 20px;
-  font-size: 24px;
-  line-height: 24px;
-  font-weight: lighter;
+.lightbox-content h2 {
+  font-size: 2rem;
 }
-
-.outerContainer-introSheet-introImage {
-  margin: 40px 40px 20px;
-  width: auto;
-  height: 260px;
-  background-color: hsla(210,35%,8%,.05);
-  border: 1px dashed hsla(210,35%,8%,.1);
-}
-
-.outerContainer-introSheet-button {
-  display: flex;
-  margin: 0 40px 30px;
-}
-
-.outerContainer-introSheet-button > .button {
-  padding: 6px 10px;
-  font-size: 14px;
-  line-height: 14px;
-}
-
-
-
 
 /* --- Stats Box --- */
 .statsBoxSection {
@@ -342,13 +290,10 @@ p:last-child {
   line-height: 18px;
   margin-bottom: 1em;
 }
-
-.statsBoxSection-content {
-}
-
 .statsBoxSection-content ul {
+    margin: 0;
+    padding: 0;
 }
-
 .statsBoxSection-content li {
   display: block;
   margin-bottom: .8em;
@@ -386,9 +331,6 @@ p:last-child {
   background-repeat: no-repeat;
 }
 
-
-
-
 /* --- Tips --- */
 .tipBox-container {
   position: relative;
@@ -402,6 +344,12 @@ p:last-child {
   transform: translateY(0);
   transition-property: opacity, transform;
   transition-duration: 250ms, 250ms;
+}
+/* Ensure container collapses correctly */
+.tipBox-container ul,
+.tipBox-container p {
+    margin: 0;
+    padding: 0;
 }
 .tipBoxes > .tipBox-container:last-child {
   margin-bottom: 30px;
@@ -454,12 +402,6 @@ p:last-child {
 .tipBox-header > .icon.expanderArrow:hover:active {
   background-position: center right;
 }
-@media (min-resolution: 2dppx) {
-  .tipBox-header > .icon.expanderArrow {
-    background-image: url(../img/icon-expanderArrow@2x.png);
-  }
-}
-
 
 .icon.closeTip {
   position: absolute;
@@ -478,20 +420,15 @@ p:last-child {
 .icon.closeTip:hover:active {
   background-position: center right;
 }
-@media (min-resolution: 2dppx) {
-  .icon.closeTip {
-    background-image: url(../img/icon-closeTip@2x.png);
-  }
-}
-
 
 .tipBox-header > .text {
   flex: 1;
 }
 
 .tipBox-content {
-  padding: 14px 20px 20px;
-  line-height: 1.5em;
+  padding: 10px 20px 10px 20px;
+  font-size: .8rem;
+  line-height: 1.4rem;
   transition-duration: 250ms;
 }
 .tipBox-content p {
@@ -504,32 +441,10 @@ p:last-child {
 .tipBox.buttonRow {
   display: flex;
   padding: 0 20px 14px;
-/*
-  min-height: 24px;
-  height: 24px;
-*/
-/*   border-top: 1px solid hsla(210,35%,8%,.03); */
-/*   box-shadow: 0px 1px 2px hsla(210,35%,8%,.02) inset; */
   transition-duration: 250ms;
 }
 
-
-
-
 /* Buttons */
-.buttonRow .button {
-}
-.buttonRow .button:last-child {
-}
-.buttonRow .button:hover {
-}
-.buttonRow .button:hover:active {
-}
-
-.buttonRow .button.default {
-}
-.buttonRow .button.default:hover {
-}
 .buttonRow .button.default:hover:active {
   background-color: hsl(35,100%,50%);
 }
@@ -563,38 +478,58 @@ p:last-child {
 .tipBox-header > .icon.expanderArrow.collapse {
   transform: rotate(-90deg);
 }
-
 .hide {
   display: none;
 }
 
-
-
-
 /* --- Graph --- */
-.graphBox {
-  margin: 0 60px 30px;
-  width: auto;
+.graphbox {
+    margin: 0 60px 30px;
+    width: auto;
 }
-.graphHeader {
-  height: 16px;
-  margin-bottom: 1em;
+.graphbox h2 {
+    background: transparent url(../img/icon-helpBubble.png) 14rem 0 no-repeat;
+    margin-bottom: 1em;
+    padding: .1rem 1rem .5rem 1rem;
+}
+.graph_selector {
+    float: right;
+}
+.graph_selector h4,
+.graph_selector ul {
+    font-weight: normal;
+    display: inline;
+}
+.graph_selector ul {
+    margin: 0;
+    padding: 0;
+}
+.graph_selector li {
+    display: inline;
+    list-style: none;
+}
+.graph_selector a {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 6px 15px 4px 15px;
+    /* Yeah, really ;) */
+    letter-spacing: .5px;
+}
+.graph_selector a.active {
+    background-image: linear-gradient(#81BC2E, #659324);
+    color: #fff;
 }
 .graph {
-  height: 292px;
-  background-image: url(../img/graph.png);
+    clear: both;
+    background-image: url(../img/graph.png);
+    height: 292px;
 }
-.graphBox .icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  background-image: url(../img/icon-helpBubble.png);
-  background-position: center center;
+figcaption {
+    margin-top: 1rem;
+    font-size: .8rem;
+    line-height: 1rem;
 }
-
-
-
 
 /* --- Panels --- */
 .panelContainer {
@@ -649,25 +584,71 @@ p:last-child {
   border-bottom: 1px solid hsla(0,0%,100%,.2);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Raw Data */
+#raw,
+#glossary {
+  display: none;
+}
+#raw {
+    margin-top: 10px;
+}
+#glossary {
+    flex-direction: column;
+}
+.sidebar_tabs {
+    flex: 0;
+    min-width: 240px;
+}
+.raw-tabs {
+    display: flex;
+    flex-direction: column;
+    margin: 030px 60px;
+    padding: 0;
+    width: 180px;
+}
+.raw-tabs li {
+    list-style: none;
+}
+.raw-tabs a {
+    display: flex;
+    background-color: #edecec;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-right: 0;
+    border-bottom: 0;
+}
+.raw-tabs li:last-child a {
+    border-bottom: 1px solid #333;
+}
+.raw-tabs a.active {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+.rawdata-container {
+    margin-bottom: 30px;
+    border: 1px solid #333;
+}
+.rawdata-display {
+    background-color: #fff;
+    padding: .5rem 1.5rem
+}
+/* Table styles */
+table {
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 1rem;
+}
+td {
+    padding: .6rem;
+    line-height: 1.2rem;
+}
+tr:nth-child(odd) td {
+    background-color: #edecec;
+    border-bottom: 1px dashed #999
+}
