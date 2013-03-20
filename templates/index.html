@@ -302,12 +302,11 @@
                             <dd>{{ _('timing of browser events, rendering, session restores') }}</dd>
                             <dt><a href="#sec-2-4">{{ _('Wear and Tear') }}</a></dt>
                             <dd>{{ _('length of session, how old a profile is, count of crashes, count of pages') }}</dd>
-                            <dt><a href="#sec-2-5">{{ _('Enveloping') }}</a></dt>
-                            <dd>{{ _('used to manage the longitudinal data series of coarse-grained daily data') }}</dd>
                         </dl>
                         </section>
                         <section>
                             <h2>2) {{ _('Detailed Description') }}</h2>
+                            <h3 id="sec-2-1">2.1) {{ _('Configuration') }}</h3>
                             <p>{{ _('Device hardware, operating system, Firefox version') }}</p>
                             <table rules="groups">
                                 <colgroup><col class="left" />
@@ -321,92 +320,259 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="left">{{ _('appABI') }}</td>
-                                        <td class="left">{{ _('Binary interface for XPCOM') }}(<a href="https://developer.mozilla.org/en/XPCOM_ABI">https://developer.mozilla.org/en/XPCOM_ABI</a>)</td>
+                                        <td class="left">appABI</td>
+                                        <td class="left">{{ _('Binary interface for XPCOM') }} (<a href="https://developer.mozilla.org/en/XPCOM_ABI">https://developer.mozilla.org/en/XPCOM_ABI</a>)</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appBuildID') }}</td>
+                                        <td class="left">appBuildID</td>
                                         <td class="left">{{ _('Identifier for this build of the application based on the date the build was started') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appBuildTargetOS') }}</td>
+                                        <td class="left">appBuildTargetOS</td>
                                         <td class="left">{{ _('Operating System for which this build was configured') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appDistribution') }}</td>
+                                        <td class="left">appDistribution</td>
                                         <td class="left">{{ _('Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appDistributionVersion') }}</td>
+                                        <td class="left">appDistributionVersion</td>
                                         <td class="left">{{ _('Version of the distribution, taken from the "distribution.version" preference') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appHotFixVersion') }}</td>
+                                        <td class="left">appHotFixVersion</td>
                                         <td class="left">{{ _('The version number of any Mozilla hotfix applied to the application') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appID') }}</td>
+                                        <td class="left">appID</td>
                                         <td class="left">{{ _('Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appName') }}</td>
+                                        <td class="left">appName</td>
                                         <td class="left">{{ _('The configured name of the application (Firefox / Aurora / Nightly for instance)') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appUpdateChannel') }}</td>
+                                        <td class="left">appUpdateChannel</td>
                                         <td class="left">{{ _('The channel this installation checks for application updates (nightly/aurora/beta/release)') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appVendor') }}</td>
+                                        <td class="left">appVendor</td>
                                         <td class="left">{{ _('The name of the company/provider who built this version') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('appVersion') }}</td>
+                                        <td class="left">appVersion</td>
                                         <td class="left">{{ _('The current version of the product') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('cpuCount') }}</td>
+                                        <td class="left">cpuCount</td>
                                         <td class="left">{{ _('Number of processor cores') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('isDefaultBrowser') }}</td>
+                                        <td class="left">isDefaultBrowser</td>
                                         <td class="left">{{ _('Whether the application is currently configured to be the default browser for the operating system') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('locale') }}</td>
+                                        <td class="left">locale</td>
                                         <td class="left">{{ _('Locale currently being used') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('memSize') }}</td>
+                                        <td class="left">memSize</td>
                                         <td class="left">{{ _('Amount of RAM in megabytes') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('osName') }}</td>
+                                        <td class="left">osName</td>
                                         <td class="left">{{ _('Currently running Operating System (kernel) name') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('osVersion') }}</td>
+                                        <td class="left">osVersion</td>
                                         <td class="left">{{ _('Currently running Operating System (kernel) version') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('platformBuildID') }}</td>
+                                        <td class="left">platformBuildID</td>
                                         <td class="left">{{ _('The build identifier of the Gecko platform code') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('platformVersion') }}</td>
+                                        <td class="left">platformVersion</td>
                                         <td class="left">{{ _('The version of the Gecko platform code') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('processorArch') }}</td>
+                                        <td class="left">processorArch</td>
                                         <td class="left">{{ _('Processor architecture') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('version.date') }}</td>
+                                        <td class="left">version.date</td>
                                         <td class="left">{{ _('The date this version was first used with this installation profile') }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left">{{ _('version.version') }}</td>
+                                        <td class="left">version.version</td>
                                         <td class="left">{{ _('An application version which has been used with this installation profile') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 id="sec-2-2">2.2) {{ _('Customizations') }}</h3>
+                            <p>{{ _('Add-ons, count and type') }}</p>
+                            <table rules="groups">
+                                <colgroup><col class="left" />
+                                    <col class="left" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="left">{{ _('Metric') }}</th>
+                                        <th scope="col" class="left">{{ _('Description') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left">addonCounts</td>
+                                        <td class="left">{{ _('The number of add-ons of this type that existed in the profile on this date') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">appDisabled</td>
+                                        <td class="left">{{ _('True if the application automatically disabled the add-on') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">foreignInstall</td>
+                                        <td class="left">{{ _('Whether this add-on was installed by the user or automatically by another application') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">hasBinaryComponents</td>
+                                        <td class="left">{{ _('Whether this add-on has native code.') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">id</td>
+                                        <td class="left">{{ _('The identifier of this add-on as defined by the add-on developer') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">installDate</td>
+                                        <td class="left">{{ _('The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">search</td>
+                                        <td class="left">{{ _('The number of searches performed with this search engine from this part of the UI') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">scope</td>
+                                        <td class="left">{{ _('Whether this add-on was installed in the application directory or profile directory') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">type</td>
+                                        <td class="left">{{ _('Whether this add-on is an extension or a plug-in') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">updateDate</td>
+                                        <td class="left">{{ _('The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">userDisabled</td>
+                                        <td class="left">{{ _('True if the user manually disabled the add-on') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">version</td>
+                                        <td class="left">{{ _('The current version of this add-on') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 id="sec-2-3">2.3) {{ _('Performance') }}</h3>
+                            <p>{{ _('Timing of browser events, rendering, session restores') }}</p>
+                            <table rules="groups">
+                                <colgroup><col class="left" />
+                                    <col class="left" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="left">{{ _('Metric') }}</th>
+                                        <th scope="col" class="left">{{ _('Description') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left">firstPaint</td>
+                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to render the UI and display the window') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">main</td>
+                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to load libraries and finish basic initialization') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">sessionRestored</td>
+                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to restore tabs from the previous session') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 id="sec-2-4">2.4) {{ _('Wear and Tear') }}</h3>
+                            <p>{{ _('Length of session, how old a profile is, count of crashes, count of pages') }}</p>
+                            <table rules="groups">
+                                <colgroup><col class="left" />
+                                    <col class="left" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="left">{{ _('Metric') }}</th>
+                                        <th scope="col" class="left">{{ _('Description') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="left">aborted</td>
+                                        <td class="left">{{ _('The number of times the application was run and not cleanly shut down.') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">abortedActiveTime</td>
+                                        <td class="left">{{ _('The time in seconds that the aborted sessions were not idle') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">abortedTime</td>
+                                        <td class="left">{{ _('The time in seconds that the aborted sessions were running') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">appProfileAge</td>
+                                        <td class="left">{{ _('The number of days since this application profile directory was created') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">completed</td>
+                                        <td class="left">{{ _('The number of times the application was run and cleanly shut down.') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">completedActiveTime</td>
+                                        <td class="left">{{ _('The time in seconds that the completed sessions were not idle') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">completedTime</td>
+                                        <td class="left">{{ _('The time in seconds that the completed sessions were running') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">crashCountPending</td>
+                                        <td class="left">{{ _('Total number of crashes that were recorded but not yet submitted') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">crashCountSubmitted</td>
+                                        <td class="left">{{ _('Total number of crashes that have been submitted') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">currentSessionActiveTime</td>
+                                        <td class="left">{{ _('Time in seconds the app has not been idle') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">currentSessionTime</td>
+                                        <td class="left">{{ _('Time in seconds since the app was last started') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">placesBookmarksCount</td>
+                                        <td class="left">{{ _('Total number of bookmarks') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">placesPageCount</td>
+                                        <td class="left">{{ _('Total number of pages listed in the history') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">uptime</td>
+                                        <td class="left">{{ _('How long in minutes the current session has been running') }}</td>
                                     </tr>
                                 </tbody>
                             </table>
