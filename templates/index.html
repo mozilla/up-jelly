@@ -31,17 +31,17 @@
                 <div class="panelContainerBase">
                   <div class="panelContainerContent">
                     <p>{{ _('You\'ve chosen to stop sharing data with Mozilla, but you\'ll still be able to see how your browser is performing.') }}</p>
-                    <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="">privacy policy.</a>') }}</p>
+                    <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>')|format(privacy_url='') }}</p>
                   </div>
                 </div>
               </div>
-              
+
               <div class="panelContainer enabledPanel">
                 <div class="panelContainerArrow"></div>
                 <div class="panelContainerBase">
                   <div class="panelContainerContent">
                     <p>{{ _('You\'ve chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.') }}</p>
-                    <p class="greyText">{{ _('Learn how we handle your data in our <a href="">privacy policy.</a>') }}</p>
+                    <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy.</a>')|format(privacy_url='') }}</p>
                   </div>
                 </div>
               </div>
@@ -123,8 +123,8 @@
                         <div class="tipBox-content">
                             <p>{{ _('It looks like your browser has crashed a number of times recently. To learn more:') }}</p>
                             <ul>
-                                <li>{{ _('Visit our <a href="https://support.mozilla.org">support website</a>') }}</li>
-                                <li>{{ _('View more <a href="">detailed information</a>') }}</li>
+                                <li>{{ _('Visit our <a href="%(sumo_url)s">support website</a>')|format(sumo_url='https://support.mozilla.org/') }}</li>
+                                <li>{{ _('View more <a href="%(details_url)s">detailed information</a>')|format(details_url='') }}</li>
                             </ul>
                         </div>
                     </div>
@@ -138,8 +138,8 @@
                         <div class="tipBox-content">
                             <p>{{ _('Your browser seems to be running slower than usual. To learn more:') }}</p>
                             <ul>
-                                <li>{{ _('Visit our <a href="https://support.mozilla.org">support website</a>') }}</li>
-                                <li>{{ _('View more <a href="">detailed information</a>') }}</li>
+                                <li>{{ _('Visit our <a href="%(sumo_url)s">support website</a>')|format(sumo_url='https://support.mozilla.org/') }}</li>
+                                <li>{{ _('View more <a href="%(details_url)s">detailed information</a>')|format(details_url='') }}</li>
                             </ul>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                     </div>
 
                     <div class="graph"></div>
-                    <figcaption>{{ _('Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.') }}  <a href="">{{ _('Learn More...') }}</a></figcaption>
+                    <figcaption>{{ _('Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.') }}  <a href="">{{ _('Learn more...') }}</a></figcaption>
                 </figure>
             </div>
         </div>
@@ -321,7 +321,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="left">appABI</td>
-                                        <td class="left">{{ _('Binary interface for XPCOM') }} (<a href="https://developer.mozilla.org/en/XPCOM_ABI">https://developer.mozilla.org/en/XPCOM_ABI</a>)</td>
+                                        <td class="left">{{ _('Binary interface for XPCOM') }} (<a href="https://developer.mozilla.org/XPCOM_ABI">https://developer.mozilla.org/XPCOM_ABI</a>)</td>
                                     </tr>
                                     <tr>
                                         <td class="left">appBuildID</td>
@@ -349,7 +349,7 @@
                                     </tr>
                                     <tr>
                                         <td class="left">appName</td>
-                                        <td class="left">{{ _('The configured name of the application (Firefox / Aurora / Nightly for instance)') }}</td>
+                                        <td class="left">{{ _('The configured name of the application (Firefox/Aurora/Nightly for instance)') }}</td>
                                     </tr>
                                     <tr>
                                         <td class="left">appUpdateChannel</td>
@@ -590,7 +590,7 @@
                 <button class="button default" id="my_report">{{ _('See My Report') }}</button>
             </div>
         </div>
-     
+
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/fhr.js"></script>
 
