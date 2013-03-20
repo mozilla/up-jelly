@@ -1,5 +1,5 @@
 ;Firefox Health Report
-Rapport de santé de Firefox
+Bilan de santé de Firefox
 
 
 ;Glossary
@@ -18,15 +18,11 @@ Le «&nbsp;Bilan de Santé de Firefox&nbsp;» (FHR en anglais) comporte 5 métri
 Configuration {ok}
 
 
-;device hardware, operating system, Firefox version
-Matériel, système d'exploitation, version de Firefox
-
-
 ;Customizations
 Personnalisations
 
 
-;add-ons, count and type
+;Add-ons, count and type
 Nombre et types de modules complémentaires
 
 
@@ -34,292 +30,28 @@ Nombre et types de modules complémentaires
 Performance {ok}
 
 
-;timing of browser events, rendering, session restores
+;Timing of browser events, rendering, session restores
 Mesures du fonctionnement du navigateur, son rendu des pages, la restauration de session
 
 
 ;Wear and Tear
-Wear and Tear
-
-
-;length of session, how old a profile is, count of crashes, count of pages
-length of session, how old a profile is, count of crashes, count of pages
-
-
-;Enveloping
-Enveloping
-
-
-;used to manage the longitudinal data series of coarse-grained daily data
-used to manage the longitudinal data series of coarse-grained daily data
-
-
-;Detailed Description
-Detailed Description
-
-
-;Device hardware, operating system, Firefox version
-Device hardware, operating system, Firefox version
-
-
-;Metric
-Metric
-
-
-;Description
-Description
-
-
-;Binary interface for XPCOM
-Binary interface for XPCOM
-
-
-;Identifier for this build of the application based on the date the build was started
-Identifier for this build of the application based on the date the build was started
-
-
-;Operating System for which this build was configured
-Operating System for which this build was configured
-
-
-;Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
-Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
-
-
-;Version of the distribution, taken from the "distribution.version" preference
-Version of the distribution, taken from the "distribution.version" preference
-
-
-;The version number of any Mozilla hotfix applied to the application
-The version number of any Mozilla hotfix applied to the application
-
-
-;Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
-Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
-
-
-;The configured name of the application (Firefox / Aurora / Nightly for instance)
-The configured name of the application (Firefox / Aurora / Nightly for instance)
-
-
-;The channel this installation checks for application updates (nightly/aurora/beta/release)
-The channel this installation checks for application updates (nightly/aurora/beta/release)
-
-
-;The name of the company/provider who built this version
-The name of the company/provider who built this version
-
-
-;The current version of the product
-The current version of the product
-
-
-;Number of processor cores
-Number of processor cores
-
-
-;Whether the application is currently configured to be the default browser for the operating system
-Whether the application is currently configured to be the default browser for the operating system
-
-
-;Locale currently being used
-Locale currently being used
-
-
-;Amount of RAM in megabytes
-Amount of RAM in megabytes
-
-
-;Currently running Operating System (kernel) name
-Currently running Operating System (kernel) name
-
-
-;Currently running Operating System (kernel) version
-Currently running Operating System (kernel) version
-
-
-;The build identifier of the Gecko platform code
-The build identifier of the Gecko platform code
-
-
-;The version of the Gecko platform code
-The version of the Gecko platform code
-
-
-;Processor architecture
-Processor architecture
-
-
-;The date this version was first used with this installation profile
-The date this version was first used with this installation profile
-
-
-;An application version which has been used with this installation profile
-An application version which has been used with this installation profile
-
-
-;Add-ons, count and type
-Add-ons, count and type
-
-
-;The number of add-ons of this type that existed in the profile on this date
-The number of add-ons of this type that existed in the profile on this date
-
-
-;True if the application automatically disabled the add-on
-True if the application automatically disabled the add-on
-
-
-;Whether this add-on was installed by the user or automatically by another application
-Whether this add-on was installed by the user or automatically by another application
-
-
-;Whether this add-on has native code.
-Whether this add-on has native code.
-
-
-;The identifier of this add-on as defined by the add-on developer
-The identifier of this add-on as defined by the add-on developer
-
-
-;The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
-The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
-
-
-;The number of searches performed with this search engine from this part of the UI
-The number of searches performed with this search engine from this part of the UI
-
-
-;Whether this add-on was installed in the application directory or profile directory
-Whether this add-on was installed in the application directory or profile directory
-
-
-;Whether this add-on is an extension or a plug-in
-Whether this add-on is an extension or a plug-in
-
-
-;The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
-The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
-
-
-;True if the user manually disabled the add-on
-True if the user manually disabled the add-on
-
-
-;The current version of this add-on
-The current version of this add-on
-
-
-;Timing of browser events, rendering, session restores
-Timing of browser events, rendering, session restores
-
-
-;How long in milliseconds it took during startup for the application to render the UI and display the window
-How long in milliseconds it took during startup for the application to render the UI and display the window
-
-
-;How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
-How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
-
-
-;How long in milliseconds it took during startup for the application to restore tabs from the previous session
-How long in milliseconds it took during startup for the application to restore tabs from the previous session
+Usure
 
 
 ;Length of session, how old a profile is, count of crashes, count of pages
-Length of session, how old a profile is, count of crashes, count of pages
+Durée de la session, âge du profil, nombre de plantages, nombre de pages
 
 
-;The number of times the application was run and not cleanly shut down.
-The number of times the application was run and not cleanly shut down.
+;Detailed Description
+Description détaillée
 
 
-;The time in seconds that the aborted sessions were not idle
-The time in seconds that the aborted sessions were not idle
-
-
-;The time in seconds that the aborted sessions were running
-The time in seconds that the aborted sessions were running
-
-
-;The number of days since this application profile directory was created
-The number of days since this application profile directory was created
-
-
-;The number of times the application was run and cleanly shut down.
-The number of times the application was run and cleanly shut down.
-
-
-;The time in seconds that the completed sessions were not idle
-The time in seconds that the completed sessions were not idle
-
-
-;The time in seconds that the completed sessions were running
-The time in seconds that the completed sessions were running
-
-
-;Total number of crashes that were recorded but not yet submitted
-Total number of crashes that were recorded but not yet submitted
-
-
-;Total number of crashes that have been submitted
-Total number of crashes that have been submitted
-
-
-;Time in seconds the app has not been idle
-Time in seconds the app has not been idle
-
-
-;Time in seconds since the app was last started
-Time in seconds since the app was last started
-
-
-;Total number of bookmarks
-Total number of bookmarks
-
-
-;Total number of pages listed in the history
-Total number of pages listed in the history
-
-
-;How long in minutes the current session has been running
-How long in minutes the current session has been running
-
-
-;Used to manage the longitudinal data series of coarse-grained daily data
-Used to manage the longitudinal data series of coarse-grained daily data
-
-
-;The ID that was generated for a single data submission
-The ID that was generated for a single data submission
-
-
-;UTC date of the last successful submission
-UTC date of the last successful submission
-
-
-;The ID that was generated for the last successful data submission
-The ID that was generated for the last successful data submission
-
-
-;Normal or Debug submission
-Normal or Debug submission
-
-
-;If new data types are added or the structure of the document changes, a new schemaVersion will be used.
-If new data types are added or the structure of the document changes, a new schemaVersion will be used.
-
-
-;UTC date of this submission
-UTC date of this submission
+;Device hardware, operating system, Firefox version
+Matériel, système d'exploitation, version de Firefox
 
 
 ;Raw Data
 Données brutes
-
-
-;Get insights and performance information about your version of Firefox.
-Get insights and performance information about your version of Firefox.
 
 
 ;Learn more...
@@ -334,28 +66,8 @@ Partage des données
 ACTIF
 
 
-;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
-You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
-
-
-;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>
-Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>
-
-
-;You've chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.
-You've chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.
-
-
-;Learn how we handle your data in our <a href=""%(privacy_url)s">privacy policy.</a>
-Learn how we handle your data in our <a href=""%(privacy_url)s">privacy policy.</a>
-
-
 ;Welcome!
 Bienvenue&nbsp;!
-
-
-;Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
-Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
 
 
 ;See My Report
@@ -366,28 +78,8 @@ Afficher mon rapport
 Statistiques clefs
 
 
-;version
-version {ok}
-
-
-;time open
-time open
-
-
-;last crash
-last crash
-
-
-;bookmarks
-bookmarks
-
-
 ;This Month
 Ce mois
-
-
-;pages visited
-pages visitées
 
 
 ;crashes
@@ -422,663 +114,356 @@ Astuces
 Votre navigateur semble avoir beaucoup planté récemment, pour en savoir plus&nbsp;:
 
 
-;Visit our <a href="%(sumo_url)s">support website</a>
-Visit our <a href="%(sumo_url)s">support website</a>
-
-
-;View more <a href="%(details_url)s">detailed information</a>
-View more <a href="%(details_url)s">detailed information</a>
-
-
-;Your browser seems to be running slower than usual. To learn more:
-Your browser seems to be running slower than usual. To learn more:
-
-
-;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
-You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
-
-
-;Startup Time by Day
-Startup Time by Day
-
-
-;Graph:
-Graph:
-
-
-;Average
-Average
-
-
-;All
-All
-
-
-;Time (in seconds)
-Time (in seconds)
-
-
-;Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.
-Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.
-
-
-;Learn More...
-Learn More...
-
-
 ;OFF
 INACTIF
 
 
-;Data Collected
-Data Collected
-
-
-;Glossary
-Glossary
-
-
-;What the Firefox Health Report Measures
-What the Firefox Health Report Measures
-
-
-;The Firefox Health Report (FHR) has 5 categories of metrics:
-The Firefox Health Report (FHR) has 5 categories of metrics:
-
-
-;Configuration
-Configuration
-
-
-;device hardware, operating system, Firefox version
-device hardware, operating system, Firefox version
-
-
-;Customizations
-Customizations
-
-
-;add-ons, count and type
-add-ons, count and type
-
-
-;Performance
-Performance
-
-
-;timing of browser events, rendering, session restores
-timing of browser events, rendering, session restores
-
-
-;Wear and Tear
-Wear and Tear
-
-
-;length of session, how old a profile is, count of crashes, count of pages
-length of session, how old a profile is, count of crashes, count of pages
-
-
-;Enveloping
-Enveloping
-
-
-;used to manage the longitudinal data series of coarse-grained daily data
-used to manage the longitudinal data series of coarse-grained daily data
-
-
-;Detailed Description
-Detailed Description
-
-
-;Device hardware, operating system, Firefox version
-Device hardware, operating system, Firefox version
-
-
 ;Metric
-Metric
+Métrique
 
 
 ;Description
-Description
-
-
-;appABI
-appABI
+Description {ok}
 
 
 ;Binary interface for XPCOM
-Binary interface for XPCOM
-
-
-;appBuildID
-appBuildID
+Interface binaire pour XPCOM
 
 
 ;Identifier for this build of the application based on the date the build was started
-Identifier for this build of the application based on the date the build was started
-
-
-;appBuildTargetOS
-appBuildTargetOS
+Identifiant de l'application construit à partir de la date de compilation
 
 
 ;Operating System for which this build was configured
-Operating System for which this build was configured
+Système d'exploitation pour lequel ce logiciel a été configuré
 
 
-;appDistribution
-appDistribution
+;Identifier for the particular distribution of the application in use. It is taken from the <var>distribution.id</var> preference
+Identifiant du canal de distribution spécifique du logiciel utilisé. Extrait de la préférence <var>distribution.id</var>.
 
 
-;Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
-Identifier for the particular distribution of the application in use. It is taken from the "distribution.id" preference
-
-
-;appDistributionVersion
-appDistributionVersion
-
-
-;Version of the distribution, taken from the "distribution.version" preference
-Version of the distribution, taken from the "distribution.version" preference
-
-
-;appHotFixVersion
-appHotFixVersion
+;Version of the distribution, taken from the <var>distribution.version</var> preference
+Version de la distribution, prise depuis la préférence <var>distribution.version</var>
 
 
 ;The version number of any Mozilla hotfix applied to the application
-The version number of any Mozilla hotfix applied to the application
+Le numéro de version de tout correctif de Mozilla appliqué à l'application
 
 
-;appID
-appID
-
-
-;Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
-Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of appName
-
-
-;appName
-appName
+;Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of <var>appName</var>
+Identifiant unique pour l'application indiquant qu'il s'agit de Firefox, Thunderbird etc. Il a toujours la même valeur pour toutes les installations, quelle que soit la valeur de <var>appName</var>
 
 
 ;The configured name of the application (Firefox / Aurora / Nightly for instance)
-The configured name of the application (Firefox / Aurora / Nightly for instance)
-
-
-;appUpdateChannel
-appUpdateChannel
+Nom paramétré de l'application (Firefox / Aurora / Nightly par exemple)
 
 
 ;The channel this installation checks for application updates (nightly/aurora/beta/release)
-The channel this installation checks for application updates (nightly/aurora/beta/release)
-
-
-;appVendor
-appVendor
+Canal utilisé pour la vérification des mises à jour (nightly/aurora/beta/release)
 
 
 ;The name of the company/provider who built this version
-The name of the company/provider who built this version
-
-
-;appVersion
-appVersion
+Nom de l'entreprise ou du fournisseur qui a créé cette version
 
 
 ;The current version of the product
-The current version of the product
-
-
-;cpuCount
-cpuCount
+Version actuelle du logiciel
 
 
 ;Number of processor cores
-Number of processor cores
-
-
-;isDefaultBrowser
-isDefaultBrowser
+Nombre de cœurs du processeur
 
 
 ;Whether the application is currently configured to be the default browser for the operating system
-Whether the application is currently configured to be the default browser for the operating system
-
-
-;locale
-locale
+Si l'application est actuellement définie comme navigateur par défaut pour le système d'exploitation
 
 
 ;Locale currently being used
-Locale currently being used
-
-
-;memSize
-memSize
+Code de locale actuellement utilisée
 
 
 ;Amount of RAM in megabytes
-Amount of RAM in megabytes
-
-
-;osName
-osName
+Quantité de RAM en méga-octets
 
 
 ;Currently running Operating System (kernel) name
-Currently running Operating System (kernel) name
-
-
-;osVersion
-osVersion
+Nom du système d'exploitation utilisé (noyau)
 
 
 ;Currently running Operating System (kernel) version
-Currently running Operating System (kernel) version
-
-
-;platformBuildID
-platformBuildID
+Version du système d'exploitation utilisé (noyau)
 
 
 ;The build identifier of the Gecko platform code
-The build identifier of the Gecko platform code
-
-
-;platformVersion
-platformVersion
+Identifiant de compilation du code plateforme Gecko
 
 
 ;The version of the Gecko platform code
-The version of the Gecko platform code
-
-
-;processorArch
-processorArch
+Version du code plateforme Gecko
 
 
 ;Processor architecture
-Processor architecture
-
-
-;version.date
-version.date
+Architecture du processeur
 
 
 ;The date this version was first used with this installation profile
-The date this version was first used with this installation profile
-
-
-;version.version
-version.version
+Date de première utilisation de cette version avec ce profil d'installation
 
 
 ;An application version which has been used with this installation profile
-An application version which has been used with this installation profile
-
-
-;Add-ons, count and type
-Add-ons, count and type
-
-
-;addonCounts
-addonCounts
+Version d'application utilisée avec ce profil d'installation
 
 
 ;The number of add-ons of this type that existed in the profile on this date
-The number of add-ons of this type that existed in the profile on this date
+Nombre de modules complémentaires de ce type qui existaient dans le profil à cette date
 
 
-;appDisabled
-appDisabled
-
-
-;True if the application automatically disabled the add-on
-True if the application automatically disabled the add-on
-
-
-;foreignInstall
-foreignInstall
+;<var>True</var> if the application automatically disabled the add-on
+<var>True</var> si l'application a automatiquement désactivé le module
 
 
 ;Whether this add-on was installed by the user or automatically by another application
-Whether this add-on was installed by the user or automatically by another application
-
-
-;hasBinaryComponents
-hasBinaryComponents
+Le module a-t-il été installé par l'utilisateur ou bien a-t-il été installé automatiquement par une autre application
 
 
 ;Whether this add-on has native code.
-Whether this add-on has native code.
-
-
-;id
-id
+Le module contient-il du code natif
 
 
 ;The identifier of this add-on as defined by the add-on developer
-The identifier of this add-on as defined by the add-on developer
-
-
-;installDate
-installDate
+Identifiant du module tel que défini par son développeur
 
 
 ;The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
-The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).
-
-
-;search
-search
+La date d'installation la plus récente pour ce module (les précédentes informations concernant un module désinstallé ne sont pas conservées).
 
 
 ;The number of searches performed with this search engine from this part of the UI
-The number of searches performed with this search engine from this part of the UI
-
-
-;scope
-scope
+Le nombre de recherches effectuées avec ce moteur de recherche depuis cette partie de l'interface
 
 
 ;Whether this add-on was installed in the application directory or profile directory
-Whether this add-on was installed in the application directory or profile directory
-
-
-;type
-type
+Le module a-t-il été installé dans le répertoire des applications ou bien dans le répertoire du profil
 
 
 ;Whether this add-on is an extension or a plug-in
-Whether this add-on is an extension or a plug-in
-
-
-;updateDate
-updateDate
+Le module est-il une extension ou un plugin
 
 
 ;The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
-The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).
-
-
-;userDisabled
-userDisabled
+La date de mise à jour la plus récente pour ce module (les précédentes informations concernant un module désinstallé ne sont pas conservées).
 
 
 ;True if the user manually disabled the add-on
-True if the user manually disabled the add-on
-
-
-;version
-version
+True si l'utilisateur a manuellement désactivé le module
 
 
 ;The current version of this add-on
-The current version of this add-on
-
-
-;Timing of browser events, rendering, session restores
-Timing of browser events, rendering, session restores
-
-
-;firstPaint
-firstPaint
+La version actuelle de ce module complémentaire
 
 
 ;How long in milliseconds it took during startup for the application to render the UI and display the window
-How long in milliseconds it took during startup for the application to render the UI and display the window
-
-
-;main
-main
+Combien de temps en millisecondes a-t-il fallu pendant le démarrage de l'application pour dessiner l'interface et afficher la fenêtre
 
 
 ;How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
-How long in milliseconds it took during startup for the application to load libraries and finish basic initialization
-
-
-;sessionRestored
-sessionRestored
+Combien de temps en millisecondes a-t-il fallu pendant le démarrage de l'application pour charger les bibliothèques et terminer l'initialisation de base
 
 
 ;How long in milliseconds it took during startup for the application to restore tabs from the previous session
-How long in milliseconds it took during startup for the application to restore tabs from the previous session
-
-
-;Length of session, how old a profile is, count of crashes, count of pages
-Length of session, how old a profile is, count of crashes, count of pages
-
-
-;aborted
-aborted
+Combien de temps en millisecondes a-t-il fallu durant le démarrage de l'application pour restaurer les onglets de la session précédente
 
 
 ;The number of times the application was run and not cleanly shut down.
-The number of times the application was run and not cleanly shut down.
-
-
-;abortedActiveTime
-abortedActiveTime
+Le nombre de fois où l'application a été exécutée et n'a pas été proprement fermée.
 
 
 ;The time in seconds that the aborted sessions were not idle
-The time in seconds that the aborted sessions were not idle
-
-
-;abortedTime
-abortedTime
+Le temps en secondes d'activité continue des sessions interrompues
 
 
 ;The time in seconds that the aborted sessions were running
-The time in seconds that the aborted sessions were running
-
-
-;appProfileAge
-appProfileAge
+Le temps en secondes du fonctionnement des sessions interrompues
 
 
 ;The number of days since this application profile directory was created
-The number of days since this application profile directory was created
-
-
-;completed
-completed
+Le nombre de jours depuis que le répertoire de l'application a été créé
 
 
 ;The number of times the application was run and cleanly shut down.
-The number of times the application was run and cleanly shut down.
-
-
-;completedActiveTime
-completedActiveTime
+Le nombre de fois où l'application a été exécutée et a été proprement fermée.
 
 
 ;The time in seconds that the completed sessions were not idle
-The time in seconds that the completed sessions were not idle
-
-
-;completedTime
-completedTime
+Le temps en secondes d'activité continue des sessions terminées
 
 
 ;The time in seconds that the completed sessions were running
-The time in seconds that the completed sessions were running
-
-
-;crashCountPending
-crashCountPending
+Le temps en secondes du fonctionnement des sessions terminées
 
 
 ;Total number of crashes that were recorded but not yet submitted
-Total number of crashes that were recorded but not yet submitted
-
-
-;crashCountSubmitted
-crashCountSubmitted
+Nombre total de plantages enregistrés mais non envoyés
 
 
 ;Total number of crashes that have been submitted
-Total number of crashes that have been submitted
-
-
-;currentSessionActiveTime
-currentSessionActiveTime
+Nombre total de plantages envoyés
 
 
 ;Time in seconds the app has not been idle
-Time in seconds the app has not been idle
-
-
-;currentSessionTime
-currentSessionTime
+Temps en secondes d'activité continue de l'application
 
 
 ;Time in seconds since the app was last started
-Time in seconds since the app was last started
-
-
-;placesBookmarksCount
-placesBookmarksCount
+Temps en secondes depuis que le dernier lancement de l'application
 
 
 ;Total number of bookmarks
-Total number of bookmarks
-
-
-;placesPageCount
-placesPageCount
+Nombre total de marque-pages
 
 
 ;Total number of pages listed in the history
-Total number of pages listed in the history
-
-
-;uptime
-uptime
+Nombre total de pages listées dans l'historique
 
 
 ;How long in minutes the current session has been running
-How long in minutes the current session has been running
-
-
-;Used to manage the longitudinal data series of coarse-grained daily data
-Used to manage the longitudinal data series of coarse-grained daily data
-
-
-;docID
-docID
+Durée de la session en cours en minutes
 
 
 ;The ID that was generated for a single data submission
-The ID that was generated for a single data submission
-
-
-;lastPingTime
-lastPingTime
+ID généré pour l'envoi des données
 
 
 ;UTC date of the last successful submission
-UTC date of the last successful submission
-
-
-;prevDocID
-prevDocID
+Date au format UTC du dernier envoi réalisé avec succès
 
 
 ;The ID that was generated for the last successful data submission
-The ID that was generated for the last successful data submission
-
-
-;reason
-reason
+ID généré lors du dernier envoi réalisé avec succès
 
 
 ;Normal or Debug submission
-Normal or Debug submission
-
-
-;schemaVersion
-schemaVersion
+Envoi en mode Normal ou Debug
 
 
 ;If new data types are added or the structure of the document changes, a new schemaVersion will be used.
-If new data types are added or the structure of the document changes, a new schemaVersion will be used.
-
-
-;thisPingTime
-thisPingTime
+Si de nouveaux types de données sont ajoutés ou si la structure du document change, une nouvelle valeur pour <var>schemaVersion</var> sera utilisée.
 
 
 ;UTC date of this submission
-UTC date of this submission
-
-
-;Legal Notices
-Legal Notices
-
-
-;Website Privacy Policy
-Website Privacy Policy
-
-
-;Mozilla
-Mozilla
+Date au format UTC de l'envoi
 
 
 ;Get insights and performance information about your version of Firefox.
-Get insights and performance information about your version of Firefox.
-
-
-;Data Sharing
-Data Sharing
-
-
-;ON
-ON
+Apprenez-en davantage sur les performances de votre version de Firefox.
 
 
 ;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
-You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+Vous avez choisi de ne plus partager de données avec Mozilla, néanmoins vous pourrez toujours consulter les performances de votre navigateur.
+
+
+;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>
+Votre Bilan de santé sera aussi effacé des serveurs de Mozilla. Apprenez-en davantage dans notre <a href="%(privacy_url)s">politique de respect de la vie privée.</a>
+
+
+;You've chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.
+Vous avez choisi de partager ponctuellement vos données avec Mozilla. Merci de nous aider à remplir notre mission et de construire avec nous un meilleur avenir pour le Web.
 
 
 ;Learn how we handle your data in our <a href="">privacy policy.</a>
-Learn how we handle your data in our <a href="">privacy policy.</a>
-
-
-;Welcome!
-Welcome!
+Découvrez comment nous gérons vos données nous notre <a href="">politique de respect de la vie privée.</a>
 
 
 ;Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
-Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
+Le Bilan de Santé de Firefox vous permet de mieux comprendre les performances de Firefox et comment les améliorer.
 
 
-;See My Report
-See My Report
+;version
+version {ok}
 
 
-;It looks like your browser has crashed a number of times recently. To learn more:
-It looks like your browser has crashed a number of times recently. To learn more:
+;time open
+ouvert depuis
 
 
-;Visit our <a href="https://support.mozilla.org">support website</a>
-Visit our <a href="https://support.mozilla.org">support website</a>
+;last crash
+dernier plantage
 
 
-;View more <a href="">detailed information</a>
-View more <a href="">detailed information</a>
+;bookmarks
+marque-pages
+
+
+;pages visited
+pages visitées
+
+
+;Visit our <a href="%(sumo_url)s">support website</a>
+Visitez notre <a href="%(sumo_url)s">site d'assistance</a>
+
+
+;View more <a href="%(details_url)s">detailed information</a>
+Afficher des <a href="%(details_url)s">informations plus détaillées</a>
 
 
 ;Your browser seems to be running slower than usual. To learn more:
-Your browser seems to be running slower than usual. To learn more:
+Votre navigateur semble fonctionner plus lentement que d'habitude. Pour en savoir plus&nbsp;:
 
 
 ;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
-You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+Vous pourrez afficher davantage d'informations intéressantes et détaillées au fur et à mesure de votre utilisation du navigateur. Vérifiez à nouveau dans quelques semaines pour voir apparaître certaines tendances.
 
 
-;OFF
-OFF
+;Startup Time by Day
+Temps de démarrage par jour
+
+
+;Graph:
+Graphique&nbsp;:
+
+
+;Average
+Moyenne
+
+
+;All
+Tout
+
+
+;Time (in seconds)
+Temps (en secondes)
+
+
+;Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.
+Le temps de démarrage permet de déterminer les performances de votre version de Firefox. De façon générale, des temps courts (c'est-à-dire de faibles valeurs) indiquent de meilleures performances.
+
+
+
+;Data Collected
+Données collectées
+
+
+;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="">privacy policy.</a>
+Les données de votre bilan de santé seront également supprimées des serveurs de Mozilla. Apprenez-en davantage dans notre <a href="">politique de respect de la vie privée.</a>
+
+
+;Visit our <a href="https://support.mozilla.org">support website</a>
+Visitez notre <a href="https://support.mozilla.org">site web d'assistance</a>
+
+
+;View more <a href="">detailed information</a>
+Afficher des <a href="">informations plus détaillées</a>
+
+
+;Learn More...
+En savoir plus&hellip;
+
+
+;True if the application automatically disabled the add-on
+True si l'application a automatiquement désactivé le module
+
+
+;Welcome to your Firefox Health Report
+Bienvenue dans votre bilan de santé de Firefox
 
 
