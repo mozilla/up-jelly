@@ -2,56 +2,12 @@
 Bilan de santé de Firefox
 
 
-;Glossary
-Glossaire
-
-
-;What the Firefox Health Report Measures
-Qu'est-ce que mesure le bilan de santé de Firefox
-
-
-;The Firefox Health Report (FHR) has 5 categories of metrics:
-Le «&nbsp;Bilan de Santé de Firefox&nbsp;» (FHR en anglais) comporte 5 métriques&nbsp;:
-
-
-;Configuration
-Configuration {ok}
-
-
-;Customizations
-Personnalisations
-
-
-;Add-ons, count and type
-Nombre et types de modules complémentaires
-
-
-;Performance
-Performance {ok}
-
-
-;Timing of browser events, rendering, session restores
-Mesures du fonctionnement du navigateur, son rendu des pages, la restauration de session
-
-
-;Wear and Tear
-Usure
-
-
-;Length of session, how old a profile is, count of crashes, count of pages
-Durée de la session, âge du profil, nombre de plantages, nombre de pages
-
-
-;Detailed Description
-Description détaillée
-
-
-;Device hardware, operating system, Firefox version
-Matériel, système d'exploitation, version de Firefox
-
-
 ;Raw Data
 Données brutes
+
+
+;Get insights and performance information about your version of Firefox.
+Apprenez-en davantage sur les performances de votre version de Firefox.
 
 
 ;Learn more...
@@ -66,16 +22,40 @@ Partage des données
 ACTIF
 
 
-;Welcome!
-Bienvenue&nbsp;!
+;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
+Vous avez choisi de ne plus partager de données avec Mozilla, néanmoins vous pourrez toujours consulter les performances de votre navigateur.
 
 
-;See My Report
-Afficher mon rapport
+;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>
+Votre Bilan de santé sera aussi effacé des serveurs de Mozilla. Apprenez-en davantage dans notre <a href="%(privacy_url)s">politique de respect de la vie privée.</a>
+
+
+;You've chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.
+Vous avez choisi de partager ponctuellement vos données avec Mozilla. Merci de nous aider à remplir notre mission et de construire avec nous un meilleur avenir pour le Web.
+
+
+;Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy.</a>
+Découvrez comment nous gérons vos données dans notre <a href="%(privacy_url)s">politique de respect de la vie privée.</a>
 
 
 ;Vital Stats
 Statistiques clefs
+
+
+;version
+version {ok}
+
+
+;time open
+ouvert depuis
+
+
+;last crash
+dernier plantage
+
+
+;bookmarks
+marque-pages
 
 
 ;This Month
@@ -110,12 +90,104 @@ Plugins {ok}
 Astuces
 
 
+;Wear and Tear
+Usure
+
+
 ;It looks like your browser has crashed a number of times recently. To learn more:
 Votre navigateur semble avoir beaucoup planté récemment, pour en savoir plus&nbsp;:
 
 
 ;OFF
 INACTIF
+
+
+;Visit our <a href="%(sumo_url)s">support website</a>
+Visitez notre <a href="%(sumo_url)s">site d'assistance</a>
+
+
+;View more <a href="%(details_url)s">detailed information</a>
+Afficher des <a href="%(details_url)s">informations plus détaillées</a>
+
+
+;pages visited
+pages visitées
+
+
+;Your browser seems to be running slower than usual. To learn more:
+Votre navigateur semble fonctionner plus lentement que d'habitude. Pour en savoir plus&nbsp;:
+
+
+;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
+Vous pourrez afficher davantage d'informations intéressantes et détaillées au fur et à mesure de votre utilisation du navigateur. Vérifiez à nouveau dans quelques semaines pour voir apparaître certaines tendances.
+
+
+;Startup Time by Day
+Temps de démarrage par jour
+
+
+;Graph:
+Graphique&nbsp;:
+
+
+;Average
+Moyenne
+
+
+;All
+Tout
+
+
+;Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.
+Le temps de démarrage permet de déterminer les performances de votre version de Firefox. De façon générale, des temps courts (c'est-à-dire de faibles valeurs) indiquent de meilleures performances.
+
+
+;Data Collected
+Données collectées
+
+
+;Glossary
+Glossaire
+
+
+;What the Firefox Health Report Measures
+Qu'est-ce que mesure le bilan de santé de Firefox
+
+
+;The Firefox Health Report (FHR) has 5 categories of metrics:
+Le «&nbsp;Bilan de Santé de Firefox&nbsp;» (FHR en anglais) comporte 5 métriques&nbsp;:
+
+
+;Configuration
+Configuration {ok}
+
+
+;Device hardware, operating system, Firefox version
+Matériel, système d'exploitation, version de Firefox
+
+
+;Customizations
+Personnalisations
+
+
+;Add-ons, count and type
+Nombre et types de modules complémentaires
+
+
+;Performance
+Performance {ok}
+
+
+;Timing of browser events, rendering, session restores
+Mesures du fonctionnement du navigateur, son rendu des pages, la restauration de session
+
+
+;Length of session, how old a profile is, count of crashes, count of pages
+Durée de la session, âge du profil, nombre de plantages, nombre de pages
+
+
+;Detailed Description
+Description détaillée
 
 
 ;Metric
@@ -154,8 +226,8 @@ Le numéro de version de tout correctif de Mozilla appliqué à l'application
 Identifiant unique pour l'application indiquant qu'il s'agit de Firefox, Thunderbird etc. Il a toujours la même valeur pour toutes les installations, quelle que soit la valeur de <var>appName</var>
 
 
-;The configured name of the application (Firefox / Aurora / Nightly for instance)
-Nom paramétré de l'application (Firefox / Aurora / Nightly par exemple)
+;The configured name of the application (Firefox/Aurora/Nightly for instance)
+Nom paramétré de l'application (Firefox/Aurora/Nightly par exemple)
 
 
 ;The channel this installation checks for application updates (nightly/aurora/beta/release)
@@ -330,140 +402,19 @@ Nombre total de pages listées dans l'historique
 Durée de la session en cours en minutes
 
 
-;The ID that was generated for a single data submission
-ID généré pour l'envoi des données
+;Welcome to your Firefox Health Report
+Bienvenue dans votre bilan de santé de Firefox
 
 
-;UTC date of the last successful submission
-Date au format UTC du dernier envoi réalisé avec succès
-
-
-;The ID that was generated for the last successful data submission
-ID généré lors du dernier envoi réalisé avec succès
-
-
-;Normal or Debug submission
-Envoi en mode Normal ou Debug
-
-
-;If new data types are added or the structure of the document changes, a new schemaVersion will be used.
-Si de nouveaux types de données sont ajoutés ou si la structure du document change, une nouvelle valeur pour <var>schemaVersion</var> sera utilisée.
-
-
-;UTC date of this submission
-Date au format UTC de l'envoi
-
-
-;Get insights and performance information about your version of Firefox.
-Apprenez-en davantage sur les performances de votre version de Firefox.
-
-
-;You've chosen to stop sharing data with Mozilla, but you'll still be able to see how your browser is performing.
-Vous avez choisi de ne plus partager de données avec Mozilla, néanmoins vous pourrez toujours consulter les performances de votre navigateur.
-
-
-;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>
-Votre Bilan de santé sera aussi effacé des serveurs de Mozilla. Apprenez-en davantage dans notre <a href="%(privacy_url)s">politique de respect de la vie privée.</a>
-
-
-;You've chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.
-Vous avez choisi de partager ponctuellement vos données avec Mozilla. Merci de nous aider à remplir notre mission et de construire avec nous un meilleur avenir pour le Web.
-
-
-;Learn how we handle your data in our <a href="">privacy policy.</a>
-Découvrez comment nous gérons vos données nous notre <a href="">politique de respect de la vie privée.</a>
+;Welcome!
+Bienvenue&nbsp;!
 
 
 ;Firefox Health Report lets you know how your Firefox is performing and what you can do to improve it.
 Le Bilan de Santé de Firefox vous permet de mieux comprendre les performances de Firefox et comment les améliorer.
 
 
-;version
-version {ok}
-
-
-;time open
-ouvert depuis
-
-
-;last crash
-dernier plantage
-
-
-;bookmarks
-marque-pages
-
-
-;pages visited
-pages visitées
-
-
-;Visit our <a href="%(sumo_url)s">support website</a>
-Visitez notre <a href="%(sumo_url)s">site d'assistance</a>
-
-
-;View more <a href="%(details_url)s">detailed information</a>
-Afficher des <a href="%(details_url)s">informations plus détaillées</a>
-
-
-;Your browser seems to be running slower than usual. To learn more:
-Votre navigateur semble fonctionner plus lentement que d'habitude. Pour en savoir plus&nbsp;:
-
-
-;You'll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.
-Vous pourrez afficher davantage d'informations intéressantes et détaillées au fur et à mesure de votre utilisation du navigateur. Vérifiez à nouveau dans quelques semaines pour voir apparaître certaines tendances.
-
-
-;Startup Time by Day
-Temps de démarrage par jour
-
-
-;Graph:
-Graphique&nbsp;:
-
-
-;Average
-Moyenne
-
-
-;All
-Tout
-
-
-;Time (in seconds)
-Temps (en secondes)
-
-
-;Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.
-Le temps de démarrage permet de déterminer les performances de votre version de Firefox. De façon générale, des temps courts (c'est-à-dire de faibles valeurs) indiquent de meilleures performances.
-
-
-
-;Data Collected
-Données collectées
-
-
-;Your Health Report data will also be removed from Mozilla's servers. Learn more in our <a href="">privacy policy.</a>
-Les données de votre bilan de santé seront également supprimées des serveurs de Mozilla. Apprenez-en davantage dans notre <a href="">politique de respect de la vie privée.</a>
-
-
-;Visit our <a href="https://support.mozilla.org">support website</a>
-Visitez notre <a href="https://support.mozilla.org">site web d'assistance</a>
-
-
-;View more <a href="">detailed information</a>
-Afficher des <a href="">informations plus détaillées</a>
-
-
-;Learn More...
-En savoir plus&hellip;
-
-
-;True if the application automatically disabled the add-on
-True si l'application a automatiquement désactivé le module
-
-
-;Welcome to your Firefox Health Report
-Bienvenue dans votre bilan de santé de Firefox
+;See My Report
+Afficher mon rapport
 
 
