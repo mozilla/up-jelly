@@ -1,28 +1,27 @@
 #!/bin/bash
-# Example update script. Adjust at will.
 
-#set -x
+CODE_DIR=$(cd `dirname $0`; pwd)
+WEB_DIR="$CODE_DIR/web-output"
+ENV=$(echo "$CODE_DIR" | cut -f3 -d'/')
+SITE=$(echo "$CODE_DIR" | cut -f5 -d'/')
+APP=fhr-jelly
+LOCALE_REPO="https://svn.mozilla.org/projects/l10n-misc/trunk/firefoxhealthreport/locale"
 
-function checkretval()
-{
-    retval=$?
-        if [[ $retval -gt 0 ]]
-        then
-                $error "Error!!! Exit status of the last command was $retval"
-                exit $retval
-        fi
-}
 
-CODE_DIR="/data/fx36start"
-WEB_DIR="/data/startpage"
+### No edits needed below here ###
+
+echo "DIR: $CODE_DIR"
+echo "ENV: $ENV"
+echo "SITE: $SITE"
+echo "APP: $APP"
 
 echo -e "Updating code..."
-pushd $CODE_DIR
+pushd $CODE_DIR/$APP
 
 git pull
 
 if [ ! -d "locale" ]; then
-    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
+    svn checkout ${LOCALE_REPO}
 fi
 pushd locale
 svn up
@@ -33,4 +32,15 @@ checkretval
 
 popd
 
-/data/startpage-dev/deploy -n start-dev.allizom.org
+/data/$ENV/deploy -n $SITE
+
+
+function checkretval()
+{
+    retval=$?
+        if [[ $retval -gt 0 ]]
+        then
+                $error "Error!!! Exit status of the last command was $retval"
+                exit $retval
+        fi
+}
