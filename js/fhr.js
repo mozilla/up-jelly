@@ -67,7 +67,4 @@ $(function() {
         $(this).find(".expanderArrow").toggleClass("collapse");
         tipboxContent.find(".buttonRow").toggleClass("collapse");
     });
-
-    // Enable tabs for Raw Data view
-    $('#raw-tabs').tabs();
 });

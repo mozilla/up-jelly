@@ -1,27 +1,37 @@
+var currentUIState = false,
+    payload = null,
+    prefs = null;
+
 function init() {
   window.addEventListener("message", receiveMessage, false);
   reqPrefs();
   reqPayload();
 }
-var payload = null;
+
 function receiveMessage(event) {
   switch (event.data.type) {
     case "prefs":
-      var prefs = event.data.content;
-      document.getElementById("enable").hidden  = prefs.enabled;
-      document.getElementById("disable").hidden = !prefs.enabled;
-      break;
+        prefs = event.data.content;
+        if(prefs.enabled) {
+            showStatusPanel($(".enabledPanel"), true, false);
+        } else {
+            showStatusPanel($(".disabledPanel"), false, false);
+        }
+        break;
     case "payload":
       payload = JSON.parse(event.data.content);
-      document.getElementById("payload").textContent = JSON.stringify(payload, null, 2);
+      document.querySelector(".rawdata-display pre").textContent = JSON.stringify(payload, null, 2);
       break;
   }
 }
+
 function disableSubmission() {
-  sendToBrowser("DisableDataSubmission");
+    console.log("disable");
+    sendToBrowser("DisableDataSubmission");
 }
 function enableSubmission() {
-  sendToBrowser("EnableDataSubmission");
+    console.log("enable");
+    sendToBrowser("EnableDataSubmission");
 }
 function reqPrefs() {
   sendToBrowser("RequestCurrentPrefs");
