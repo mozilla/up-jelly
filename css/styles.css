@@ -236,10 +236,10 @@ dl {
 .activationWidget:hover .activationTab {
   width: 60px;
 }
-.tabEnabledText {
+.statusText {
   color: #53a600;
 }
-.tabEnabledText.disabled {
+.statusText.disabled {
   color: #8a9199;
 }
 
