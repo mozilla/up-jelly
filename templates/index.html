@@ -58,11 +58,11 @@
                             <img class="icon" src="img/icon-vitalStats.png" height="16" width="28">{{ _('Vital Stats') }}
                         </div>
                         <div class="statsBoxSection-content">
-                            <ul>
-                                <li>{{ _('version') }}<span class="statsBoxSection-value">Firefox 22.0b1</span></li>
-                                <li>{{ _('time open') }}<span class="statsBoxSection-value">10:23 hrs</span></li>
-                                <li>{{ _('last crash') }}<span class="statsBoxSection-value">6/12/2012</span></li>
-                                <li>{{ _('bookmarks') }}<span class="statsBoxSection-value">49</span></li>
+                            <ul id="vital_stats">
+                                <li>{{ _("version") }}<span class="statsBoxSection-value"></span></li>
+                                <li>{{ _("time open") }}<span class="statsBoxSection-value"></span></li>
+                                <li>{{ _("last crash") }}<span class="statsBoxSection-value"></span></li>
+                                <li>{{ _("bookmarks") }}<span class="statsBoxSection-value"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -74,11 +74,10 @@
                             <img class="icon" src="img/icon-thisMonth.png" height="16" width="16">{{ _('This Month') }}
                         </div>
                         <div class="statsBoxSection-content">
-                                <ul>
-                                <li>{{ _('time open') }}<span class="statsBoxSection-value">44 hrs</span></li>
-                                <li>{{ _('pages visited') }}<span class="statsBoxSection-value">3,458</span></li>
-                                <li>{{ _('crashes') }}<span class="statsBoxSection-value">1.5</span></li>
-                            </ul>
+                                <ul id="current_month">
+                                    <li>{{ _("time open") }}<span class="statsBoxSection-value"></span></li>
+                                    <li>{{ _("crashes") }}<span class="statsBoxSection-value"></span></li>
+                                </ul>
                         </div>
                     </div>
 
@@ -89,9 +88,9 @@
                             <img class="icon" src="img/icon-addons.png" height="16" width="16">{{ _('Add-ons') }}<span class="statsBoxSection-value"><a href="about:addons">{{ _('View List') }}</a></span>
                         </div>
                         <div class="statsBoxSection-content">
-                            <ul>
-                                <li>{{ _('enabled') }}<span class="statsBoxSection-value">2</span></li>
-                                <li>{{ _('disabled') }}<span class="statsBoxSection-value">4</span></li>
+                            <ul id="addons">
+                                <li>{{ _("enabled") }}<span class="statsBoxSection-value"></span></li>
+                                <li>{{ _("disabled") }}<span class="statsBoxSection-value"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -103,9 +102,9 @@
                             <img class="icon" src="img/icon-plugins.png" height="16" width="16">{{ _('Plugins') }}<span class="statsBoxSection-value"><a href="about:plugins">{{ _('View List') }}</a></span>
                         </div>
                         <div class="statsBoxSection-content">
-                            <ul>
-                                <li>{{ _('enabled') }}<span class="statsBoxSection-value">2</span></li>
-                                <li>{{ _('disabled') }}<span class="statsBoxSection-value">4</span></li>
+                            <ul id="plugins">
+                                <li>{{ _("enabled") }}<span class="statsBoxSection-value"></span></li>
+                                <li>{{ _("disabled") }}<span class="statsBoxSection-value"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -493,7 +492,6 @@
         </div>
 
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/mustache.js"></script>
 
         <!-- Has to live inside the HTML because of l10n -->
         <script>
