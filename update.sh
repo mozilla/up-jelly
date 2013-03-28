@@ -10,6 +10,16 @@ LOCALE_REPO="https://svn.mozilla.org/projects/l10n-misc/trunk/firefoxhealthrepor
 
 ### No edits needed below here ###
 
+function checkretval()
+{
+    retval=$?
+        if [[ $retval -gt 0 ]]
+        then
+                $error "Error!!! Exit status of the last command was $retval"
+                exit $retval
+        fi
+}
+
 echo "DIR: $CODE_DIR"
 echo "ENV: $ENV"
 echo "SITE: $SITE"
@@ -34,13 +44,3 @@ popd
 
 /data/$ENV/deploy -n $SITE
 
-
-function checkretval()
-{
-    retval=$?
-        if [[ $retval -gt 0 ]]
-        then
-                $error "Error!!! Exit status of the last command was $retval"
-                exit $retval
-        fi
-}
