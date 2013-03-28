@@ -38,7 +38,6 @@ RTL_LANGS = ('ar', 'fa', 'he', 'ur')
 LANG_FALLBACK = {
     'be': 'ru',
     'en-GB': 'en-US',
-    'es-CL': 'es-ES',
     'es-MX': 'es-ES',
     'mn': 'ru',
 }
