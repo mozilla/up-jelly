@@ -68,7 +68,7 @@ calculateTotalTime = function(healthreport, historically) {
             }
         }
     }
-    // Return time in hours fixed to no more than 2 decimal points.
+    // Return time in minutes.
     return Math.round(totalTimeOpen / (1000*60));
 },
 getLastCrashDate = function(days) {
