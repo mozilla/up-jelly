@@ -22,7 +22,7 @@ LANGS = (
     'de', 'el', 'en-US', 'eo', 'es-AR', 'es-CL', 'es-ES', 'es-MX',
     'et', 'eu', 'fa', 'ff', 'fi', 'fr', 'fy-NL', 'ga-IE', 'gd', 'gl',
     'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'hy-AM', 'id', 'is', 'it', 'ja',
-    'kk', 'km', 'kn', 'ko', 'ku', 'lg', 'lij', 'lt', 'lv', 'mai', 'mk',
+    'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'lg', 'lij', 'lt', 'lv', 'mai', 'mk',
     'ml', 'mn', 'mr', 'my', 'nb-NO', 'nl', 'nn-NO', 'nso', 'oc', 'or',
     'pa-IN', 'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru', 'sah', 'si', 'sk',
     'sl', 'son', 'sq', 'sr', 'sv-SE', 'sw', 'ta', 'ta-LK', 'te', 'th',
@@ -40,7 +40,6 @@ LANG_FALLBACK = {
     'en-GB': 'en-US',
     'es-CL': 'es-ES',
     'es-MX': 'es-ES',
-    'ka': 'en-US',
     'mn': 'ru',
 }
 
