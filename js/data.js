@@ -1,4 +1,7 @@
-var payload = null,
+var ONE_DAY = 1000 * 60 * 60 * 24,
+    ONE_WEEK = ONE_DAY * 7,
+    NINETY_DAYS = ONE_DAY * 90,
+    payload = null,
     prefs = null;
 
 // Converts the day passed to a Date object and checks
@@ -10,9 +13,9 @@ var isCurrentMonth = function(day) {
 
     return thisDate === currentMonth ? true : false;
 },
-// Gets all dates from the object, sort in descending order
-// and returns the new array.
-sortDates = function(days) {
+// Gets all dates from the object, sort in the specified
+// oder and returns the new array.
+sortDates = function(days, descending) {
     var dates = [];
 
     // Gather up all of the dates
@@ -21,9 +24,7 @@ sortDates = function(days) {
             dates.push(day);
         }
     }
-    // Sort the dates and then reverse the sort order to have
-    // the dates from latest to oldest.
-    return dates.sort().reverse();
+    return descending ? dates.sort().reverse() : dates.sort();
 },
 calculateTotalTime = function(healthreport, historically) {
     var days = healthreport.data.days,
@@ -72,7 +73,7 @@ calculateTotalTime = function(healthreport, historically) {
     return Math.round(totalTimeOpen / (1000*60));
 },
 getLastCrashDate = function(days) {
-    var sortedDates = sortDates(days),
+    var sortedDates = sortDates(days, true),
         lastCrashDate = 'No crashes recorded';
 
     // Loop through the dates from latest to eldest.
@@ -90,7 +91,7 @@ getLastCrashDate = function(days) {
     return lastCrashDate;
 },
 getBookmarksTotal = function(days) {
-    var sortedDates = sortDates(days),
+    var sortedDates = sortDates(days, true),
         bookmarksTotal = 0;
 
     // Loop through the dates from latest to eldest.
@@ -128,9 +129,7 @@ calculateCrashesTotal = function(crashes) {
 // Calculate the total number of crashes for a period of time.
 // Currently support week, month and all, which is the default.
 getTotalNumberOfCrashes = function(period) {
-    var ONE_DAY = 1000 * 60 * 60 * 24,
-        ONE_WEEK = ONE_DAY * 7,
-        crashesTotal = 0,
+    var crashesTotal = 0,
         days = payload.data.days;
 
     for(var day in days) {
@@ -183,11 +182,48 @@ getSessionsCount = function() {
 
     return cleanSessions + abortedSessions;
 },
+// Gets all startup times (paintTimes) for the last 90 days.
+// Data here is returned as a single array so, might need to
+// be tweaked when used with for example Flotjs etc.
+getAllStartupTimes = function() {
+    var days = payload.data.days,
+        startupTimes = [],
+        sortedDates = sortDates(payload.data.days, false),
+        today = new Date(),
+        ninetyDaysAgo = new Date(today - NINETY_DAYS);
+
+    for(var day in sortedDates) {
+        var currentDay = sortedDates[day],
+            // For our comparison in the below 'if' statement,
+            // we need currentDay as a Date object.
+            currentDayAsDate = new Date(currentDay);
+
+        // We only want to display startup times for at most the last 90 days.
+        if(currentDayAsDate >= ninetyDaysAgo && sortedDates.hasOwnProperty(day)) {
+            var sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
+                paintTimes = null;
+
+            // Test whether the current day contains either session
+            // or crash data. If so, increment the session count.
+            if(typeof sessionsInfo !== 'undefined') {
+                paintTimes = sessionsInfo.firstPaint;
+
+                for(var paintTime in paintTimes) {
+                    startupTimes.push(paintTimes[paintTime]);
+                }
+            }
+        }
+    }
+    // Add the current sessions startup time to the end of the array
+    startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint);
+
+    return startupTimes;
+},
 // This calculates our media startup time. For details
 // @see https://bugzilla.mozilla.org/show_bug.cgi?id=849879
 calculateMedianStartupTime = function() {
     var days = payload.data.days,
-        sortedDates = sortDates(days),
+        sortedDates = sortDates(days, true),
         counter = 0,
         median = 0,
         startupTimes = [];
