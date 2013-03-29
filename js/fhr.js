@@ -88,11 +88,6 @@ $(function() {
             options = {
                 colors: ['#50B432'],
                 series: {
-                    lines: {
-                        show: true,
-                        fill: true,
-                        fillColor: "rgba(237, 236, 236, 0.8)"
-                    },
                     points: {
                         show: true,
                         radius: 5
