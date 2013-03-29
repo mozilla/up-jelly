@@ -501,12 +501,21 @@
 
         var showStatusPanel = function(panel, status, showMessage) {
 
-            activationWidget.toggleClass("disabled");
-            statusTxt.toggleClass("disabled");
-
             if(status) {
+                // If the activation panel is currently disabled
+                // then we need to remove the disabled class.
+                if(activationWidget.hasClass('disabled')) {
+                    activationWidget.removeClass("disabled");
+                    statusTxt.removeClass("disabled");
+                }
                 statusTxt.text('{{ _("ON") }}');
             } else {
+                // If the activation panel is currently active
+                // then we need to add the disabled class.
+                if(!activationWidget.hasClass('disabled')) {
+                    activationWidget.addClass("disabled");
+                    statusTxt.addClass("disabled");
+                }
                 statusTxt.text('{{ _("OFF") }}');
             }
 
