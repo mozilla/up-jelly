@@ -489,12 +489,15 @@ dl {
     width: auto;
 }
 .graphbox h2 {
-    background: transparent url(../img/icon-helpBubble.png) 14rem 0 no-repeat;
-    margin-bottom: 1em;
-    padding: .1rem 1rem .5rem 1rem;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    font-weight: lighter;
 }
 .graph_selector {
     float: right;
+    margin-right: 5px;
+    margin-bottom: 20px;
 }
 .graph_selector h4,
 .graph_selector ul {
@@ -523,7 +526,7 @@ dl {
 }
 .graph {
     clear: both;
-    background-image: url(../img/graph.png);
+    min-width: 600px;
     height: 292px;
 }
 figcaption {
@@ -638,9 +641,10 @@ figcaption {
 table {
     margin-bottom: 20px;
     border: 1px solid #333;
+    width: 100%;
 }
 th {
-    background-color: #333;
+    background-color: rgb(101, 147, 36);
     color: #fff;
     text-align: left;
     padding: 1rem;

@@ -80,6 +80,38 @@ $(function() {
         waitr = setTimeout(waitForPayload, 500);
     })();
 
+    var drawGraph = function() {
+
+        var startupTimes = getAllStartupTimes(),
+            startupTimesLength = startupTimes.length,
+            graphData = [],
+            options = {
+                colors: ['#50B432'],
+                series: {
+                    lines: {
+                        show: true,
+                        fill: true,
+                        fillColor: "rgba(237, 236, 236, 0.8)"
+                    },
+                    points: {
+                        show: true,
+                        radius: 5
+                    }
+                },
+                xaxis: {
+                    show: false
+                }
+            };
+
+        for(var i = 0; i < startupTimesLength; i++) {
+            // Push the index and the value
+            graphData.push([i, startupTimes[i]]);
+        }
+
+        var graphContainer = $('.graph'),
+            graph = $.plot(graphContainer, [graphData], options);
+    };
+
     // Conditionally show tip boxes
     function showTipboxes() {
         clearTimeout(waitr);
@@ -89,9 +121,12 @@ $(function() {
             $('#crashyfox').show('slow');
         }
 
-        // We have to have at least 5 sessions with data
+        // We need at least 5 sessions with data
         if(getSessionsCount() < 5) {
             $('#hungryfox').show('slow');
+        } else {
+            // We have enough data, draw the graph
+            drawGraph();
         }
 
         // If our median startup time is greater than 20,
