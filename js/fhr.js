@@ -67,4 +67,37 @@ $(function() {
         $(this).find(".expanderArrow").toggleClass("collapse");
         tipboxContent.find(".buttonRow").toggleClass("collapse");
     });
+
+    var waitr = 0;
+    // Using a self executing function with a setTimeout
+    // to ensure we do not attempt to use the payload
+    // before it is ready.
+    (function waitForPayload() {
+        if(payload) {
+            showTipboxes();
+            return;
+        }
+        waitr = setTimeout(waitForPayload, 500);
+    })();
+
+    // Conditionally show tip boxes
+    function showTipboxes() {
+        clearTimeout(waitr);
+
+        // User has a crashy browser
+        if(getTotalNumberOfCrashes('week') > 5) {
+            $('#crashyfox').show('slow');
+        }
+
+        // We have to have at least 5 sessions with data
+        if(getSessionsCount() < 5) {
+            $('#hungryfox').show('slow');
+        }
+
+        // If our median startup time is greater than 20,
+        // we have a slowfox
+        if(calculateMedianStartupTime() > 20) {
+            $('#slowfox').show('slow');
+        }
+    }
 });

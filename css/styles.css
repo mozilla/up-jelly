@@ -333,6 +333,7 @@ dl {
 
 /* --- Tips --- */
 .tipBox-container {
+  display: none;
   position: relative;
   margin: 0 60px 10px;
   width: auto;
