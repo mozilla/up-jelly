@@ -80,9 +80,9 @@ $(function() {
         waitr = setTimeout(waitForPayload, 500);
     })();
 
-    var drawGraph = function() {
+    var drawGraph = function(median) {
 
-        var startupTimes = getAllStartupTimes(),
+        var startupTimes = getAllStartupTimes(median),
             startupTimesLength = startupTimes.length,
             graphData = [],
             options = {
@@ -99,18 +99,54 @@ $(function() {
                     }
                 },
                 xaxis: {
-                    show: false
+                    mode: 'time',
+                    alignTicksWithAxis: true,
+                    show: median
                 }
             };
 
-        for(var i = 0; i < startupTimesLength; i++) {
-            // Push the index and the value
-            graphData.push([i, startupTimes[i]]);
+        // If we are currently drawing the median graph, we do not
+        // need to add indexes to the array as they are already filled
+        // with the appropriate dates.
+        if(median) {
+            graphData = startupTimes;
+        } else {
+            for(var i = 0; i < startupTimesLength; i++) {
+                // Push the index and the value
+                graphData.push([i, startupTimes[i]]);
+            }
         }
 
         var graphContainer = $('.graph'),
             graph = $.plot(graphContainer, [graphData], options);
+    },
+    clearGraphSelectors = function() {
+        var graphSelectors = $('.graph_selector').find('li a');
+
+        graphSelectors.each(function() {
+            $(this).removeClass('active');
+        });
     };
+
+    $('#graph_all').click(function(event) {
+        event.preventDefault();
+        // Clear all currently active selectors
+        clearGraphSelectors();
+
+        // Set this selector to active
+        $(this).addClass('active');
+        drawGraph(false);
+    });
+
+    $('#graph_median').click(function(event) {
+        event.preventDefault();
+        // Clear all currently active selectors
+        clearGraphSelectors();
+
+        // Set this selector to active
+        $(this).addClass('active');
+        drawGraph(true);
+    });
 
     // Conditionally show tip boxes
     function showTipboxes() {
@@ -125,8 +161,9 @@ $(function() {
         if(getSessionsCount() < 5) {
             $('#hungryfox').show('slow');
         } else {
-            // We have enough data, draw the graph
-            drawGraph();
+            // We have enough data, draw the graph.
+            // By default, we draw all startup times.
+            drawGraph(false);
         }
 
         // If our median startup time is greater than 20,
