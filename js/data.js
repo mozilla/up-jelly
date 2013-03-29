@@ -10,7 +10,7 @@ var isCurrentMonth = function(day) {
 
     return thisDate === currentMonth ? true : false;
 },
-// Gets all dates from the object, sort in ascending order
+// Gets all dates from the object, sort in descending order
 // and returns the new array.
 sortDates = function(days) {
     var dates = [];
@@ -106,31 +106,120 @@ getBookmarksTotal = function(days) {
     }
     return bookmarksTotal;
 },
-// Calculate the total number of crashes for this month or,
-// for all time.
-getTotalNumberOfCrashes = function(days) {
+// Total up crashes for current day.
+calculateCrashesTotal = function(crashes) {
     var crashesTotal = 0;
+
+    // If the current day has an entry for crashes, get in deeper
+    // and look for the pending and submitted entries and total up.
+    if(typeof crashes !== 'undefined') {
+        // Do we have pending crashes
+        if(typeof crashes.pending !== 'undefined') {
+            crashesTotal += crashes.pending;
+        }
+
+        // Do we have submitted crashes
+        if(typeof crashes.submitted !== 'undefined') {
+            crashesTotal += crashes.submitted;
+        }
+    }
+    return crashesTotal;
+},
+// Calculate the total number of crashes for a period of time.
+// Currently support week, month and all, which is the default.
+getTotalNumberOfCrashes = function(period) {
+    var ONE_DAY = 1000 * 60 * 60 * 24,
+        ONE_WEEK = ONE_DAY * 7,
+        crashesTotal = 0,
+        days = payload.data.days;
 
     for(var day in days) {
         if(days.hasOwnProperty(day)) {
             var crashes = days[day]['org.mozilla.crashes.crashes'];
 
-            // If the current day has an entry for crashes, get in deeper
-            // and look for the pending and submitted entries and total up.
-            if(typeof crashes !== 'undefined') {
-                // Do we have pending crashes
-                if(typeof crashes.pending !== 'undefined') {
-                    crashesTotal += crashes.pending;
-                }
+            if(typeof period !== 'undefined') {
+                var today = new Date(),
+                    // Test whether the current date falls within the last week.
+                    weekCondition = days[day] >= today - ONE_WEEK,
+                    monthCondition = isCurrentMonth(days[day]),
+                    condition = period === 'week' ? weekCondition : monthCondition;
 
-                // Do we have submitted crashes
-                if(typeof crashes.submitted !== 'undefined') {
-                    crashesTotal += crashes.submitted;
+                if(condition) {
+                    crashesTotal += calculateCrashesTotal(crashes);
                 }
+            } else {
+                crashesTotal += calculateCrashesTotal(crashes);
             }
         }
     }
     return crashesTotal;
+},
+getSessionsCount = function() {
+    var days = payload.data.days,
+        cleanSessions = 0,
+        abortedSessions = 0;
+
+    for(var day in days) {
+        if(days.hasOwnProperty(day)) {
+            var sessionsInfo = days[day]['org.mozilla.appSessions.previous'];
+
+            // Test whether the current day contains either session
+            // or crash data. If so, increment the session count.
+            if(typeof sessionsInfo !== 'undefined') {
+                // If there is a cleanTotalTime entry, get it's length
+                // as this indicates the number of sessions.
+                if(typeof sessionsInfo.cleanTotalTime !== 'undefined') {
+                    cleanSessions += sessionsInfo.cleanTotalTime.length;
+                }
+
+                // If there is an abortedTotalTime entry, get it's length
+                // as this indicates the number of sessions.
+                if(typeof sessionsInfo.abortedTotalTime !== 'undefined') {
+                    abortedSessions += sessionsInfo.abortedTotalTime.length;
+                }
+            }
+        }
+    }
+
+    return cleanSessions + abortedSessions;
+},
+// This calculates our media startup time. For details
+// @see https://bugzilla.mozilla.org/show_bug.cgi?id=849879
+calculateMedianStartupTime = function() {
+    var days = payload.data.days,
+        sortedDates = sortDates(days),
+        counter = 0,
+        median = 0,
+        startupTimes = [];
+
+    for(var day in sortedDates) {
+        if(sortedDates.hasOwnProperty(day)) {
+            var currentDay = sortedDates[day],
+                sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
+                paintTimes = null;
+
+            // Do we have session info?
+            if(typeof sessionsInfo !== 'undefined') {
+                paintTimes = sessionsInfo.firstPaint;
+
+                // We only want the latest 10 paint times,
+                // and ensure that we have paint times to add.
+                if(counter < 10 && typeof paintTimes !== 'undefined') {
+                    for(var paintTime in paintTimes) {
+                        startupTimes.push(paintTimes[paintTime]);
+                        ++counter;
+                    }
+                }
+            }
+        }
+        // Sort the paint times from fastest to slowest
+        startupTimes.sort().reverse();
+
+        // Get items 7 and 8 (75th percentile), convert to seconds and then calculate the average
+        median = Math.round(((startupTimes[6] / 1000) + (startupTimes[7] / 1000) / 2));
+
+    }
+    return median;
 },
 // Returns an addonsState object indicating the number of addons that are
 // either enabled or disabled.
@@ -187,7 +276,7 @@ var populateData = function(healthreport) {
     vitalStats.push(getBookmarksTotal(healthreport.data.days));
 
     thisMonth.push(calculateTotalTime(healthreport, false) + ' minutes');
-    thisMonth.push(getTotalNumberOfCrashes(healthreport.data.days));
+    thisMonth.push(getTotalNumberOfCrashes('month'));
 
     addons.push(extensionsInfo.enabled);
     addons.push(extensionsInfo.disabled);
