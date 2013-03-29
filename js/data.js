@@ -182,10 +182,12 @@ getSessionsCount = function() {
 
     return cleanSessions + abortedSessions;
 },
-// Gets all startup times (paintTimes) for the last 90 days.
-// Data here is returned as a single array so, might need to
-// be tweaked when used with for example Flotjs etc.
-getAllStartupTimes = function() {
+// Gets all startup times (paintTimes), either simply returning all
+// startup times as a simple array or, as the median for each day over
+// the past 90 days. If median is true, the data will be returned as an
+// array of arrays containing the date and the median for that date ex.
+// [['2013-02-06', 657], ['2013-02-07', 989]]
+getAllStartupTimes = function(median) {
     var days = payload.data.days,
         startupTimes = [],
         sortedDates = sortDates(payload.data.days, false),
@@ -201,25 +203,60 @@ getAllStartupTimes = function() {
         // We only want to display startup times for at most the last 90 days.
         if(currentDayAsDate >= ninetyDaysAgo && sortedDates.hasOwnProperty(day)) {
             var sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
-                paintTimes = null;
+                paintTimes = null,
+                paintTimesLength = 0,
+                currentTime = 0,
+                startupTimesTotal = 0;
 
             // Test whether the current day contains either session
             // or crash data. If so, increment the session count.
             if(typeof sessionsInfo !== 'undefined') {
                 paintTimes = sessionsInfo.firstPaint;
+                paintTimesLength = paintTimes.length;
 
-                for(var paintTime in paintTimes) {
-                    startupTimes.push(paintTimes[paintTime]);
+                // First test whether we need to return the median startup times.
+                if(median) {
+                    // If we have more than one sessions paint time for the day
+                    // we need to calculate the median.
+                    if(paintTimesLength > 1) {
+                        var divisor = paintTimesLength;
+
+                        for(currentTime in paintTimes) {
+                            if(paintTimes.hasOwnProperty(currentTime)) {
+                                startupTimesTotal = startupTimesTotal + paintTimes[currentTime];
+                            }
+                        }
+                        // Calculate the media and push onto array
+                        startupTimes.push([new Date(currentDay).getTime(), Math.round(startupTimesTotal / divisor)]);
+                    } else {
+                        // This day only has one session, no need to calculate a median.
+                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[currentTime]]);
+                    }
+                } else {
+                    for(var paintTime in paintTimes) {
+                        startupTimes.push(paintTimes[paintTime]);
+                    }
                 }
             }
         }
     }
-    // Add the current sessions startup time to the end of the array
-    startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint);
+    // If median is true, we also need to add the date into the array.
+    if(median) {
+        var latest = new Date(payload.thisPingDate).getTime();
+        // Add the current sessions startup time and thisPingDate to the end of the array
+        startupTimes.push([
+            latest,
+            payload.data.last['org.mozilla.appSessions.current'].firstPaint
+        ]);
+    } else {
+        // Add the current sessions startup time to the end of the array
+        startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint);
+    }
 
     return startupTimes;
 },
-// This calculates our media startup time. For details
+// This calculates our median startup time to determine whether
+// we have a slow fox. For details:
 // @see https://bugzilla.mozilla.org/show_bug.cgi?id=849879
 calculateMedianStartupTime = function() {
     var days = payload.data.days,
