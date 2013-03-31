@@ -178,7 +178,7 @@ $(function() {
 
         // If our median startup time is greater than 20,
         // we have a slowfox
-        if(calculateMedianStartupTime() > 0) {
+        if(calculateMedianStartupTime() > 20) {
             $('#slowfox').show('slow');
         }
     }
