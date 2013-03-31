@@ -66,12 +66,7 @@ $(function() {
     // Handle close button clicks on tip boxes
     $(".closeTip").mouseup(function() {
         var tipBox = $(this).parent();
-        tipBox.toggleClass("close");
-
-        // When the transition completed, hide the element
-        tipBox[0].addEventListener('transitionend', function() {
-            tipBox.addClass("hide");
-        });
+        tipBox.hide("slow");
     });
 
     // Collapse and Expand Tip Box
