@@ -2,7 +2,9 @@ var ONE_DAY = 1000 * 60 * 60 * 24,
     ONE_WEEK = ONE_DAY * 7,
     NINETY_DAYS = ONE_DAY * 90,
     payload = null,
-    prefs = null;
+    prefs = null,
+    // Is this the first load for the document?
+    isFirstLoad = true;
 
 // Converts the day passed to a Date object and checks
 // whether the current month is equal to the month of the
@@ -381,11 +383,22 @@ var populateData = function(healthreport) {
 function init() {
   window.addEventListener("message", receiveMessage, false);
   reqPrefs();
-  reqPayload();
 }
 
 function receiveMessage(event) {
-  switch (event.data.type) {
+
+    // If this is the initial load of the page, we are
+    // only requesting prefs in init and then only once
+    // the message for this is received do we ask for
+    // the payload.
+    if(isFirstLoad && event.data.type === 'prefs') {
+        reqPayload();
+        isFirstLoad = false;
+    }
+
+    // The below handles all other on demand requests for
+    // prefs or payloads.
+    switch (event.data.type) {
     case "prefs":
         prefs = event.data.content;
         if(prefs.enabled) {
@@ -399,7 +412,7 @@ function receiveMessage(event) {
       populateData(payload);
       document.querySelector(".rawdata-display pre").textContent = JSON.stringify(payload, null, 2);
       break;
-  }
+    }
 }
 
 function disableSubmission() {
@@ -416,5 +429,9 @@ function reqPayload() {
 }
 function sendToBrowser(type) {
   var event = new CustomEvent("RemoteHealthReportCommand", {detail: {command: type}});
-  document.dispatchEvent(event);
+  try {
+    document.dispatchEvent(event);
+  } catch(e) {
+    console.log(e);
+  }
 }
