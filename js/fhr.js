@@ -1,9 +1,10 @@
 $(function() {
     var navListItems = $('.nav li'),
-        rawTabs = $('.raw-tabs li a'),
+        rawTabs = $('#raw_selector').find('li a'),
         navItems = navListItems.find('a'),
-        contentContainers = $('.outerContainer'),
-        rawContentContainers = $('.rawdata-display');
+        contentContainers = $('.mainContent'),
+        rawContentContainers = $('.rawdata-display'),
+        rawHeadings = $('.raw_heading');
 
     var showContainer = function(anchor) {
         // Get the id of the container to show from the href.
@@ -33,13 +34,15 @@ $(function() {
         event.preventDefault();
         // Ensure all content containers are hidden.
         rawContentContainers.hide();
+        rawHeadings.hide();
 
         // Deactivate all tabs
         rawTabs.removeClass('active');
         // Set the clicked anchor to active
         $(this).addClass('active');
 
-        showContainer($(this));
+        showContainer($(this), true);
+        $($(this).attr('href') + '_heading').show();
     });
 
     // Show and hide the statistics for viewports less than 768px
@@ -127,8 +130,8 @@ $(function() {
         var graphContainer = $('.graph'),
             graph = $.plot(graphContainer, [graphData], options);
     },
-    clearGraphSelectors = function() {
-        var graphSelectors = $('.graph_selector').find('li a');
+    clearSelectors = function(selector) {
+        var graphSelectors = $(selector).find('li a');
 
         graphSelectors.each(function() {
             $(this).removeClass('active');
@@ -138,7 +141,7 @@ $(function() {
     $('#graph_all').click(function(event) {
         event.preventDefault();
         // Clear all currently active selectors
-        clearGraphSelectors();
+        clearSelectors('#graph_selector');
 
         // Set this selector to active
         $(this).addClass('active');
@@ -148,7 +151,7 @@ $(function() {
     $('#graph_median').click(function(event) {
         event.preventDefault();
         // Clear all currently active selectors
-        clearGraphSelectors();
+        clearSelectors('#graph_selector');
 
         // Set this selector to active
         $(this).addClass('active');
@@ -175,7 +178,7 @@ $(function() {
 
         // If our median startup time is greater than 20,
         // we have a slowfox
-        if(calculateMedianStartupTime() > 20) {
+        if(calculateMedianStartupTime() > 0) {
             $('#slowfox').show('slow');
         }
     }
