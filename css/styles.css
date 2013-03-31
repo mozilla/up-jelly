@@ -71,7 +71,10 @@ dl {
   background-position: right center;
   background-size: 13px 100%;
 }
-
+/* Only displayed for viewports 768px or less */
+.menu_toggle {
+    display: none;
+}
 .mainContent {
   flex: 1;
   margin-top: 30px;
@@ -288,7 +291,20 @@ dl {
 .statsBoxSection-header {
   font-size: 18px;
   line-height: 18px;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+}
+.statsBoxSection-content {
+    background-image: -moz-linear-gradient(left, hsla(210,35%,8%,0), hsla(210,35%,8%,.1) 15%, hsla(210,35%,8%,.1) 85%, hsla(210,35%,8%,0)),
+                      -moz-linear-gradient(left, hsla(0,0%,100%,0), hsla(0,0%,100%,1) 15%, hsla(0,0%,100%,1) 85%, hsla(0,0%,100%,0));
+    background-size: auto 1px, auto 1px;
+    background-position: center bottom, center bottom;
+    background-repeat: no-repeat;
+    margin: 1rem 0;
+    padding-bottom: 1.5rem;
+    min-height: 2px;
+}
+.statsBox .statsBoxSection:last-child .statsBoxSection-content {
+    background: none;
 }
 .statsBoxSection-content ul {
     margin: 0;
@@ -305,7 +321,7 @@ dl {
 .statsBoxSection-header > .statsBoxSection-value {
   float: right;
   text-align: right;
-  font-size: .8em;
+  font-size: .9rem;
 }
 
 .statsBoxSection-content li > .statsBoxSection-value {
@@ -318,17 +334,6 @@ dl {
 .statsBox .icon {
   margin-right: 8px;
   vertical-align:baseline;
-}
-
-.statsBoxSection-separator {
-  margin: 1.5em 0;
-  min-height: 2px;
-  height: 2px;
-  background-image: -moz-linear-gradient(left, hsla(210,35%,8%,0), hsla(210,35%,8%,.1) 15%, hsla(210,35%,8%,.1) 85%, hsla(210,35%,8%,0)),
-                    -moz-linear-gradient(left, hsla(0,0%,100%,0), hsla(0,0%,100%,1) 15%, hsla(0,0%,100%,1) 85%, hsla(0,0%,100%,0));
-  background-size: auto 1px, auto 1px;
-  background-position: center top, center bottom;
-  background-repeat: no-repeat;
 }
 
 /* --- Tips --- */
@@ -486,7 +491,7 @@ dl {
 /* --- Graph --- */
 .graphbox {
     margin: 0 60px 30px;
-    width: auto;
+    width: 700px;
 }
 .graphbox h2 {
     margin: 0;
@@ -526,7 +531,7 @@ dl {
 }
 .graph {
     clear: both;
-    min-width: 600px;
+    width: 700px;
     height: 292px;
 }
 figcaption {
@@ -656,4 +661,60 @@ td {
 tr:nth-child(odd) td {
     background-color: #edecec;
     border-bottom: 1px dashed #999
+}
+/*http://developer.yahoo.com/blogs/ydn/posts/2012/10/clip-your-hidden-content-for-better-accessibility/*/
+.visually-hidden {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0;
+    border:0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        min-width: 0;
+        height: 20px;
+    }
+    .menu_toggle {
+        display: block;
+        position: absolute;
+        background: transparent url("../img/icn-menu.png") 0 0 no-repeat;
+        top: 20px;
+        left: 20px;
+        width: 25px;
+        height: 30px;
+    }
+    .statsBox {
+        background-color: #fff;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity 500ms, height 1s, width 1s;
+    }
+    .statsBox.show {
+        position: absolute;
+        top: -8px;
+        left: -15px;
+        padding: 20px 20px 0 20px;
+        width: 250px;
+        height: 460px;
+        border-bottom-right-radius: 6px;
+        box-shadow: -1px 0 4px rgb(153, 153, 153);
+        opacity: .95;
+        z-index: 9;
+        transition-property: opacity, height;
+        transition-duration: 1s, 500ms;
+    }
+    .statsBoxSection.show {
+        height: auto;
+    }
+    .statsBoxSection-content {
+        padding-bottom: .7rem;
+    }
 }
