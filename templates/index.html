@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <div id="health" class="outerContainer">
+        <div class="outerContainer">
             <div class="sidebar">
                 <!-- enabled by media queries -->
                 <a href="#showstats" id="showstats" class="menu_toggle"><span class="visually-hidden" aria-hidden="true">{{ _('Show Statistics') }}</span></a>
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mainContent">
+            <div id="health" class="mainContent">
                 <!-- TipBoxes -->
                 <div class="tipBoxes">
                     <div id="crashyfox" class="tipBox-container">
@@ -153,7 +153,7 @@
                 <figure class="graphbox">
                     <h2>{{ _('Startup Time by Day') }}</h2>
 
-                    <div class="graph_selector">
+                    <div id="graph_selector" class="selector">
                         <h4>{{ _('Graph:') }}</h4>
                         <ul>
                             <li><a href="#all" class="active" id="graph_all">{{ _('All') }}</a></li>
@@ -165,18 +165,19 @@
                     <figcaption>{{ _('Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.') }}  <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf">{{ _('Learn more...') }}</a></figcaption>
                 </figure>
             </div>
-        </div>
-
-        <!-- Raw Data -->
-        <div id="raw" class="outerContainer">
-            <div class="sidebar_tabs">
-                <ul class="raw-tabs">
-                    <li><a href="#data" class="active">{{ _('Data Collected') }}</a></li>
-                    <li><a href="#glossary">{{ _('Glossary') }}</a></li>
-                </ul>
-            </div>
-            <div class="mainContent">
+            <!-- RAW DATA -->
+            <div id="raw" class="mainContent">
                 <div class="rawdata-container">
+                    <h2 id="data_heading" class="raw_heading">{{ _('Raw Data') }}</h2>
+                    <h2 id="glossary_heading" class="raw_heading">{{ _('Glossary') }}</h2>
+
+                    <div class="selector raw">
+                        <ul id="raw_selector">
+                            <li><a href="#data" class="active" class="data_heading">{{ _('Raw Data') }}</a></li>
+                            <li><a href="#glossary" class="glossary_heading">{{ _('Glossary') }}</a></li>
+                        </ul>
+                    </div>
+
                     <section id="data" class="rawdata-display">
 <code>
 <pre>
@@ -186,7 +187,7 @@
                     </section>
                     <article id="glossary" class="rawdata-display">
                         <section>
-                        <h2>1) {{ _('What the Firefox Health Report Measures') }}</h2>
+                        <h3>1) {{ _('What the Firefox Health Report Measures') }}</h3>
                         <p>{{ _('The Firefox Health Report (FHR) has 4 categories of metrics:') }}</p>
                         <dl>
                             <dt><a href="#sec-2-1">{{ _('Configuration') }}</a></dt>
@@ -200,8 +201,8 @@
                         </dl>
                         </section>
                         <section>
-                            <h2>2) {{ _('Detailed Description') }}</h2>
-                            <h3 id="sec-2-1">2.1) {{ _('Configuration') }}</h3>
+                            <h3>2) {{ _('Detailed Description') }}</h3>
+                            <h4 id="sec-2-1">2.1) {{ _('Configuration') }}</h4>
                             <p>{{ _('Device hardware, operating system, Firefox version') }}</p>
                             <table rules="groups">
                                 <colgroup><col class="left" />
@@ -306,7 +307,7 @@
                             </table>
                         </section>
                         <section>
-                            <h3 id="sec-2-2">2.2) {{ _('Customizations') }}</h3>
+                            <h4 id="sec-2-2">2.2) {{ _('Customizations') }}</h4>
                             <p>{{ _('Add-ons, count and type') }}</p>
                             <table rules="groups">
                                 <colgroup><col class="left" />
@@ -371,7 +372,7 @@
                             </table>
                         </section>
                         <section>
-                            <h3 id="sec-2-3">2.3) {{ _('Performance') }}</h3>
+                            <h4 id="sec-2-3">2.3) {{ _('Performance') }}</h4>
                             <p>{{ _('Timing of browser events, rendering, session restores') }}</p>
                             <table rules="groups">
                                 <colgroup><col class="left" />
@@ -400,7 +401,7 @@
                             </table>
                         </section>
                         <section>
-                            <h3 id="sec-2-4">2.4) {{ _('Wear and Tear') }}</h3>
+                            <h4 id="sec-2-4">2.4) {{ _('Wear and Tear') }}</h4>
                             <p>{{ _('Length of session, how old a profile is, count of crashes, count of pages') }}</p>
                             <table rules="groups">
                                 <colgroup><col class="left" />

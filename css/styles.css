@@ -36,6 +36,10 @@ p:last-child {
 dl {
     line-height: 1.3rem;
 }
+h3 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
 .spacer {
   flex: 1;
 }
@@ -63,7 +67,8 @@ dl {
   min-height: 50px;
   width: 100%;
 }
-.sidebar {
+.sidebar,
+.sidebar_tabs {
   flex: 0;
   min-width: 360px;
   background-image: url(../img/sidebarSeparator.png);
@@ -77,6 +82,7 @@ dl {
 }
 .mainContent {
   flex: 1;
+  flex-direction: column;
   margin-top: 30px;
   min-width: 320px;
 }
@@ -340,8 +346,8 @@ dl {
 .tipBox-container {
   display: none;
   position: relative;
-  margin: 0 60px 10px;
-  width: auto;
+  margin: 0 60px 30px 60px;
+  width: 700px;
   background-color: hsl(0,0%,100%);
   border-radius: 2.5px;
   box-shadow: 0 0 1px hsla(210,35%,8%,.1),
@@ -493,31 +499,32 @@ dl {
     margin: 0 60px 30px;
     width: 700px;
 }
+.rawdata-container h2,
 .graphbox h2 {
     margin: 0;
     padding: 0;
     font-size: 2rem;
     font-weight: lighter;
 }
-.graph_selector {
+.selector {
     float: right;
     margin-right: 5px;
     margin-bottom: 20px;
 }
-.graph_selector h4,
-.graph_selector ul {
+.selector h4,
+.selector ul {
     font-weight: normal;
     display: inline;
 }
-.graph_selector ul {
+.selector ul {
     margin: 0;
     padding: 0;
 }
-.graph_selector li {
+.selector li {
     display: inline;
     list-style: none;
 }
-.graph_selector a {
+.selector a {
     display: inline-block;
     background-color: #e0e0e0;
     color: #333;
@@ -525,7 +532,7 @@ dl {
     /* Yeah, really ;) */
     letter-spacing: .5px;
 }
-.graph_selector a.active {
+.selector a.active {
     background-image: linear-gradient(#81BC2E, #659324);
     color: #fff;
 }
@@ -598,49 +605,20 @@ figcaption {
 #glossary {
   display: none;
 }
-#raw {
-    margin-top: 10px;
-}
-#glossary {
-    flex-direction: column;
-}
-.sidebar_tabs {
-    flex: 0;
-    min-width: 240px;
-}
-.raw-tabs {
-    display: flex;
-    flex-direction: column;
-    margin: 030px 60px;
-    padding: 0;
-    width: 180px;
-}
-.raw-tabs li {
-    list-style: none;
-}
-.raw-tabs a {
-    display: flex;
-    background-color: #edecec;
-    color: #333;
-    padding: 10px 20px;
-    border: 1px solid #333;
-    border-right: 0;
-    border-bottom: 0;
-}
-.raw-tabs li:last-child a {
-    border-bottom: 1px solid #333;
-}
-.raw-tabs a.active {
-    background-color: #e0e0e0;
-    font-weight: bold;
+#glossary_heading {
+    display: none;
 }
 .rawdata-container {
-    margin-bottom: 30px;
-    border: 1px solid #333;
+    margin: 0;
+}
+.rawdata-container h2 {
+    margin-left: 20px;
 }
 .rawdata-display {
-    background-color: #fff;
-    padding: .5rem 1.5rem
+    clear:both;
+    margin: 0 0 30px 20px;
+    width: 91%;
+    flex-direction: column;
 }
 /* Table styles */
 table {
@@ -716,5 +694,8 @@ tr:nth-child(odd) td {
     }
     .statsBoxSection-content {
         padding-bottom: .7rem;
+    }
+    .rawdata-container h2 {
+        margin: 0px 60px 30px
     }
 }
