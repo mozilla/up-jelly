@@ -42,6 +42,18 @@ $(function() {
         showContainer($(this));
     });
 
+    // Show and hide the statistics for viewports less than 768px
+    var showStatistics = $('#showstats'),
+        statsBox = $('.statsBox'),
+        statsBoxSection = $('.statsBoxSection');
+
+    showStatistics.click(function(event) {
+        event.preventDefault();
+
+        statsBox.toggleClass('show');
+        statsBoxSection.toggleClass('show');
+    });
+
     // Lightbox
     $('#my_report').click(function() {
         $('.lightbox').fadeOut('slow');

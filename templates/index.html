@@ -51,6 +51,8 @@
 
         <div id="health" class="outerContainer">
             <div class="sidebar">
+                <!-- enabled by media queries -->
+                <a href="#showstats" id="showstats" class="menu_toggle"><span class="visually-hidden" aria-hidden="true">{{ _('Show Statistics') }}</span></a>
                 <div class="statsBox">
 
                     <div class="statsBoxSection">
@@ -67,8 +69,6 @@
                         </div>
                     </div>
 
-                    <div class="statsBoxSection-separator"></div>
-
                     <div class="statsBoxSection">
                         <div class="statsBoxSection-header">
                             <img class="icon" src="img/icon-thisMonth.png" height="16" width="16">{{ _('This Month') }}
@@ -81,8 +81,6 @@
                         </div>
                     </div>
 
-                    <div class="statsBoxSection-separator"></div>
-
                     <div class="statsBoxSection">
                         <div class="statsBoxSection-header">
                             <img class="icon" src="img/icon-addons.png" height="16" width="16">{{ _('Add-ons') }}<span class="statsBoxSection-value"><!--{{ _('View List') }}--></span>
@@ -94,8 +92,6 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="statsBoxSection-separator"></div>
 
                     <div class="statsBoxSection">
                         <div class="statsBoxSection-header">
