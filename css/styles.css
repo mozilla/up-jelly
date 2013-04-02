@@ -496,6 +496,7 @@ h3 {
 
 /* --- Graph --- */
 .graphbox {
+    position: relative;
     margin: 0 60px 30px;
     width: 700px;
 }
@@ -540,6 +541,14 @@ h3 {
     clear: both;
     width: 700px;
     height: 292px;
+}
+.yaxis-label {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    font-size: .8rem;
+    transform: rotate(-90deg);
 }
 figcaption {
     margin-top: 1rem;

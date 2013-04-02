@@ -124,6 +124,9 @@ $(function() {
 
         var graphContainer = $('.graph'),
             graph = $.plot(graphContainer, [graphData], options);
+
+        // We are drawing a graph so show the Y-label
+        $('.yaxis-label').show();
     },
     clearSelectors = function(selector) {
         var graphSelectors = $(selector).find('li a');
