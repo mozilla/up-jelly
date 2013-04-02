@@ -1,0 +1,229 @@
+{
+  "version": 2,
+  "thisPingDate": "2013-04-02",
+  "geckoAppInfo": {
+    "_v": 1,
+    "vendor": "Mozilla",
+    "name": "Firefox",
+    "id": "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}",
+    "version": "22.0a1",
+    "appBuildID": "20130329040204",
+    "platformVersion": "22.0a1",
+    "platformBuildID": "20130329040204",
+    "os": "Darwin",
+    "xpcomabi": "x86_64-gcc3",
+    "updateChannel": "nightly-ux"
+  },
+  "data": {
+    "last": {
+      "org.mozilla.addons.active": {
+        "{d95f2237-07c7-b389-7956-65e6f1ce8e0a}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "7.7.1",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15511,
+          "updateDay": 15511
+        },
+        "{b0417cfa-8315-9282-d1ae-629120bf126c}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "11.6.602.180",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15777,
+          "updateDay": 15777
+        },
+        "{34154a6f-3444-2ec8-5bed-c4e38ea12876}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "3.16.0.12200",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15775,
+          "updateDay": 15775
+        },
+        "{5ec197e0-021d-a971-f2aa-ee0a077c5eb5}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "3.16.0.12200",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15750,
+          "updateDay": 15750
+        },
+        "{b14169e2-11ed-f9d5-279a-9754401447dd}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "0.1.44.24",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15775,
+          "updateDay": 15775
+        },
+        "{07b90314-1e79-c84a-4b47-fb7e1853be39}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "Java 7 Update 17",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15769,
+          "updateDay": 15769
+        },
+        "{9d23a3f2-e96d-2814-0e9c-49f6de10d96b}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "11.0.02",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15607,
+          "updateDay": 15607
+        },
+        "{59f388ba-f292-fa00-7cac-08235bd2d446}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "AdobeExManDetect 1.1.0.0",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15738,
+          "updateDay": 15738
+        },
+        "{25801b8f-7dd8-6a0e-fef2-209b7ced8bd2}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "2.9.1",
+          "type": "plugin",
+          "scope": 2,
+          "foreignInstall": true,
+          "installDay": 15643,
+          "updateDay": 15643
+        },
+        "_v": 1
+      },
+      "org.mozilla.appInfo.appinfo": {
+        "_v": 2,
+        "appBuildID": "20130329040204",
+        "distributionID": "",
+        "distributionVersion": "",
+        "hotfixVersion": "",
+        "id": "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}",
+        "locale": "en-US",
+        "name": "Firefox",
+        "os": "Darwin",
+        "platformBuildID": "20130329040204",
+        "platformVersion": "22.0a1",
+        "updateChannel": "nightly-ux",
+        "vendor": "Mozilla",
+        "version": "22.0a1",
+        "xpcomabi": "x86_64-gcc3"
+      },
+      "org.mozilla.profile.age": {
+        "_v": 1,
+        "profileCreation": 15793
+      },
+      "org.mozilla.appSessions.current": {
+        "_v": 3,
+        "startDay": 15797,
+        "activeTicks": 3,
+        "totalTime": 11,
+        "main": 236,
+        "firstPaint": 852,
+        "sessionRestored": -1
+      },
+      "org.mozilla.sysinfo.sysinfo": {
+        "_v": 1,
+        "cpuCount": 8,
+        "memoryMB": 16384,
+        "architecture": "x86-64",
+        "name": "Darwin",
+        "version": "12.3.0"
+      }
+    },
+    "days": {
+      "2013-04-02": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "plugin": 9,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 8,
+          "pages": 15
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 2,
+          "isBlocklistEnabled": 1,
+          "isDefaultBrowser": 0,
+          "isTelemetryEnabled": 0
+        }
+      },
+      "2013-03-29": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "plugin": 9,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 8,
+          "pages": 11
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 2,
+          "isBlocklistEnabled": 1,
+          "isDefaultBrowser": 0,
+          "isTelemetryEnabled": 0
+        },
+        "org.mozilla.appInfo.versions": {
+          "_v": 2,
+          "appVersion": [
+            "22.0a1"
+          ],
+          "platformVersion": [
+            "22.0a1"
+          ],
+          "appBuildID": [
+            "20130329040204"
+          ],
+          "platformBuildID": [
+            "20130329040204"
+          ]
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            52
+          ],
+          "cleanTotalTime": [
+            587
+          ],
+          "main": [
+            52
+          ],
+          "firstPaint": [
+            668
+          ],
+          "sessionRestored": [
+            -1
+          ]
+        }
+      },
+      "2013-02-06": {
+        "org.mozilla.crashes.crashes": {
+          "_v": 1,
+          "submitted": 1
+        }
+      }
+    }
+  }
+}
