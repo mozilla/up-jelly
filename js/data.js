@@ -207,7 +207,7 @@ getAllStartupTimes = function(median) {
             var sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
                 paintTimes = null,
                 paintTimesLength = 0,
-                currentTime = 0,
+                paintTime = 0,
                 startupTimesTotal = 0;
 
             // Test whether the current day contains either session
@@ -221,22 +221,25 @@ getAllStartupTimes = function(median) {
                     // If we have more than one sessions paint time for the day
                     // we need to calculate the median.
                     if(paintTimesLength > 1) {
-                        var divisor = paintTimesLength;
+                        var divisor = paintTimesLength,
+                            startupTimeMedian = 0;
 
-                        for(currentTime in paintTimes) {
-                            if(paintTimes.hasOwnProperty(currentTime)) {
-                                startupTimesTotal = startupTimesTotal + paintTimes[currentTime];
+                        for(paintTime in paintTimes) {
+                            if(paintTimes.hasOwnProperty(paintTime)) {
+                                startupTimesTotal = startupTimesTotal + paintTimes[paintTime];
                             }
                         }
-                        // Calculate the media and push onto array
-                        startupTimes.push([new Date(currentDay).getTime(), Math.round(startupTimesTotal / divisor)]);
+                        // Calculate the median, convert to seconds and push onto array
+                        startupTimeMedian = Math.round((startupTimesTotal / divisor) / 1000);
+                        startupTimes.push([new Date(currentDay).getTime(), startupTimeMedian]);
                     } else {
-                        // This day only has one session, no need to calculate a median.
-                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[currentTime]]);
+                        // This day only has one session, convert to seconds, no need to calculate
+                        // a median.
+                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                     }
                 } else {
-                    for(var paintTime in paintTimes) {
-                        startupTimes.push(paintTimes[paintTime]);
+                    for(paintTime in paintTimes) {
+                        startupTimes.push(paintTimes[paintTime] / 1000);
                     }
                 }
             }
@@ -245,14 +248,14 @@ getAllStartupTimes = function(median) {
     // If median is true, we also need to add the date into the array.
     if(median) {
         var latest = new Date(payload.thisPingDate).getTime();
-        // Add the current sessions startup time and thisPingDate to the end of the array
+        // Add the current session's startup time and thisPingDate to the end of the array
         startupTimes.push([
             latest,
-            payload.data.last['org.mozilla.appSessions.current'].firstPaint
+            payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
         ]);
     } else {
-        // Add the current sessions startup time to the end of the array
-        startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint);
+        // Add the current session's startup time to the end of the array
+        startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000);
     }
 
     return startupTimes;
@@ -290,11 +293,12 @@ calculateMedianStartupTime = function() {
         // Sort the paint times from fastest to slowest
         startupTimes.sort().reverse();
 
-        // Get items 7 and 8 (75th percentile), convert to seconds and then calculate the average
-        median = Math.round(((startupTimes[6] / 1000) + (startupTimes[7] / 1000) / 2));
+        // Get items 7 and 8 (75th percentile), then calculate the average
+        median = Math.round(((startupTimes[6]) + (startupTimes[7]) / 2));
 
     }
-    return median;
+    // Covert the median to seconds before returning.
+    return median / 1000;
 },
 // Returns an addonsState object indicating the number of addons that are
 // either enabled or disabled.
