@@ -72,7 +72,7 @@ calculateTotalTime = function(healthreport, historically) {
         }
     }
     // Return time in minutes.
-    return Math.round(totalTimeOpen / (1000*60));
+    return Math.round(totalTimeOpen / 60);
 },
 getLastCrashDate = function(days) {
     var sortedDates = sortDates(days, true),
