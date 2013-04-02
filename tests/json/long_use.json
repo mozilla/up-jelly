@@ -1,0 +1,886 @@
+{
+  "version": 2,
+  "thisPingDate": "2013-04-02",
+  "geckoAppInfo": {
+    "_v": 1,
+    "vendor": "Mozilla",
+    "name": "Firefox",
+    "id": "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}",
+    "version": "22.0a1",
+    "appBuildID": "20130329030904",
+    "platformVersion": "22.0a1",
+    "platformBuildID": "20130329030904",
+    "os": "Darwin",
+    "xpcomabi": "x86_64-gcc3",
+    "updateChannel": "nightly"
+  },
+  "data": {
+    "last": {
+      "org.mozilla.addons.active": {
+        "masspasswordreset@johnathan.nightingale": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "1.05",
+          "type": "extension",
+          "scope": 1,
+          "foreignInstall": false,
+          "hasBinaryComponents": false,
+          "installDay": 15610,
+          "updateDay": 15610
+        },
+        "testpilot@labs.mozilla.com": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "1.2.2",
+          "type": "extension",
+          "scope": 1,
+          "foreignInstall": false,
+          "hasBinaryComponents": false,
+          "installDay": 15240,
+          "updateDay": 15603
+        },
+        "crashme@ted.mielczarek.org": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "0.4",
+          "type": "extension",
+          "scope": 1,
+          "foreignInstall": false,
+          "hasBinaryComponents": false,
+          "installDay": 15763,
+          "updateDay": 15763
+        },
+        "{b0417cfa-8315-9282-d1ae-629120bf126c}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "11.6.602.180",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15777,
+          "updateDay": 15777
+        },
+        "{5ec197e0-021d-a971-f2aa-ee0a077c5eb5}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "3.16.0.12200",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15756,
+          "updateDay": 15756
+        },
+        "{34154a6f-3444-2ec8-5bed-c4e38ea12876}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "3.16.0.12200",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15775,
+          "updateDay": 15775
+        },
+        "{b14169e2-11ed-f9d5-279a-9754401447dd}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "0.1.44.24",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15775,
+          "updateDay": 15775
+        },
+        "{d0cf9c72-d703-e4f7-a488-743e2bfeafca}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "1.39577M",
+          "type": "plugin",
+          "scope": 2,
+          "foreignInstall": true,
+          "installDay": 15784,
+          "updateDay": 15784
+        },
+        "{d95f2237-07c7-b389-7956-65e6f1ce8e0a}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "7.7.1",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15150,
+          "updateDay": 15150
+        },
+        "{07b90314-1e79-c84a-4b47-fb7e1853be39}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "14.3.0",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15150,
+          "updateDay": 15150
+        },
+        "{1dd76e68-354a-331e-74af-fd3c9114fe0b}": {
+          "userDisabled": false,
+          "appDisabled": false,
+          "version": "14.2.3",
+          "type": "plugin",
+          "scope": 8,
+          "foreignInstall": true,
+          "installDay": 15432,
+          "updateDay": 15432
+        },
+        "_v": 1
+      },
+      "org.mozilla.appInfo.appinfo": {
+        "_v": 2,
+        "appBuildID": "20130329030904",
+        "distributionID": "",
+        "distributionVersion": "",
+        "hotfixVersion": "",
+        "id": "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}",
+        "locale": "en-US",
+        "name": "Firefox",
+        "os": "Darwin",
+        "platformBuildID": "20130329030904",
+        "platformVersion": "22.0a1",
+        "updateChannel": "nightly",
+        "vendor": "Mozilla",
+        "version": "22.0a1",
+        "xpcomabi": "x86_64-gcc3"
+      },
+      "org.mozilla.profile.age": {
+        "_v": 1,
+        "profileCreation": 15240
+      },
+      "org.mozilla.appSessions.current": {
+        "_v": 3,
+        "startDay": 15793,
+        "activeTicks": 2217,
+        "totalTime": 329889,
+        "main": 554,
+        "firstPaint": 1648,
+        "sessionRestored": 2061
+      },
+      "org.mozilla.sysinfo.sysinfo": {
+        "_v": 1,
+        "cpuCount": 4,
+        "memoryMB": 4096,
+        "architecture": "x86-64",
+        "name": "Darwin",
+        "version": "11.4.0"
+      }
+    },
+    "days": {
+      "2013-04-02": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 2,
+          "isBlocklistEnabled": 1,
+          "isDefaultBrowser": 1,
+          "isTelemetryEnabled": 1
+        }
+      },
+      "2013-04-01": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 43774
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 2,
+          "google.searchbar": 5
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 2,
+          "isBlocklistEnabled": 1,
+          "isDefaultBrowser": 1,
+          "isTelemetryEnabled": 1
+        }
+      },
+      "2013-03-29": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 43715
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 2,
+          "isBlocklistEnabled": 1,
+          "isDefaultBrowser": 1,
+          "isTelemetryEnabled": 1
+        },
+        "org.mozilla.appInfo.versions": {
+          "_v": 2,
+          "platformVersion": [
+            "22.0a1"
+          ],
+          "appBuildID": [
+            "20130329030904"
+          ],
+          "platformBuildID": [
+            "20130329030904"
+          ],
+          "appVersion": [
+            "22.0a1"
+          ]
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            24
+          ],
+          "cleanTotalTime": [
+            175
+          ],
+          "main": [
+            501
+          ],
+          "firstPaint": [
+            1407
+          ],
+          "sessionRestored": [
+            8973
+          ]
+        }
+      },
+      "2013-03-28": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 43643
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 4
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appInfo.versions": {
+          "_v": 2,
+          "appBuildID": [
+            "20130326042012"
+          ],
+          "platformBuildID": [
+            "20130326042012"
+          ]
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            851
+          ],
+          "cleanTotalTime": [
+            95679
+          ],
+          "main": [
+            347,
+            276
+          ],
+          "firstPaint": [
+            1776,
+            1073
+          ],
+          "sessionRestored": [
+            3076,
+            1112
+          ],
+          "abortedActiveTicks": [
+            125
+          ],
+          "abortedTotalTime": [
+            4825
+          ]
+        }
+      },
+      "2013-03-27": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 43484
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 4
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-26": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 43307
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "amazon.com.searchbar": 1,
+          "google.searchbar": 33
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appInfo.versions": {
+          "_v": 2,
+          "platformVersion": [
+            "21.0a2"
+          ],
+          "appBuildID": [
+            "20130325042013"
+          ],
+          "platformBuildID": [
+            "20130325042013"
+          ]
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            49
+          ],
+          "cleanTotalTime": [
+            345
+          ],
+          "main": [
+            4360,
+            57
+          ],
+          "firstPaint": [
+            5818,
+            854
+          ],
+          "sessionRestored": [
+            6260,
+            1324
+          ],
+          "abortedActiveTicks": [
+            2600
+          ],
+          "abortedTotalTime": [
+            123769
+          ]
+        }
+      },
+      "2013-03-25": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 61,
+          "pages": 42972
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 7,
+          "google.urlbar": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-24": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 42904
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 4
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-22": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 42885
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 2
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-21": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 42721
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 6
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-20": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 8,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 42531
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 7
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            6888
+          ],
+          "cleanTotalTime": [
+            469979
+          ],
+          "main": [
+            520
+          ],
+          "firstPaint": [
+            1645
+          ],
+          "sessionRestored": [
+            1690
+          ]
+        }
+      },
+      "2013-03-18": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41961
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "amazon.com.searchbar": 2,
+          "google.searchbar": 10,
+          "other.searchbar": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.crashes.crashes": {
+          "_v": 1,
+          "submitted": 1
+        }
+      },
+      "2013-03-15": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41747
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 2
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-13": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41738
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "main": [
+            2413
+          ],
+          "firstPaint": [
+            3620
+          ],
+          "sessionRestored": [
+            5963
+          ],
+          "abortedActiveTicks": [
+            1
+          ],
+          "abortedTotalTime": [
+            23
+          ]
+        }
+      },
+      "2013-03-12": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41689
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 2
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            1254,
+            1254
+          ],
+          "cleanTotalTime": [
+            88806,
+            88806
+          ],
+          "main": [
+            2315,
+            2315
+          ],
+          "firstPaint": [
+            3464,
+            3464
+          ],
+          "sessionRestored": [
+            6529,
+            6529
+          ]
+        }
+      },
+      "2013-03-11": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41608
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 7
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            0,
+            610
+          ],
+          "cleanTotalTime": [
+            128,
+            82481
+          ],
+          "main": [
+            363,
+            351
+          ],
+          "firstPaint": [
+            1654,
+            1143
+          ],
+          "sessionRestored": [
+            4688,
+            4084
+          ]
+        }
+      },
+      "2013-03-09": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41486
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-08": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41414
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 7
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        }
+      },
+      "2013-03-07": {
+        "org.mozilla.addons.counts": {
+          "_v": 1,
+          "extension": 3,
+          "plugin": 7,
+          "theme": 1
+        },
+        "org.mozilla.places.places": {
+          "_v": 1,
+          "bookmarks": 60,
+          "pages": 41213
+        },
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 14,
+          "google.urlbar": 1,
+          "other.searchbar": 2
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appInfo.versions": {
+          "_v": 1,
+          "version": [
+            "21.0a2"
+          ]
+        }
+      },
+      "2013-03-19": {
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 9,
+          "other.searchbar": 1
+        },
+        "org.mozilla.appInfo.appinfo": {
+          "_v": 1,
+          "isDefaultBrowser": 1
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "main": [
+            355
+          ],
+          "firstPaint": [
+            1526
+          ],
+          "sessionRestored": [
+            -1
+          ],
+          "abortedActiveTicks": [
+            21
+          ],
+          "abortedTotalTime": [
+            255
+          ]
+        }
+      },
+      "2013-03-06": {
+        "org.mozilla.searches.counts": {
+          "_v": 1,
+          "google.searchbar": 4
+        },
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "main": [
+            354
+          ],
+          "firstPaint": [
+            1651
+          ],
+          "sessionRestored": [
+            2205
+          ],
+          "abortedActiveTicks": [
+            68
+          ],
+          "abortedTotalTime": [
+            524
+          ]
+        }
+      },
+      "2013-02-13": {
+        "org.mozilla.crashes.crashes": {
+          "_v": 1,
+          "pending": 2
+        }
+      },
+      "2013-01-28": {
+        "org.mozilla.crashes.crashes": {
+          "_v": 1,
+          "pending": 1
+        }
+      },
+      "2013-01-16": {
+        "org.mozilla.crashes.crashes": {
+          "_v": 1,
+          "submitted": 1
+        }
+      },
+      "2013-03-04": {
+        "org.mozilla.appSessions.previous": {
+          "_v": 3,
+          "cleanActiveTicks": [
+            462,
+            2736,
+            2736
+          ],
+          "cleanTotalTime": [
+            6508666,
+            166783,
+            166783
+          ],
+          "main": [
+            516,
+            13790,
+            48,
+            48
+          ],
+          "firstPaint": [
+            1747,
+            14549,
+            678,
+            678
+          ],
+          "sessionRestored": [
+            2378,
+            26933,
+            1116,
+            1116
+          ],
+          "abortedActiveTicks": [
+            5
+          ],
+          "abortedTotalTime": [
+            56
+          ]
+        }
+      }
+    }
+  },
+  "lastPingDate": "2013-04-01"
+}
