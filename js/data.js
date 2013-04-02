@@ -130,19 +130,19 @@ calculateCrashesTotal = function(crashes) {
 },
 // Calculate the total number of crashes for a period of time.
 // Currently support week, month and all, which is the default.
-getTotalNumberOfCrashes = function(period) {
+getTotalNumberOfCrashes = function(period, customPayload) {
     var crashesTotal = 0,
-        days = payload.data.days;
+        days = customPayload ? customPayload.data.days : payload.data.days;
 
     for(var day in days) {
         if(days.hasOwnProperty(day)) {
             var crashes = days[day]['org.mozilla.crashes.crashes'];
 
-            if(typeof period !== 'undefined') {
+            if(period !== 'all') {
                 var today = new Date(),
                     // Test whether the current date falls within the last week.
                     weekCondition = days[day] >= today - ONE_WEEK,
-                    monthCondition = isCurrentMonth(days[day]),
+                    monthCondition = isCurrentMonth(day),
                     condition = period === 'week' ? weekCondition : monthCondition;
 
                 if(condition) {
