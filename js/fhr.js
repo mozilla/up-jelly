@@ -94,8 +94,17 @@ $(function() {
 
         var startupTimes = getAllStartupTimes(median),
             startupTimesLength = startupTimes.length,
-            graphData = [],
             options = {
+                grid: {
+                    markings: function(axes) {
+                        var markings = [];
+                        var xaxis = axes.xaxis;
+
+                        markings.push({ xaxis: { from: 0, to: 2 }, yaxis: { from: 10, to: 10 }, color: "#bb0000" });
+
+                        return markings;
+                    }
+                },
                 colors: ['#50B432'],
                 series: {
                     points: {
@@ -106,24 +115,12 @@ $(function() {
                 xaxis: {
                     mode: 'time',
                     alignTicksWithAxis: true,
-                    show: median
+                    ticks: 14,
+                    show: true
                 }
-            };
-
-        // If we are currently drawing the median graph, we do not
-        // need to add indexes to the array as they are already filled
-        // with the appropriate dates.
-        if(median) {
-            graphData = startupTimes;
-        } else {
-            for(var i = 0; i < startupTimesLength; i++) {
-                // Push the index and the value
-                graphData.push([i, startupTimes[i]]);
-            }
-        }
-
-        var graphContainer = $('.graph'),
-            graph = $.plot(graphContainer, [graphData], options);
+            },
+            graphContainer = $('.graph'),
+            graph = $.plot(graphContainer, [startupTimes], options);
 
         // We are drawing a graph so show the Y-label
         $('.yaxis-label').show();

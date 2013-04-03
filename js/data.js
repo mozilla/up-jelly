@@ -1,6 +1,6 @@
 var ONE_DAY = 1000 * 60 * 60 * 24,
     ONE_WEEK = ONE_DAY * 7,
-    NINETY_DAYS = ONE_DAY * 90,
+    TWO_WEEKS = ONE_DAY * 14,
     payload = null,
     prefs = null,
     // Is this the first load for the document?
@@ -185,17 +185,16 @@ getSessionsCount = function(customPayload) {
 
     return cleanSessions + abortedSessions;
 },
-// Gets all startup times (paintTimes), either simply returning all
-// startup times as a simple array or, as the median for each day over
-// the past 90 days. If median is true, the data will be returned as an
-// array of arrays containing the date and the median for that date ex.
+// Gets all startup times (paintTimes), or the median for each day over
+// the past 14 days. Data will be returned as an array of arrays
+// containing the date and the median or paintTime for that date ex.
 // [['2013-02-06', 657], ['2013-02-07', 989]]
 getAllStartupTimes = function(median) {
     var days = payload.data.days,
         startupTimes = [],
         sortedDates = sortDates(payload.data.days, false),
         today = new Date(),
-        ninetyDaysAgo = new Date(today - NINETY_DAYS);
+        twoWeeksAgo = new Date(today - TWO_WEEKS);
 
     for(var day in sortedDates) {
         var currentDay = sortedDates[day],
@@ -203,8 +202,8 @@ getAllStartupTimes = function(median) {
             // we need currentDay as a Date object.
             currentDayAsDate = new Date(currentDay);
 
-        // We only want to display startup times for at most the last 90 days.
-        if(currentDayAsDate >= ninetyDaysAgo && sortedDates.hasOwnProperty(day)) {
+        // We only want to display startup times for at most the last 14 days.
+        if(currentDayAsDate >= twoWeeksAgo && sortedDates.hasOwnProperty(day)) {
             var sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
                 paintTimes = null,
                 paintTimesLength = 0,
@@ -240,24 +239,18 @@ getAllStartupTimes = function(median) {
                     }
                 } else {
                     for(paintTime in paintTimes) {
-                        startupTimes.push(paintTimes[paintTime] / 1000);
+                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                     }
                 }
             }
         }
     }
-    // If median is true, we also need to add the date into the array.
-    if(median) {
-        var latest = new Date(payload.thisPingDate).getTime();
-        // Add the current session's startup time and thisPingDate to the end of the array
-        startupTimes.push([
-            latest,
-            payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
-        ]);
-    } else {
-        // Add the current session's startup time to the end of the array
-        startupTimes.push(payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000);
-    }
+    var latest = new Date().getTime();
+    // Add the current session's startup time to the end of the array
+    startupTimes.push([
+        latest,
+        payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
+    ]);
 
     return startupTimes;
 },
