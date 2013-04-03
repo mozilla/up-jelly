@@ -50,6 +50,29 @@ strings and add them to the .lang files.
 
 should do the trick.
 
+## Run individual functions against your own custom JSON
+
+To enable further debugging of individual functions of FHR you can use the roll your
+own JSON page. In order to use this, follow these steps:
+
+1) Clone this repo:
+
+    git clone git://github.com/mozilla/fhr-jelly.git
+    
+2) You need to run this on a simple web server. The easiest is to use the built in
+server that comes with Python. Add the following to your .bash_profile
+
+    # usage
+    # $ server
+    alias server='python -m SimpleHTTPServer && open http://localhost:8000'
+    
+3) Change directory into the FHR clone and run:
+
+    server
+
+4) Open up your browser and point it to http://localhost:8000/tests/custom/no_index.html.
+Paste your JSON and fire away!
+
 ## License
 
 This software is licensed under the [Mozilla Tri-License][MPL]:
