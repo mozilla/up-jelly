@@ -70,8 +70,8 @@ server that comes with Python. Add the following to your .bash_profile
 
     server
 
-4) Open up your browser and point it to http://localhost:8000/tests/custom/no_index.html
-5) Paste your JSON and fire away!
+4) Open up your browser and point it to http://localhost:8000/tests/custom/no_index.html.
+Paste your JSON and fire away!
 
 ## License
 
