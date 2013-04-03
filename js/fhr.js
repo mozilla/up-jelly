@@ -90,16 +90,6 @@ $(function() {
         var startupTimes = getAllStartupTimes(median),
             startupTimesLength = startupTimes.length,
             options = {
-                grid: {
-                    markings: function(axes) {
-                        var markings = [];
-                        var xaxis = axes.xaxis;
-
-                        markings.push({ xaxis: { from: 0, to: 2 }, yaxis: { from: 10, to: 10 }, color: "#bb0000" });
-
-                        return markings;
-                    }
-                },
                 colors: ['#50B432'],
                 series: {
                     points: {
