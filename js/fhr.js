@@ -100,6 +100,7 @@ $(function() {
                 xaxis: {
                     mode: 'time',
                     alignTicksWithAxis: true,
+                    timeformat: "%b %d",
                     ticks: 14,
                     show: true
                 }
