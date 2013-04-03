@@ -1,0 +1,39 @@
+body {
+    font-family: Open Sans;
+}
+h2 {
+    margin-bottom: 0;
+    font-size: 3rem;
+    letter-spacing: -2px;
+}
+form {
+    float: left;
+    width: 98%;
+}
+textarea {
+    width: 45%;
+    height: 400px;
+}
+fieldset {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    margin-top: 20px;
+}
+fieldset label {
+    display: block;
+    margin: 10px;
+}
+input[type="radio"] {
+    margin-right: 10px;
+}
+.output_container {
+    clear: both;
+    width: 100%;
+}
+#output {
+    background-color: #edecec;
+    padding: 2em;
+    border: 1px dashed #333;
+    width: 85%;
+}
