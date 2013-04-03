@@ -57,11 +57,6 @@ $(function() {
         statsBoxSection.toggleClass('show');
     });
 
-    // Lightbox
-    $('#my_report').click(function() {
-        $('.lightbox').fadeOut('slow');
-    });
-
     // Tip Boxes
     // Handle close button clicks on tip boxes
     $(".closeTip").mouseup(function() {
