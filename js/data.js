@@ -28,6 +28,7 @@ sortDates = function(days, descending) {
     }
     return descending ? dates.sort().reverse() : dates.sort();
 },
+// Returns the total open time
 calculateTotalTime = function(healthreport, historically) {
     var days = healthreport.data.days,
         totalTimeOpen = parseInt(healthreport.data.last['org.mozilla.appSessions.current'].totalTime, 10);
@@ -155,8 +156,8 @@ getTotalNumberOfCrashes = function(period, customPayload) {
     }
     return crashesTotal;
 },
-getSessionsCount = function() {
-    var days = payload.data.days,
+getSessionsCount = function(customPayload) {
+    var days = customPayload ? customPayload.data.days : payload.data.days,
         cleanSessions = 0,
         abortedSessions = 0;
 
