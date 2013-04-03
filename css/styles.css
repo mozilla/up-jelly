@@ -252,38 +252,6 @@ h3 {
   color: #8a9199;
 }
 
-/* --- Intro Lightbox Overlay --- */
-.lightbox {
-  display: block;
-  position: absolute;
-  background-color: hsla(210,35%,8%,.8);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 50;
-}
-.lightbox-content {
-  background-color: #fff;
-  margin: 200px auto;
-  padding: 4rem;
-  border-radius: 2px;
-  width: 400px;
-  text-align: center;
-  line-height: 1.2rem;
-  box-shadow: 0 0 1px hsla(210,35%,8%,.25),
-              0 2px 20px hsla(210,35%,8%,.5);
-  overflow: hidden;
-  transform: translateY(0);
-  transition-property: transform, opacity;
-  transition-duration: 250ms, 250ms;
-  transition-delay: 250ms, 0ms;
-  transition-timing-function: ease;
-}
-.lightbox-content h2 {
-  font-size: 2rem;
-}
-
 /* --- Stats Box --- */
 .statsBoxSection {
   height: 100%;
