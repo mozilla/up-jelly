@@ -87,8 +87,7 @@ $(function() {
 
     var drawGraph = function(median) {
 
-        var startupTimes = getAllStartupTimes(median),
-            startupTimesLength = startupTimes.length,
+        var graphData = getAllStartupTimes(median),
             options = {
                 colors: ['#50B432'],
                 series: {
@@ -99,14 +98,12 @@ $(function() {
                 },
                 xaxis: {
                     mode: 'time',
-                    alignTicksWithAxis: true,
-                    timeformat: "%b %d",
-                    ticks: 14,
+                    ticks: graphData.dateCount,
                     show: true
                 }
             },
             graphContainer = $('.graph'),
-            graph = $.plot(graphContainer, [startupTimes], options);
+            graph = $.plot(graphContainer, [graphData.startupTimes], options);
 
         // We are drawing a graph so show the Y-label
         $('.yaxis-label').show();
