@@ -354,11 +354,11 @@ var populateData = function(healthreport) {
 
     // Create all of the needed data arrays.
     vitalStats.push(healthreport.geckoAppInfo.platformVersion);
-    vitalStats.push(calculateTotalTime(healthreport, true) + ' minutes');
+    vitalStats.push(calculateTotalTime(healthreport, true) + ' min');
     vitalStats.push(getLastCrashDate(healthreport.data.days));
     vitalStats.push(getBookmarksTotal(healthreport.data.days));
 
-    thisMonth.push(calculateTotalTime(healthreport, false) + ' minutes');
+    thisMonth.push(calculateTotalTime(healthreport, false) + ' min');
     thisMonth.push(getTotalNumberOfCrashes('month'));
 
     addons.push(extensionsInfo.enabled);
