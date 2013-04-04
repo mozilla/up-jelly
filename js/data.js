@@ -186,12 +186,17 @@ getSessionsCount = function(customPayload) {
     return cleanSessions + abortedSessions;
 },
 // Gets all startup times (paintTimes), or the median for each day over
-// the past 14 days. Data will be returned as an array of arrays
-// containing the date and the median or paintTime for that date ex.
-// [['2013-02-06', 657], ['2013-02-07', 989]]
+// the past 14 days. Data will be returned as an obejct as follows:
+// graphData = {
+//     dateCount: 2,
+//     startupTimes: [['1360108800000', 657], ['1360108800000', 989]]
+// }
 getAllStartupTimes = function(median) {
     var days = payload.data.days,
-        startupTimes = [],
+        graphData = {
+            dateCount: 0,
+            startupTimes: []
+        },
         sortedDates = sortDates(payload.data.days, false),
         today = new Date(),
         twoWeeksAgo = new Date(today - TWO_WEEKS);
@@ -216,6 +221,9 @@ getAllStartupTimes = function(median) {
                 paintTimes = sessionsInfo.firstPaint;
                 paintTimesLength = paintTimes.length;
 
+                // For each day for which we have data, increase the dateCount.
+                ++graphData.dateCount;
+
                 // First test whether we need to return the median startup times.
                 if(median) {
                     // If we have more than one sessions paint time for the day
@@ -231,28 +239,30 @@ getAllStartupTimes = function(median) {
                         }
                         // Calculate the median, convert to seconds and push onto array
                         startupTimeMedian = Math.round((startupTimesTotal / divisor) / 1000);
-                        startupTimes.push([new Date(currentDay).getTime(), startupTimeMedian]);
+                        graphData.startupTimes.push([new Date(currentDay).getTime(), startupTimeMedian]);
                     } else {
                         // This day only has one session, convert to seconds, no need to calculate
                         // a median.
-                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                     }
                 } else {
                     for(paintTime in paintTimes) {
-                        startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                     }
                 }
             }
         }
     }
     var latest = new Date().getTime();
+    // Add one more for the current day.
+    graphData.dateCount = graphData.dateCount + 1;
     // Add the current session's startup time to the end of the array
-    startupTimes.push([
+    graphData.startupTimes.push([
         latest,
         payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
     ]);
 
-    return startupTimes;
+    return graphData;
 },
 // This calculates our median startup time to determine whether
 // we have a slow fox. For details:
