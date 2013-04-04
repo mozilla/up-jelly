@@ -233,7 +233,7 @@ getAllStartupTimes = function(median) {
                             startupTimeMedian = 0;
 
                         for(paintTime in paintTimes) {
-                            if(paintTimes.hasOwnProperty(paintTime)) {
+                            if(paintTimes.hasOwnProperty(paintTime) && paintTimes[paintTime]>0) {
                                 startupTimesTotal = startupTimesTotal + paintTimes[paintTime];
                             }
                         }
@@ -243,11 +243,15 @@ getAllStartupTimes = function(median) {
                     } else {
                         // This day only has one session, convert to seconds, no need to calculate
                         // a median.
-                        graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        if (paintTimes[paintTime]>0) {
+                            graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        }
                     }
                 } else {
                     for(paintTime in paintTimes) {
-                        graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        if (paintTimes[paintTime]>0) {
+                            graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
+                        }
                     }
                 }
             }
@@ -255,12 +259,14 @@ getAllStartupTimes = function(median) {
     }
     var latest = new Date().getTime();
     // Add one more for the current day.
-    graphData.dateCount = graphData.dateCount + 1;
-    // Add the current session's startup time to the end of the array
-    graphData.startupTimes.push([
-        latest,
-        payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
-    ]);
+    if (payload.data.last['org.mozilla.appSessions.current'].firstPaint > 0) {    
+        graphData.dateCount = graphData.dateCount + 1;
+        // Add the current session's startup time to the end of the array
+        graphData.startupTimes.push([
+            latest,
+            payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
+        ]);
+     }
 
     return graphData;
 },
@@ -288,8 +294,10 @@ calculateMedianStartupTime = function() {
                 // and ensure that we have paint times to add.
                 if(counter < 10 && typeof paintTimes !== 'undefined') {
                     for(var paintTime in paintTimes) {
-                        startupTimes.push(paintTimes[paintTime]);
-                        ++counter;
+                        if (paintTime > 0) {
+                            startupTimes.push(paintTimes[paintTime]);
+                            ++counter;
+                        }
                     }
                 }
             }
