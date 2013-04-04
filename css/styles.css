@@ -466,6 +466,7 @@ h3 {
 
 /* --- Graph --- */
 .graphbox {
+    display: none;
     position: relative;
     margin: 0 60px 30px;
     width: 700px;
