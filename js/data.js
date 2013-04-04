@@ -1,73 +1,10 @@
-var FIVE_MINUTES = 5 * (60 * 1000),
-    ONE_DAY = 1000 * 60 * 60 * 24,
+var ONE_DAY = 1000 * 60 * 60 * 24,
     ONE_WEEK = ONE_DAY * 7,
     TWO_WEEKS = ONE_DAY * 14,
     payload = null,
     prefs = null,
     // Is this the first load for the document?
     isFirstLoad = true;
-
-
-// Function object that contains the count, sum,
-// minimum, quartiles, maximum, mean, variance, and
-// standard deviation of the series of numbers stored
-// in the specified array of sorted numbers.
-// Thanks @deinspanjer
-var Stats = function(data) {
-    var result = {};
-
-    data.sort(function(a,b) {
-        return a-b;
-    });
-
-    result.count = data.length;
-
-    // Since the data is sorted, the minimum value
-    // is at the beginning of the array, the median
-    // value is in the middle of the array, and the
-    // maximum value is at the end of the array.
-    result.min = data[0];
-    result.max = data[data.length - 1];
-
-    var ntileFunc = function(percentile) {
-
-        if (data.length == 1) {
-            return data[0];
-        }
-
-        var ntileRank = (percentile / 100) * (data.length + 1),
-            integralRank = Math.floor(ntileRank),
-            fractionalRank = ntileRank - integralRank,
-            lowerValue = data[integralRank-1],
-            upperValue = percentile === 99 ? result.max : data[integralRank];
-
-        return (fractionalRank * (upperValue - lowerValue)) + lowerValue;
-    };
-
-    result.percentile25 = ntileFunc(25);
-    result.median = ntileFunc(50);
-    result.percentile75 = ntileFunc(75);
-    result.percentile99 = ntileFunc(99);
-
-    // Compute the mean and variance using a
-    // numerically stable algorithm.
-    var sqsum = 0;
-    result.mean = data[0];
-    result.sum = result.mean * result.count;
-    for (var i = 1;  i < data.length;  ++i) {
-        var x = data[i];
-        var delta = x - result.mean;
-        var sweep = i + 1.0;
-        result.mean += delta / sweep;
-        sqsum += delta * delta * (i / sweep);
-        result.sum += x;
-    }
-    result.variance = sqsum / result.count;
-    result.sdev = Math.sqrt(result.variance);
-
-
-    return result;
-};
 
 // Converts the day passed to a Date object and checks
 // whether the current month is equal to the month of the
@@ -77,10 +14,6 @@ var isCurrentMonth = function(day) {
         thisDate = new Date(day).getMonth() + 1;
 
     return thisDate === currentMonth ? true : false;
-},
-// A better typeof thanks to @angus-c
-toType = function(obj) {
-    return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 },
 // Gets all dates from the object, sort in the specified
 // oder and returns the new array.
@@ -252,38 +185,6 @@ getSessionsCount = function(customPayload) {
 
     return cleanSessions + abortedSessions;
 },
-// Takes an array of paintTimes or, an individual paintTime,
-// and filters it so it contains no negative values and only times
-// within the 99th percentile (when appropriate) to avoid far outliers.
-// @see https://bugzilla.mozilla.org/show_bug.cgi?id=856315
-filterStartupTimes = function(unfiltered) {
-    if(toType(unfiltered) === 'array') {
-        var stats = Stats(unfiltered),
-            filteredPaintTimes = [];
-
-        for(var paintTime in unfiltered) {
-            var currentPaintTime = unfiltered[paintTime];
-
-            // Is the 99th percentile is greater than our ceiling, filter
-            // negatives and anything above the 99th percentile.
-            if(unfiltered.hasOwnProperty(paintTime) && stats.percentile99 > FIVE_MINUTES) {
-                if(currentPaintTime > 0 && currentPaintTime < stats.percentile99) {
-                    filteredPaintTimes.push(currentPaintTime);
-                }
-            } else {
-                // Just filter out negatives.
-                if(currentPaintTime > 0) {
-                    filteredPaintTimes.push(currentPaintTime);
-                }
-            }
-        }
-        return filteredPaintTimes;
-    } else {
-        // For individual pantTimes, ensure this value is not negative and
-        // falls within our ceiling.
-        return (unfiltered > 0 && unfiltered <= FIVE_MINUTES) ? true : false;
-    }
-},
 // Gets all startup times (paintTimes), or the median for each day over
 // the past 14 days. Data will be returned as an obejct as follows:
 // graphData = {
@@ -310,7 +211,6 @@ getAllStartupTimes = function(median) {
         if(currentDayAsDate >= twoWeeksAgo && sortedDates.hasOwnProperty(day)) {
             var sessionsInfo = days[currentDay]['org.mozilla.appSessions.previous'],
                 paintTimes = null,
-                filteredPaintTimes = [],
                 paintTimesLength = 0,
                 paintTime = 0,
                 startupTimesTotal = 0;
@@ -319,15 +219,10 @@ getAllStartupTimes = function(median) {
             // or crash data. If so, increment the session count.
             if(typeof sessionsInfo !== 'undefined') {
                 paintTimes = sessionsInfo.firstPaint;
+                paintTimesLength = paintTimes.length;
 
                 // For each day for which we have data, increase the dateCount.
                 ++graphData.dateCount;
-
-                if(paintTimesLength > 1) {
-                    filteredPaintTimes = filterStartupTimes(paintTimes);
-                }
-                // Only get the array length after it has been filtered.
-                paintTimesLength = filteredPaintTimes.length;
 
                 // First test whether we need to return the median startup times.
                 if(median) {
@@ -337,45 +232,41 @@ getAllStartupTimes = function(median) {
                         var divisor = paintTimesLength,
                             startupTimeMedian = 0;
 
-                        for(paintTime in filteredPaintTimes) {
-                            if(filteredPaintTimes.hasOwnProperty(paintTime)) {
-                                startupTimesTotal = startupTimesTotal + filteredPaintTimes[paintTime];
+                        for(paintTime in paintTimes) {
+                            if(paintTimes.hasOwnProperty(paintTime) && paintTimes[paintTime]>0) {
+                                startupTimesTotal = startupTimesTotal + paintTimes[paintTime];
                             }
                         }
                         // Calculate the median, convert to seconds and push onto array
                         startupTimeMedian = Math.round((startupTimesTotal / divisor) / 1000);
                         graphData.startupTimes.push([new Date(currentDay).getTime(), startupTimeMedian]);
                     } else {
-                        // This day only has one session, ensure it is not negative, and falls within our ceiling.
-                        // Convert to seconds, no need to calculate a median.
-                        if (filterStartupTimes(paintTimes[paintTime])) {
+                        // This day only has one session, convert to seconds, no need to calculate
+                        // a median.
+                        if (paintTimes[paintTime]>0) {
                             graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                         }
                     }
                 } else {
-                    for(paintTime in filteredPaintTimes) {
-                        if(filteredPaintTimes.hasOwnProperty(paintTime)) {
-                            graphData.startupTimes.push([new Date(currentDay).getTime(), filteredPaintTimes[paintTime] / 1000]);
+                    for(paintTime in paintTimes) {
+                        if (paintTimes[paintTime]>0) {
+                            graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                         }
                     }
                 }
             }
         }
     }
-
-    var currentSessionStartupTime = payload.data.last['org.mozilla.appSessions.current'].firstPaint,
-        latest = new Date().getTime();
-
-    // Ensure current session's paintTime fall within our ceiling
-    // and, is not negative.
-    if(filterStartupTimes(currentSessionStartupTime)) {
+    var latest = new Date().getTime();
+    // Add one more for the current day.
+    if (payload.data.last['org.mozilla.appSessions.current'].firstPaint > 0) {    
         graphData.dateCount = graphData.dateCount + 1;
         // Add the current session's startup time to the end of the array
         graphData.startupTimes.push([
             latest,
-            currentSessionStartupTime / 1000
+            payload.data.last['org.mozilla.appSessions.current'].firstPaint / 1000
         ]);
-    }
+     }
 
     return graphData;
 },

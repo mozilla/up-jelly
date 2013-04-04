@@ -149,10 +149,8 @@ $(function() {
         if(getSessionsCount() < 5) {
             $('#hungryfox').show('slow');
         } else {
-            // We have enough data, show the graph UI and
-            // draw the graph. By default, we draw average
-            // startup times.
-            $('.graphbox').show();
+            // We have enough data, draw the graph.
+            // By default, we draw all startup times.
             drawGraph(true);
         }
 
