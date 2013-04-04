@@ -37,9 +37,10 @@ RTL_LANGS = ('ar', 'fa', 'he', 'ur')
 # LANGS.
 LANG_FALLBACK = {
     'be': 'ru',
-    'en-GB': 'en-US',
     'es-MX': 'es-ES',
     'mn': 'ru',
+    'ar': 'en-US',
+    'he': 'en-US',
 }
 
 # View to build - specify either 'passive' or 'urgent'
