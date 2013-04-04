@@ -712,3 +712,8 @@ html[dir=rtl] .tipBox-header > .icon:first-child {
     margin-left: 8px;
     margin-right: auto;
 }
+
+html[dir=rtl] .statsBoxSection-content li > .statsBoxSection-value {
+    float: left;
+    direction: ltr;
+}
