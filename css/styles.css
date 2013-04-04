@@ -2,7 +2,7 @@
 
 /* --- General --- */
 html {
-  height: 100%;
+    height: 100%;
 }
 body {
   background-color: #fafafa;
@@ -42,55 +42,47 @@ h3 {
     font-size: 1.5rem;
     font-weight: lighter;
 }
-.spacer {
-  flex: 1;
-}
 
 /* --- Main Layout --- */
 .persistentHeader {
-  width: 100%;
-  height: 110px;
-  background-color: #f2f4f5;
-  background-image: url(../img/noise.png);
-  box-shadow: 0 -1px 4px hsla(210,35%,8%,.03) inset,
-              0 -1px 0 hsla(210,35%,8%,.05) inset;
-  z-index: 100;
+    position: relative;
+    background-color: #f2f4f5;
+    width: 100%;
+    height: 110px;  
+    box-shadow: 0 -1px 4px hsla(210,35%,8%,.03) inset,
+                0 -1px 0 hsla(210,35%,8%,.05) inset;
+    z-index: 100;
 }
 .outerContainer {
-  display: flex;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: visible;
 }
 .innerContainer {
-  display: flex;
-  flex: 1;
   margin-top: 110px;
   min-height: 50px;
   width: 100%;
 }
 .sidebar,
 .sidebar_tabs {
-  flex: 0;
-  min-width: 360px;
-  background-image: url(../img/sidebarSeparator.png);
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 13px 100%;
+    float: left;
+    background-image: url(../img/sidebarSeparator.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 13px 100%;
+    width: 360px;
 }
 /* Only displayed for viewports 768px or less */
 .menu_toggle {
     display: none;
 }
 .mainContent {
-  flex: 1;
-  flex-direction: column;
-  margin-top: 30px;
-  min-width: 320px;
+    float: right;
+    margin-top: 30px;
+    min-width: 320px;
 }
 .statsBox {
-  display: flex;
-  flex-direction: column;
   width: 240px;
   margin: 30px 60px;
   color: #5c6166;
@@ -144,7 +136,6 @@ h3 {
 
 /* --- Header --- */
 .headerContainer {
-  display: flex;
   margin: 0 auto;
   padding: 0 20px 0 40px;
   width: auto;
@@ -152,16 +143,26 @@ h3 {
   min-width: 600px;
 }
 .navAndBlurb {
-  flex: 1;
   height: 100px;
 }
 .nav {
-  display: flex;
   margin: 0;
   padding: 0;
 }
 .nav li {
-  list-style: none;
+    display: inline;
+    list-style: none;
+}
+.nav li a {
+    display: inline-block;
+    color: #5c6166;
+    padding: 20px 0 20px;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: lighter;
+}
+.nav li a.active {
+  border-top: 3px solid #C13832;
 }
 .nav-category {
   padding: 20px 0 20px;
@@ -173,51 +174,43 @@ h3 {
 .nav-category a:hover {
     text-decoration: none;
 }
-.nav-category.active {
-  background-image: -moz-linear-gradient(top, #ffac06 1px, #f27900 2px, transparent 2px);
-  background-repeat: no-repeat;
-}
 .nav-category.active a {
     color: #333;
 }
 .nav-separator {
-  flex: 0;
-  margin: 10px 20px 10px;
-  min-width: 3px;
-  width: 3px;
-  height: 40px;
-  background-image: -moz-linear-gradient(top, hsla(0,0%,100%,0), hsla(0,0%,100%,.4) 35%, hsla(0,0%,100%,.4) 65%, hsla(0,0%,100%,0)),
-                    -moz-linear-gradient(top, hsla(0,0%,10%,0), hsla(0,0%,10%,.2) 35%, hsla(0,0%,10%,.2) 65%, hsla(0,0%,10%,0)),
-                    -moz-linear-gradient(top, hsla(0,0%,100%,0), hsla(0,0%,100%,.4) 35%, hsla(0,0%,100%,.4) 65%, hsla(0,0%,100%,0));
-  background-size: 1px auto, 1px auto, 1px auto;
-  background-position: 0 center, 1px center, 2px center;
-  background-repeat: no-repeat;
-  align-self: flex-end;
+    background-size: 1px auto, 1px auto, 1px auto;
+    background-position: 0 center, 1px center, 2px center;
+    background-repeat: no-repeat;
+    margin: 10px 20px 10px;
+    border-right: 1px solid #999;
+    min-width: 3px;
+    width: 3px;
+    height: 40px;
 }
 
 /* Activation Widget */
 .activationWidget {
-  position: relative;
-  display: flex;
-  flex: 0;
-  min-width: 180px;
+  position: absolute;
+  top: 20px;
+  right: 10%;
+  width: 150px;
   height: 100px;
-  align-items: center;
-  -moz-user-select: none;
   cursor: default;
 }
 .activationTextContainer {
-  margin-right: 10px;
-  color: #737980;
-  font-size: 13px;
-  line-height: 13px;
-  text-align: right;
+    float: left;
+    color: #737980;
+    margin-right: 10px;
+    padding-top: 10px;
+    font-size: 13px;
+    line-height: 13px;
+    text-align: right;
 }
 .activationTabContainer {
-  flex: 0;
-  min-width: 60px;
-  width: 60px;
-  overflow: hidden;
+    float: right;
+    min-width: 60px;
+    width: 60px;
+    overflow: hidden;
 }
 .activationTabOverlay {
   position: absolute;
@@ -338,7 +331,6 @@ h3 {
 }
 
 .tipBox-header {
-  display: flex;
   min-height: 32px;
   height: 32px;
   padding: 0 20px;
@@ -402,11 +394,6 @@ h3 {
 .icon.closeTip:hover:active {
   background-position: center right;
 }
-
-.tipBox-header > .text {
-  flex: 1;
-}
-
 .tipBox-content {
   padding: 10px 20px 10px 20px;
   font-size: .8rem;
@@ -421,7 +408,6 @@ h3 {
 }
 
 .tipBox.buttonRow {
-  display: flex;
   padding: 0 20px 14px;
   transition-duration: 250ms;
 }
@@ -432,7 +418,6 @@ h3 {
 }
 
 .buttonRow .separator {
-  flex: 0;
   margin: 0 -1px;
   min-width: 3px;
   width: 3px;
@@ -466,6 +451,7 @@ h3 {
 
 /* --- Graph --- */
 .graphbox {
+    display: none;
     position: relative;
     margin: 0 60px 30px;
     width: 700px;
@@ -555,8 +541,6 @@ figcaption {
 }
 
 .panelContainerBase {
-  display: flex;
-  flex-direction: column;
   width: 300px;
   margin-top: -1px;
   background-image: -moz-linear-gradient(#fcfeff, hsla(210,35%,97%,.97));
@@ -574,7 +558,6 @@ figcaption {
 }
 
 .panelContainerContent {
-  flex: 1;
   padding: 16px;
   border-bottom: 1px solid hsla(0,0%,100%,.2);
 }
@@ -596,8 +579,7 @@ figcaption {
 .rawdata-display {
     clear:both;
     margin: 0 0 30px 20px;
-    width: 91%;
-    flex-direction: column;
+    width: 815px;
 }
 /* Table styles */
 table {
@@ -646,6 +628,13 @@ tr:nth-child(odd) td {
         width: 25px;
         height: 30px;
     }
+    .mainContent {
+        float: left;
+        margin-top: 10px;
+    }
+    .tipBox-container {
+        width: auto;
+    }
     .statsBox {
         background-color: #fff;
         width: 0;
@@ -674,8 +663,11 @@ tr:nth-child(odd) td {
     .statsBoxSection-content {
         padding-bottom: .7rem;
     }
+    .rawdata-display {
+        width: 700px;
+    }
     .rawdata-container h2 {
-        margin: 0px 60px 30px
+        margin: 0 60px 30px
     }
 }
 

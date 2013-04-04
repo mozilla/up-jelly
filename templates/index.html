@@ -12,7 +12,7 @@
           <div class="headerContainer">
             <div class="navAndBlurb">
               <ul class="nav">
-                <li class="nav-category active"><a href="#health">{{ _('Firefox Health Report') }}</a></li>
+                <li class="nav-category"><a href="#health" class="active">{{ _('Firefox Health Report') }}</a></li>
                 <li class="nav-separator"></li>
                 <li class="nav-category"><a href="#raw">{{ _('Raw Data') }}</a></li>
               </ul>
@@ -20,11 +20,11 @@
             </div>
 
             <div class="activationWidget">
-              <div class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></div>
-              <div class="activationTabContainer">
+              <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
+              <span class="activationTabContainer">
                 <div class="activationTabOverlay"></div>
                 <div class="activationTab"></div>
-              </div>
+              </span>
 
               <div class="panelContainer disabledPanel">
                 <div class="panelContainerArrow"></div>
