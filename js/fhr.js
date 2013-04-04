@@ -151,7 +151,7 @@ $(function() {
         } else {
             // We have enough data, draw the graph.
             // By default, we draw all startup times.
-            drawGraph(false);
+            drawGraph(true);
         }
 
         // If our median startup time is greater than 20,
