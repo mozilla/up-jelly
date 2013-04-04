@@ -1,4 +1,5 @@
 $(function() {
+
     var navListItems = $('.nav li'),
         rawTabs = $('#raw_selector').find('li a'),
         navItems = navListItems.find('a'),
@@ -9,11 +10,9 @@ $(function() {
     var showContainer = function(anchor) {
         // Get the id of the container to show from the href.
         var containerId = anchor.attr('href'),
-            container = document.querySelector(containerId);
-        // Because we are working with flex containers,
-        // we cannot simply use jQuery's show as it will set
-        // the box to display:block and we want display:flex
-        container.setAttribute('style', 'display:flex');
+            container = $(containerId);
+
+        container.show();
     };
 
     // Handle clicks on the main presistent header
@@ -22,9 +21,9 @@ $(function() {
         // Ensure all content containers are hidden.
         contentContainers.hide();
         // Remove the active class from all links
-        navListItems.removeClass('active');
-        // Set the clicked links parent list item to active
-        $(this).parents('li').addClass('active');
+        navItems.removeClass('active');
+        // Set the clicked links to active
+        $(this).addClass('active');
 
         showContainer($(this));
     });
@@ -149,8 +148,10 @@ $(function() {
         if(getSessionsCount() < 5) {
             $('#hungryfox').show('slow');
         } else {
-            // We have enough data, draw the graph.
-            // By default, we draw all startup times.
+            // We have enough data, show the graph UI
+            // and draw the graph. By default, we draw
+            // the average startup times.
+            $('.graphbox').show();
             drawGraph(true);
         }
 
