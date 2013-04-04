@@ -678,3 +678,37 @@ tr:nth-child(odd) td {
         margin: 0px 60px 30px
     }
 }
+
+/* RTL support */
+
+html[dir=rtl] .selector {
+    float: left;
+}
+
+html[dir=rtl] .statsBox .icon {
+    margin-left: 8px;
+    margin-right: auto;
+}
+
+html[dir=rtl] .panelContainer {
+  left: 100px;
+}
+
+html[dir=rtl] .panelContainerArrow {
+  background-position: 68px bottom;
+}
+
+html[dir=rtl] th {
+    text-align: right;
+}
+
+
+html[dir=rtl] .icon.closeTip {
+    left: 20px;
+    right: auto;
+}
+
+html[dir=rtl] .tipBox-header > .icon:first-child {
+    margin-left: 8px;
+    margin-right: auto;
+}
