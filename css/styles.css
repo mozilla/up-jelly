@@ -162,7 +162,8 @@ h3 {
     font-weight: lighter;
 }
 .nav li a.active {
-  border-top: 3px solid #C13832;
+    color: #0095DD;
+    border-top: 3px solid #C13832;
 }
 .nav-category {
   padding: 20px 0 20px;
