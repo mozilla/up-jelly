@@ -360,7 +360,9 @@ h3 {
   background-size: auto 16px;
 }
 .tipBox-header > .icon:first-child {
-  margin-right: 8px;
+    margin-right: 8px;
+    float: left;
+    height: 32px;
 }
 
 .tipBox-header > .icon.expanderArrow {
@@ -694,7 +696,6 @@ html[dir=rtl] th {
     text-align: right;
 }
 
-
 html[dir=rtl] .icon.closeTip {
     left: 20px;
     right: auto;
@@ -703,6 +704,8 @@ html[dir=rtl] .icon.closeTip {
 html[dir=rtl] .tipBox-header > .icon:first-child {
     margin-left: 8px;
     margin-right: auto;
+    float:right;
+    height: 32px;
 }
 
 html[dir=rtl] .statsBoxSection-content li > .statsBoxSection-value {
