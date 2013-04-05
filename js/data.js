@@ -42,7 +42,7 @@ calculateTotalTime = function(healthreport, historically) {
                 activeCondition = historically ? historicalCondition : monthCondition;
 
             // Only total up values for the current month
-            // Only proceed if we have appSessions data. 
+            // Only proceed if we have appSessions data.
             if(activeCondition) {
 
                 var cleanTotalTimeArray = days[day]['org.mozilla.appSessions.previous'].cleanTotalTime,
@@ -77,7 +77,7 @@ calculateTotalTime = function(healthreport, historically) {
 },
 getLastCrashDate = function(days) {
     var sortedDates = sortDates(days, true),
-        lastCrashDate = 'No crashes recorded';
+        lastCrashDate = '';
 
     // Loop through the dates from latest to eldest.
     for(var day in sortedDates) {
