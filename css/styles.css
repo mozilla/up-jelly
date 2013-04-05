@@ -687,7 +687,7 @@ html[dir=rtl] .panelContainer {
 }
 
 html[dir=rtl] .panelContainerArrow {
-  background-position: 68px bottom;
+  background-position: 38px bottom;
 }
 
 html[dir=rtl] th {
@@ -706,5 +706,30 @@ html[dir=rtl] .tipBox-header > .icon:first-child {
 }
 
 html[dir=rtl] .statsBoxSection-content li > .statsBoxSection-value {
+    float: left;
+}
+
+html[dir=rtl] .sidebar,
+html[dir=rtl] .sidebar_tabs {
+    float: right;
+    background-position: left center;
+}
+
+html[dir=rtl] .mainContent {
+    float: right;
+}
+
+html[dir=rtl] .activationWidget {
+    left: 10%;
+    right: auto;
+}
+
+html[dir=rtl] .activationTextContainer {
+    float: right;
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+html[dir=rtl] .activationTabContainer {
     float: left;
 }
