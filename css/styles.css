@@ -55,6 +55,7 @@ h3 {
 }
 .outerContainer {
   width: 100%;
+  min-width: 1200px;
   max-width: 1200px;
   margin: 0 auto;
   overflow: visible;
@@ -467,9 +468,9 @@ h3 {
     font-weight: lighter;
 }
 .selector {
-    float: right;
     margin-right: 5px;
     margin-bottom: 20px;
+    text-align: right;
 }
 .selector h4,
 .selector ul {
@@ -617,7 +618,11 @@ tr:nth-child(odd) td {
 }
 
 @media only screen and (max-width: 768px) {
+    .outerContainer {
+        min-width: 100%;
+    }
     .sidebar {
+        background: none;
         position: relative;
         min-width: 0;
         height: 20px;
