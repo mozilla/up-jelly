@@ -616,6 +616,11 @@ tr:nth-child(odd) td {
     width: 1px;
     overflow: hidden;
 }
+.loading {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
 
 @media only screen and (max-width: 768px) {
     .outerContainer {
