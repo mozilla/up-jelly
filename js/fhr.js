@@ -1,5 +1,8 @@
 $(function() {
 
+    // Hide the loading animation as soon as the DOM is ready.
+    $('.loading').hide();
+
     var navListItems = $('.nav li'),
         rawTabs = $('#raw_selector').find('li a'),
         navItems = navListItems.find('a'),
