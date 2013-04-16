@@ -1,0 +1,18 @@
+#example values
+SRC_DIR = '/data/fhr-stage/src/fhr.allizom.org/fhr-jelly/'
+WWW_DIR = '/data/fhr-stage/www/fhr.allizom.org/fhr-jelly/'
+
+#CRON_NAME = ''
+
+DEPLOY_SCRIPT = '/data/fhr-stage/deploy -n fhr.allizom.org'
+REMOTE_UPDATE_SCRIPT = '/data/bin/update-www.sh fhr.allizom.org'
+
+WEB_HOSTGROUP = 'fhr-stage'
+CELERY_HOSTGROUP = 'fhr-celery-stage'
+CELERY_SERVICE = 'celeryd-fhr-stage'
+
+UPDATE_REF = ''
+SSH_KEY = '/root/.ssh/id_rsa'
+
+REMOTE_WSGI = '/data/fhr-stage/www/fhr.allizom.org/fhr-jelly/wsgi/playdoh.wsgi'
+REMOTE_HOSTNAME = 'fhr.allizom.org'
