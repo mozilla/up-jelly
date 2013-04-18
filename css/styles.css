@@ -195,7 +195,7 @@ h3 {
   position: absolute;
   top: 20px;
   right: 10%;
-  width: 150px;
+  min-width: 150px;
   height: 100px;
   cursor: default;
 }
