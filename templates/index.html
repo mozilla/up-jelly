@@ -20,11 +20,13 @@
             </div>
 
             <div class="activationWidget">
-              <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
-              <span class="activationTabContainer">
-                <div class="activationTabOverlay"></div>
-                <div class="activationTab"></div>
-              </span>
+              <div class="activationTrigger">
+                <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
+                <span class="activationTabContainer">
+                  <div class="activationTabOverlay"></div>
+                  <div class="activationTab"></div>
+                </span>
+              </div>
 
               <div class="panelContainer disabledPanel">
                 <div class="panelContainerArrow"></div>
@@ -489,6 +491,7 @@
         <script>
         // Activation widget
         var activationWidget = $(".activationWidget"),
+            activationTigger = $(".activationTrigger"),
             statusTxt = $(".statusText");
 
         var showStatusPanel = function(panel, status, showMessage) {
@@ -521,7 +524,7 @@
             }
         };
 
-        activationWidget.click(function() {
+        activationTigger.click(function() {
             if (statusTxt.text() === '{{ _("ON") }}') {
                 showStatusPanel($(".disabledPanel"), false, true);
             } else {
