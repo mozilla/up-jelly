@@ -199,6 +199,10 @@ h3 {
   height: 100px;
   cursor: default;
 }
+.activationTrigger {
+  overflow: visible;
+  z-index: 100;
+}
 .activationTextContainer {
     float: left;
     color: #737980;
@@ -527,7 +531,6 @@ figcaption {
   transform: translateY(-20px);
   transition-duration: 500ms;
   transition-delay: 250ms;
-  pointer-events: none;
 }
 
 .panelContainer.toggled {

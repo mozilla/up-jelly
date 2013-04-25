@@ -20,18 +20,20 @@
             </div>
 
             <div class="activationWidget">
-              <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
-              <span class="activationTabContainer">
-                <div class="activationTabOverlay"></div>
-                <div class="activationTab"></div>
-              </span>
+              <div class="activationTrigger">
+                <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
+                <span class="activationTabContainer">
+                  <div class="activationTabOverlay"></div>
+                  <div class="activationTab"></div>
+                </span>
+              </div>
 
               <div class="panelContainer disabledPanel">
                 <div class="panelContainerArrow"></div>
                 <div class="panelContainerBase">
                   <div class="panelContainerContent">
                     <p>{{ _('You\'ve chosen to stop sharing data with Mozilla, but you\'ll still be able to see how your browser is performing.') }}</p>
-                    <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="%(privacy_url)s">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
+                    <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="%(privacy_url)s" id="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
                   </div>
                 </div>
               </div>
@@ -41,7 +43,7 @@
                 <div class="panelContainerBase">
                   <div class="panelContainerContent">
                     <p>{{ _('You\'ve chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.') }}</p>
-                    <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
+                    <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s" id="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
                   </div>
                 </div>
               </div>
@@ -489,6 +491,7 @@
         <script>
         // Activation widget
         var activationWidget = $(".activationWidget"),
+            activationTrigger = $(".activationTrigger"),
             statusTxt = $(".statusText");
 
         var showStatusPanel = function(panel, status, showMessage) {
@@ -521,7 +524,7 @@
             }
         };
 
-        activationWidget.click(function() {
+        activationTrigger.click(function() {
             if (statusTxt.text() === '{{ _("ON") }}') {
                 showStatusPanel($(".disabledPanel"), false, true);
             } else {
