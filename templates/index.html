@@ -491,7 +491,7 @@
         <script>
         // Activation widget
         var activationWidget = $(".activationWidget"),
-            activationTigger = $(".activationTrigger"),
+            activationTrigger = $(".activationTrigger"),
             statusTxt = $(".statusText");
 
         var showStatusPanel = function(panel, status, showMessage) {
@@ -524,7 +524,7 @@
             }
         };
 
-        activationTigger.click(function() {
+        activationTrigger.click(function() {
             if (statusTxt.text() === '{{ _("ON") }}') {
                 showStatusPanel($(".disabledPanel"), false, true);
             } else {
