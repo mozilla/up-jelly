@@ -18,37 +18,38 @@
               </ul>
               <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf">{{ _('Learn more...') }}</a></div>
             </div>
-
-            <div class="activationWidget">
-              <div class="activationTrigger">
-                <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
-                <span class="activationTabContainer">
-                  <div class="activationTabOverlay"></div>
-                  <div class="activationTab"></div>
-                </span>
-              </div>
-
-              <div class="panelContainer disabledPanel">
-                <div class="panelContainerArrow"></div>
-                <div class="panelContainerBase">
-                  <div class="panelContainerContent">
-                    <p>{{ _('You\'ve chosen to stop sharing data with Mozilla, but you\'ll still be able to see how your browser is performing.') }}</p>
-                    <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="%(privacy_url)s" id="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panelContainer enabledPanel">
-                <div class="panelContainerArrow"></div>
-                <div class="panelContainerBase">
-                  <div class="panelContainerContent">
-                    <p>{{ _('You\'ve chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.') }}</p>
-                    <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s" id="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+
+            <!-- activation widget -->
+            <div class="activationWidget">
+                <div class="activationTrigger">
+                    <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
+                    <span class="activationTabContainer">
+                        <div class="activationTabOverlay"></div>
+                        <div class="activationTab"></div>
+                    </span>
+                </div>
+
+                <div class="panelContainer disabledPanel">
+                    <div class="panelContainerArrow"></div>
+                    <div class="panelContainerBase">
+                        <div class="panelContainerContent">
+                        <p>{{ _('You\'ve chosen to stop sharing data with Mozilla, but you\'ll still be able to see how your browser is performing.') }}</p>
+                        <p class="greyText">{{ _('Your Health Report data will also be removed from Mozilla\'s servers. Learn more in our <a href="%(privacy_url)s" class="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panelContainer enabledPanel">
+                    <div class="panelContainerArrow"></div>
+                    <div class="panelContainerBase">
+                        <div class="panelContainerContent">
+                            <p>{{ _('You\'ve chosen to share your data with Mozilla from time to time. Thanks for being part of our mission to build a brighter future for the Web.') }}</p>
+                            <p class="greyText">{{ _('Learn how we handle your data in our <a href="%(privacy_url)s" class="newtab">privacy policy.</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="outerContainer">
@@ -111,6 +112,16 @@
             <div id="health" class="mainContent">
                 <!-- TipBoxes -->
                 <div class="tipBoxes">
+                  <div id="survey" class="tipBox-container">
+                        <div class="tipBox-header">
+                            <div class="icon expanderArrow"></div>
+                            <div class="text">{{ _('Tips') }}</div>
+                        </div>
+                        <div class="tipBox-content">
+                            <p>Help us make Firefox Health Report more useful for you. Take a <a href ="http://www.surveygizmo.com/s3/1227362/Firefox-Health-Report-Feedback" class="newtab">brief survey</a> and tell us what you think so far!</p>
+                        </div>
+                    </div>
+
                     <div id="crashyfox" class="tipBox-container">
                         <div class="icon closeTip"></div>
                         <div class="tipBox-header">
@@ -176,7 +187,7 @@
 
                     <div class="selector raw">
                         <ul id="raw_selector">
-                            <li><a href="#data" class="active" class="data_heading">{{ _('Raw Data') }}</a></li>
+                            <li><a href="#data" class="active data_heading">{{ _('Raw Data') }}</a></li>
                             <li><a href="#glossary" class="glossary_heading">{{ _('Glossary') }}</a></li>
                         </ul>
                     </div>

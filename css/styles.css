@@ -197,7 +197,8 @@ h3 {
   right: 10%;
   min-width: 150px;
   height: 100px;
-  cursor: default;
+  cursor: pointer;
+  z-index: 100;
 }
 .activationTrigger {
   overflow: visible;
@@ -526,14 +527,18 @@ figcaption {
   left: -164px;
   top: 60px;
   width: 300px;
+  height: 0;
   z-index: 200;
   opacity: 0;
+  overflow: hidden;
   transform: translateY(-20px);
   transition-duration: 500ms;
   transition-delay: 250ms;
 }
 
 .panelContainer.toggled {
+  height: auto;
+  overflow: visible;
   transform: translateY(0);
   opacity: 1;
 }
