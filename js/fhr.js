@@ -9,7 +9,7 @@ $(function() {
         contentContainers = $('.mainContent'),
         rawContentContainers = $('.rawdata-display'),
         rawHeadings = $('.raw_heading'),
-        newTab = $('#newtab');
+        newTab = $('.newtab');
 
     var showContainer = function(anchor) {
         // Get the id of the container to show from the href.
@@ -89,7 +89,7 @@ $(function() {
     // before it is ready.
     (function waitForPayload() {
         if(payload) {
-            showTipboxes();
+            showTipboxes(payload);
             return;
         }
         waitr = setTimeout(waitForPayload, 500);
@@ -147,8 +147,12 @@ $(function() {
     });
 
     // Conditionally show tip boxes
-    function showTipboxes() {
+    function showTipboxes(payload) {
         clearTimeout(waitr);
+
+        if(payload.data.last['org.mozilla.appInfo.appinfo'].locale === 'en-US') {
+            $('#survey').show();
+        }
 
         // User has a crashy browser
         if(getTotalNumberOfCrashes('week') > 5) {
