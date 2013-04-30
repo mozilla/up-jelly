@@ -321,7 +321,7 @@ calculateMedianStartupTime = function() {
                 // and ensure that we have paint times to add.
                 if(counter < 10 && typeof paintTimes !== 'undefined') {
                     for(var paintTime in paintTimes) {
-                        if (paintTime > 0) {
+                        if (paintTime > 0 && paintTime < PAINT_TIME_THRESHOLD) {
                             startupTimes.push(paintTimes[paintTime]);
                             ++counter;
                         }
