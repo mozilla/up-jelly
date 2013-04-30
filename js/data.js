@@ -1,6 +1,7 @@
 var ONE_DAY = 1000 * 60 * 60 * 24,
     ONE_WEEK = ONE_DAY * 7,
     TWO_WEEKS = ONE_DAY * 14,
+    THIRTY_DAYS_IN_SECONDS = 2592000,
     payload = null,
     prefs = null,
     // Is this the first load for the document?
@@ -54,7 +55,17 @@ calculateTotalTime = function(healthreport, historically) {
                     // cleanTotalTime is an array and we need to add all of the totals together.
                     for(var cleanTotalTime in cleanTotalTimeArray) {
                         if(cleanTotalTimeArray.hasOwnProperty(cleanTotalTime)) {
-                            totalTimeOpen += parseInt(cleanTotalTimeArray[cleanTotalTime], 10);
+                            // Parse total time as int
+                            var thisCleanTotalTime = parseInt(cleanTotalTimeArray[cleanTotalTime], 10);
+
+                            // If the total time is more than 2.592M, we need to divide by 1000
+                            // @see https://bugzilla.mozilla.org/show_bug.cgi?id=856315
+                            if(thisCleanTotalTime > THIRTY_DAYS_IN_SECONDS) {
+                                // Turn the milliseconds into seconds
+                                totalTimeOpen += thisCleanTotalTime / 1000;
+                            } else {
+                                totalTimeOpen += thisCleanTotalTime;
+                            }
                         }
                     }
                 }
@@ -65,7 +76,17 @@ calculateTotalTime = function(healthreport, historically) {
                     // cleanTotalTime is an array and we need to add all of the totals together.
                     for(var abortedTotalTime in abortedTotalTimeArray) {
                         if(abortedTotalTimeArray.hasOwnProperty(abortedTotalTime)) {
-                            totalTimeOpen += parseInt(abortedTotalTimeArray[abortedTotalTime], 10);
+                            // Parse total time as int
+                            var thisAbortedTotalTime = parseInt(abortedTotalTimeArray[abortedTotalTime], 10);
+
+                            // If the total time is more than 2.592M, we need to divide by 1000
+                            // @see https://bugzilla.mozilla.org/show_bug.cgi?id=856315
+                            if(thisAbortedTotalTime > THIRTY_DAYS_IN_SECONDS) {
+                                // Turn the milliseconds into seconds
+                                totalTimeOpen += thisAbortedTotalTime / 1000;
+                            } else {
+                             totalTimeOpen += thisAbortedTotalTime;
+                            }
                         }
                     }
                 }
@@ -233,7 +254,7 @@ getAllStartupTimes = function(median) {
                             startupTimeMedian = 0;
 
                         for(paintTime in paintTimes) {
-                            if(paintTimes.hasOwnProperty(paintTime) && paintTimes[paintTime]>0) {
+                            if(paintTimes.hasOwnProperty(paintTime) && paintTimes[paintTime] > 0) {
                                 startupTimesTotal = startupTimesTotal + paintTimes[paintTime];
                             }
                         }
@@ -243,7 +264,7 @@ getAllStartupTimes = function(median) {
                     } else {
                         // This day only has one session, convert to seconds, no need to calculate
                         // a median.
-                        if (paintTimes[paintTime]>0) {
+                        if (paintTimes[paintTime] > 0) {
                             graphData.startupTimes.push([new Date(currentDay).getTime(), paintTimes[paintTime] / 1000]);
                         }
                     }
@@ -259,7 +280,7 @@ getAllStartupTimes = function(median) {
     }
     var latest = new Date().getTime();
     // Add one more for the current day.
-    if (payload.data.last['org.mozilla.appSessions.current'].firstPaint > 0) {    
+    if (payload.data.last['org.mozilla.appSessions.current'].firstPaint > 0) {
         graphData.dateCount = graphData.dateCount + 1;
         // Add the current session's startup time to the end of the array
         graphData.startupTimes.push([
