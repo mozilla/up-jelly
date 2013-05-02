@@ -511,7 +511,7 @@ h3 {
     display: none;
     position: absolute;
     top: 50%;
-    left: -60px;
+    left: -80px;
     font-size: .8rem;
     transform: rotate(-90deg);
 }
