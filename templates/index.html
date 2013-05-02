@@ -16,7 +16,8 @@
                 <li class="nav-separator"></li>
                 <li class="nav-category"><a href="#raw">{{ _('Raw Data') }}</a></li>
               </ul>
-              <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf">{{ _('Learn more...') }}</a></div>
+              <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf" class="learn_more">{{ _('Learn more...') }}</a>
+                {{ _('<a href="%(privacy_url)s" class="newtab">Privacy Policy</a>')|format(privacy_url='http://www.mozilla.org/legal/privacy/firefox.html') }}</div>
             </div>
           </div>
 
