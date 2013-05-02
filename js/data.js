@@ -207,6 +207,21 @@ getSessionsCount = function(customPayload) {
 
     return cleanSessions + abortedSessions;
 },
+// Computes the median of an array of values.
+computeMedian = function(values) {
+    if(values.length == 0) {
+        return null;
+    }
+    if(values.length == 1) {
+        return values[0];
+    }
+    values.sort(function(a,b) {return a - b;});
+    var half = Math.floor(values.length/2);
+    if(values.length % 2)
+        return values[half];
+    else
+        return (values[half-1] + values[half]) / 2;
+},
 // Gets all startup times (paintTimes), or the median for each day over
 // the past 14 days. Data will be returned as an obejct as follows:
 // graphData = {
@@ -251,20 +266,20 @@ getAllStartupTimes = function(median) {
                     // If we have more than one sessions paint time for the day
                     // we need to calculate the median.
                     if(paintTimesLength > 1) {
-                        var divisor = paintTimesLength,
-                            startupTimeMedian = 0;
+                        var validTimes = [];
 
                         for(paintTime in paintTimes) {
                             // If paint time is greater than our threshold or negative, ignore it as it is
                             // probably bad data @see https://bugzilla.mozilla.org/show_bug.cgi?id=856315#c30
                             if(paintTimes.hasOwnProperty(paintTime) &&
                                     (paintTimes[paintTime] > 0 && paintTimes[paintTime] < PAINT_TIME_THRESHOLD)) {
-                                startupTimesTotal = startupTimesTotal + paintTimes[paintTime];
+                                validTimes.push(paintTimes[paintTime]);
                             }
                         }
                         // Calculate the median, convert to seconds and push onto array
-                        startupTimeMedian = Math.round((startupTimesTotal / divisor) / 1000);
-                        graphData.startupTimes.push([new Date(currentDay).getTime(), startupTimeMedian]);
+                        if(validTimes.length > 0) {
+                            graphData.startupTimes.push([new Date(currentDay).getTime(), computeMedian(validTimes) / 1000]);
+                        }
                     } else {
                         // This day only has one session, convert to seconds, no need to calculate
                         // a median.
