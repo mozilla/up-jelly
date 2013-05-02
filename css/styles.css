@@ -53,6 +53,14 @@ h3 {
                 0 -1px 0 hsla(210,35%,8%,.05) inset;
     z-index: 100;
 }
+.blurb a {
+  display: inline-block;
+}
+.learn_more {
+    margin-right: 5px;
+    padding-right: 5px;
+    border-right: 1px solid rgb(153, 153, 153);
+}
 .outerContainer {
   width: 100%;
   min-width: 1200px;
