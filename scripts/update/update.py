@@ -55,7 +55,6 @@ def update_info(ctx):
         ctx.local('git branch >> ../web-output/logs/revision.txt')
         ctx.local('git log -3 >> ../web-output/logs/revision.txt')
         ctx.local('git status >> ../web-output/logs/revision.txt')
-        ctx.local('git submodule ../status >> web-output/logs/revision.txt')
 
         ctx.local('git rev-parse HEAD > ../web-output/logs/revision')
 
