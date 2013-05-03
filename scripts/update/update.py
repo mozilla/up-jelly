@@ -50,13 +50,13 @@ def deploy_app(ctx):
 def update_info(ctx):
     """Write info about the current state to a publicly visible file."""
     with ctx.lcd(settings.SRC_DIR):
-        ctx.local('date > ../web-content/logs/revision.txt')
-        ctx.local('git branch >> ../web-content/logs/revision.txt')
-        ctx.local('git log -3 >> ../web-content/logs/revision.txt')
-        ctx.local('git status >> ../web-content/logs/revision.txt')
-        ctx.local('git submodule status >> ../web-content/logs/revision.txt')
+        ctx.local('date > web-content/logs/revision.txt')
+        ctx.local('git branch >> web-content/logs/revision.txt')
+        ctx.local('git log -3 >> web-content/logs/revision.txt')
+        ctx.local('git status >> web-content/logs/revision.txt')
+        ctx.local('git submodule status >> web-content/logs/revision.txt')
 
-        ctx.local('git rev-parse HEAD > ../web-content/logs/revision')
+        ctx.local('git rev-parse HEAD > web-content/logs/revision')
 
 
 @task
