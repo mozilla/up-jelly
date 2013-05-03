@@ -18,9 +18,15 @@ import commander_settings as settings
 @task
 def update_code(ctx, tag):
     """Update the code to a specific git reference (tag/sha/etc)."""
-    with ctx.lcd(settings.SRC_DIR):
+    with ctx.lcd(os.path.join(settings.SRC_DIR, 'fhr-jelly')):
         ctx.local('git fetch')
         ctx.local('git checkout -f %s' % tag)
+
+@task
+def update_locales(ctx):
+    """Update a locale directory from SVN."""
+    with ctx.lcd(os.path.join(settings.SRC_DIR, 'locale')):
+        ctx.local('svn up')
 
 
 @task
