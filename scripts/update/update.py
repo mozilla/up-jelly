@@ -24,18 +24,6 @@ def update_code(ctx, tag):
 
 
 @task
-def update_locales(ctx):
-    """Update a locale directory from SVN.
-
-    Assumes localizations 1) exist, 2) are in SVN, 3) are in SRC_DIR/locale and
-    4) have a compile-mo.sh script. This should all be pretty standard, but
-    change it if you need to.
-
-    """
-    with ctx.lcd(os.path.join(settings.SRC_DIR, 'locale')):
-        ctx.local('svn up')
-
-@task
 def generate_files(ctx):
     """Use the local, IT-written deploy script to check in changes."""
     ctx.local('./generate.py --output-dir %s -f --nowarn' % settings.SRC_DIR+'/web-output')
@@ -50,7 +38,6 @@ def checkin_changes(ctx):
 def deploy_app(ctx):
     """Call the remote update script to push changes to webheads."""
     ctx.remote(settings.REMOTE_UPDATE_SCRIPT)
-    ctx.remote('/bin/touch %s' % settings.REMOTE_WSGI)
 
 
 @task
@@ -62,9 +49,6 @@ def update_info(ctx):
         ctx.local('git log -3')
         ctx.local('git status')
         ctx.local('git submodule status')
-        with ctx.lcd('locale'):
-            ctx.local('svn info')
-            ctx.local('svn status')
 
         ctx.local('git rev-parse HEAD > media/revision.txt')
 
@@ -78,12 +62,12 @@ def pre_update(ctx, ref=settings.UPDATE_REF):
 
 @task
 def update(ctx):
-    update_locales()
+    checkin_changes()
 
 
 @task
 def deploy(ctx):
-    checkin_changes()
+    
     deploy_app()
 
 
