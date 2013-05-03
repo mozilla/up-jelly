@@ -19,14 +19,15 @@ LANG_FILENAME = 'fhr.lang'
 LANGS = (
     'ach', 'af', 'ak', 'an', 'ar', 'as', 'ast', 'az', 'be', 'bg',
     'bn-BD', 'bn-IN', 'br', 'bs', 'ca', 'cs', 'csb', 'cy', 'da',
-    'de', 'el', 'en-GB', 'en-US', 'eo', 'es-AR', 'es-CL', 'es-ES', 'es-MX',
-    'et', 'eu', 'fa', 'ff', 'fi', 'fr', 'fy-NL', 'ga-IE', 'gd', 'gl',
-    'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'hy-AM', 'id', 'is', 'it', 'ja', 
-    'ja-JP-mac', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'lg', 'lij', 'lt', 'lv', 
-    'mai', 'mk', 'ml', 'mn', 'mr', 'my', 'nb-NO', 'nl', 'nn-NO', 'nso', 'oc', 'or',
-    'pa-IN', 'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru', 'sah', 'si', 'sk',
-    'sl', 'son', 'sq', 'sr', 'sv-SE', 'sw', 'ta', 'ta-LK', 'te', 'th',
-    'tr', 'uk', 'ur', 'vi', 'zh-CN', 'zh-TW', 'zu',
+    'de', 'el', 'en-GB', 'en-US', 'en-ZA', 'eo', 'es-AR', 'es-CL',
+    'es-ES', 'es-MX', 'et', 'eu', 'fa', 'ff', 'fi', 'fr', 'fy-NL',
+    'ga-IE', 'gd', 'gl', 'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'hy-AM',
+    'id', 'is', 'it', 'ja', 'ja-JP-mac', 'ka', 'kk', 'km', 'kn',
+    'ko', 'ku', 'lg', 'lij', 'lt', 'lv', 'mai', 'mk', 'ml', 'mn',
+    'mr', 'my', 'nb-NO', 'nl', 'nn-NO', 'nso', 'oc', 'or', 'pa-IN',
+    'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru', 'sah', 'si', 'sk', 'sl',
+    'son', 'sq', 'sr', 'sv-SE', 'sw', 'ta', 'ta-LK', 'te', 'th', 'tr',
+    'uk', 'ur', 'vi', 'wo', 'zh-CN', 'zh-TW', 'zu',
 )
 
 # RTL languages.
@@ -36,10 +37,15 @@ RTL_LANGS = ('ar', 'fa', 'he', 'ur')
 # fallbacks rather than generated on their owns. Both sides must exist in
 # LANGS.
 LANG_FALLBACK = {
-    'be': 'ru',
-    'ja-JP-mac': 'ja',
-    'mn': 'ru',
-    'he': 'en-US',
+    'be'        : 'ru',
+    'en-ZA'     : 'en-US',
+    'he'        : 'en-US',
+    'ja-JP-mac' : 'ja',
+    'mn'        : 'ru',
+    'nn-NO'     : 'nb-NO',
+    'sw'        : 'en-US',
+    'ur'        : 'en-US',
+    'wo'        : 'fr',
 }
 
 # View to build - specify either 'passive' or 'urgent'
