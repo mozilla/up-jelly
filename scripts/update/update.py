@@ -52,11 +52,11 @@ def update_info(ctx):
     """Write info about the current state to a publicly visible file."""
     with ctx.lcd(os.path.join(settings.SRC_DIR, 'fhr-jelly')):
         ctx.local('date > ../web-output/logs/revision.txt')
-        ctx.local('git branch >> ../web-output/logs/revision.txt')
-        ctx.local('git log -3 >> ../web-output/logs/revision.txt')
-        ctx.local('git status >> ../web-output/logs/revision.txt')
+        ctx.local('git branch >> ../logs/revision.txt')
+        ctx.local('git log -3 >> ../logs/revision.txt')
+        ctx.local('git status >> ../logs/revision.txt')
 
-        ctx.local('git rev-parse HEAD > ../web-output/logs/revision')
+        ctx.local('git rev-parse HEAD > ../logs/revision')
 
 
 @task
