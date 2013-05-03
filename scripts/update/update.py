@@ -20,7 +20,7 @@ def update_code(ctx, tag):
     """Update the code to a specific git reference (tag/sha/etc)."""
     with ctx.lcd(os.path.join(settings.SRC_DIR, 'fhr-jelly')):
         ctx.local('git fetch')
-        ctx.local('git checkout -f %s' % tag)
+        ctx.local('git pull -f')
 
 @task
 def update_locales(ctx):
