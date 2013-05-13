@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="{{ LANG }}" dir="{{ DIR }}" >
+<!doctype html>
+<html lang="{{ LANG }}" dir="{{ DIR }}" ng-app="UPDashboard">
     <head>
         <meta charset="utf-8" />
-        <title>{{ _('Firefox Health Report') }}</title>
-
+        <title>{{ _('Firefox User Profile') }}</title>
         <link href="css/normalize.css" type="text/css" rel="stylesheet" media="screen" />
         <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen" />
     </head>
-    <body onload="init()">
+    <body>
         <div class="persistentHeader">
-          <div class="headerContainer">
-            <div class="navAndBlurb">
-              <ul class="nav">
-                <li class="nav-category"><a href="#health" class="active">{{ _('Firefox Health Report') }}</a></li>
-                <li class="nav-separator"></li>
-                <li class="nav-category"><a href="#raw">{{ _('Raw Data') }}</a></li>
-              </ul>
-              <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf" class="learn_more">{{ _('Learn more...') }}</a>
-                <a href="//www.mozilla.org/legal/privacy/firefox.html" class="newtab">{{ _('Privacy Policy') }}</a></div>
+            <div class="headerContainer">
+                <div class="navAndBlurb">
+                    <ul class="nav">
+                        <li class="nav-category"><a href="#profile" class="active">{{ _('Firefox User Profile') }}</a></li>
+                    </ul>
+                    <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf" class="learn_more">{{ _('Learn more...') }}</a>
+                        <a href="//www.mozilla.org/legal/privacy/firefox.html" class="newtab">{{ _('Privacy Policy') }}</a></div>
+                </div>
             </div>
-          </div>
 
             <!-- activation widget -->
-            <div class="activationWidget">
+            <div ng-class="{disabled: !prefs.enabled}" class="activationWidget" ng-click="toggle()" ng-controller="activationCtrl">
                 <div class="activationTrigger">
-                    <p class="activationTextContainer">{{ _('Data Sharing') }}<br><span class="statusText">{{ _('ON') }}</span></p>
+                    <p class="activationTextContainer">
+                        {{ _('Data Sharing') }}<br/>
+                        <span ng-show="prefs.enabled" class="statusText">{{ _('ON') }}</span>
+                        <span ng-hide="prefs.enabled" class="statusText disabled">{{ _('OFF') }}</span>
+                    </p>
                     <span class="activationTabContainer">
                         <div class="activationTabOverlay"></div>
                         <div class="activationTab"></div>
                     </span>
                 </div>
 
-                <div class="panelContainer disabledPanel">
+                <div class="panelContainer" ng-hide="prefs.enabled">
                     <div class="panelContainerArrow"></div>
                     <div class="panelContainerBase">
                         <div class="panelContainerContent">
@@ -41,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="panelContainer enabledPanel">
+                <div class="panelContainer" ng-show="prefs.enabled">
                     <div class="panelContainerArrow"></div>
                     <div class="panelContainerBase">
                         <div class="panelContainerContent">
@@ -54,498 +55,13 @@
         </div>
 
         <div class="outerContainer">
-            <div class="sidebar">
-                <!-- enabled by media queries -->
-                <a href="#showstats" id="showstats" class="menu_toggle"><span class="visually-hidden" aria-hidden="true">{{ _('Show Statistics') }}</span></a>
-                <div class="statsBox">
-
-                    <div class="statsBoxSection">
-                        <div class="statsBoxSection-header">
-                            <img class="icon" src="img/icon-vitalStats.png" height="16" width="28">{{ _('Vital Stats') }}
-                        </div>
-                        <div class="statsBoxSection-content">
-                            <ul id="vital_stats">
-                                <li>{{ _("version") }}<span class="statsBoxSection-value"></span></li>
-                                <li>{{ _("time open") }}<span class="statsBoxSection-value"></span></li>
-                                <li>{{ _("last crash") }}<span class="statsBoxSection-value"></span></li>
-                                <li>{{ _("bookmarks") }}<span class="statsBoxSection-value"></span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="statsBoxSection">
-                        <div class="statsBoxSection-header">
-                            <img class="icon" src="img/icon-thisMonth.png" height="16" width="16">{{ _('This Month') }}
-                        </div>
-                        <div class="statsBoxSection-content">
-                                <ul id="current_month">
-                                    <li>{{ _("time open") }}<span class="statsBoxSection-value"></span></li>
-                                    <li>{{ _("crashes") }}<span class="statsBoxSection-value"></span></li>
-                                </ul>
-                        </div>
-                    </div>
-
-                    <div class="statsBoxSection">
-                        <div class="statsBoxSection-header">
-                            <img class="icon" src="img/icon-addons.png" height="16" width="16">{{ _('Add-ons') }}<span class="statsBoxSection-value"><!--{{ _('View List') }}--></span>
-                        </div>
-                        <div class="statsBoxSection-content">
-                            <ul id="addons">
-                                <li>{{ _("enabled") }}<span class="statsBoxSection-value"></span></li>
-                                <li>{{ _("disabled") }}<span class="statsBoxSection-value"></span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="statsBoxSection">
-                        <div class="statsBoxSection-header">
-                            <img class="icon" src="img/icon-plugins.png" height="16" width="16">{{ _('Plugins') }}<span class="statsBoxSection-value"><!--{{ _('View List') }}--></span>
-                        </div>
-                        <div class="statsBoxSection-content">
-                            <ul id="plugins">
-                                <li>{{ _("enabled") }}<span class="statsBoxSection-value"></span></li>
-                                <li>{{ _("disabled") }}<span class="statsBoxSection-value"></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="health" class="mainContent">
-                <!-- TipBoxes -->
-                <div class="tipBoxes">
-                  <div id="survey" class="tipBox-container">
-                        <div class="tipBox-header">
-                            <div class="icon expanderArrow"></div>
-                            <div class="text">{{ _('Tips') }}</div>
-                        </div>
-                        <div class="tipBox-content">
-                            <p>Help us make Firefox Health Report more useful for you. Take a <a href ="http://www.surveygizmo.com/s3/1227362/Firefox-Health-Report-Feedback" class="newtab">brief survey</a> and tell us what you think so far!</p>
-                        </div>
-                    </div>
-
-                    <div id="crashyfox" class="tipBox-container">
-                        <div class="icon closeTip"></div>
-                        <div class="tipBox-header">
-                            <div class="icon expanderArrow"></div>
-                            <div class="text">{{ _('Tips') }}</div>
-                        </div>
-                        <div class="tipBox-content">
-                            <p>{{ _('It looks like your browser has crashed a number of times recently. To learn more:') }}</p>
-                            <ul>
-                                <li>{{ _('Visit our <a href="%(sumo_url)s">support website</a>')|format(sumo_url='https://support.mozilla.org/kb/firefox-crashes-troubleshoot-prevent-and-get-help') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="slowfox" class="tipBox-container">
-                        <div class="icon closeTip"></div>
-                        <div class="tipBox-header">
-                            <div class="icon expanderArrow"></div>
-                            <div class="text">{{ _('Tips') }}</div>
-                        </div>
-                        <div class="tipBox-content">
-                            <p>{{ _('Your browser seems to be running slower than usual. To learn more:') }}</p>
-                            <ul>
-                                <li>{{ _('Visit our <a href="%(sumo_url)s">support website</a>')|format(sumo_url='https://support.mozilla.org/') }}</li>
-                                <li>{{ _('View more <a href="%(details_url)s">detailed information</a>')|format(details_url='https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems') }}</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="hungryfox" class="tipBox-container">
-                        <div class="icon closeTip"></div>
-                        <div class="tipBox-header">
-                            <div class="icon expanderArrow"></div>
-                            <div class="text">{{ _('Tips') }}</div>
-                        </div>
-                        <div class="tipBox-content">
-                            <p>{{ _('You\'ll be able to see more interesting and detailed information the more you use your browser. Check back in a couple of weeks to start seeing some trends.') }}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <figure class="graphbox">
-                    <h2>{{ _('Startup Time by Day') }}</h2>
-
-                    <div id="graph_selector" class="selector">
-                        <h4>{{ _('Graph:') }}</h4>
-                        <ul>
-                            <li><a href="#median" class="active" id="graph_median">{{ _('Average') }}</a></li>
-                            <li><a href="#all" id="graph_all">{{ _('All') }}</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="graph"></div>
-                    <div class="yaxis-label">{{ _('Time (in seconds)') }}</div>
-                    <figcaption>{{ _('Startup time helps determine how well your version of Firefox is performing. In general, faster times (i.e. less time) indicate better performance.') }}  <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf">{{ _('Learn more...') }}</a></figcaption>
-                </figure>
-            </div>
-            <!-- RAW DATA -->
-            <div id="raw" class="mainContent">
-                <div class="rawdata-container">
-                    <h2 id="data_heading" class="raw_heading">{{ _('Raw Data') }}</h2>
-                    <h2 id="glossary_heading" class="raw_heading">{{ _('Glossary') }}</h2>
-
-                    <div class="selector raw">
-                        <ul id="raw_selector">
-                            <li><a href="#data" class="active data_heading">{{ _('Raw Data') }}</a></li>
-                            <li><a href="#glossary" class="glossary_heading">{{ _('Glossary') }}</a></li>
-                        </ul>
-                    </div>
-
-                    <section id="data" class="rawdata-display">
-<code>
-<pre>
-
-</pre>
-</code>
-                    </section>
-                    <article id="glossary" class="rawdata-display">
-                        <section>
-                        <h3>1) {{ _('What the Firefox Health Report Measures') }}</h3>
-                        <p>{{ _('The Firefox Health Report (FHR) has 4 categories of metrics:') }}</p>
-                        <dl>
-                            <dt><a href="#sec-2-1">{{ _('Configuration') }}</a></dt>
-                            <dd>{{ _('Device hardware, operating system, Firefox version') }}</dd>
-                            <dt><a href="#sec-2-2">{{ _('Customizations') }}</a></dt>
-                            <dd>{{ _('Add-ons, count and type') }}</dd>
-                            <dt><a href="#sec-2-3">{{ _('Performance') }}</a></dt>
-                            <dd>{{ _('Timing of browser events, rendering, session restores') }}</dd>
-                            <dt><a href="#sec-2-4">{{ _('Wear and Tear') }}</a></dt>
-                            <dd>{{ _('Length of session, how old a profile is, count of crashes, count of pages') }}</dd>
-                        </dl>
-                        </section>
-                        <section>
-                            <h3>2) {{ _('Detailed Description') }}</h3>
-                            <h4 id="sec-2-1">2.1) {{ _('Configuration') }}</h4>
-                            <p>{{ _('Device hardware, operating system, Firefox version') }}</p>
-                            <table rules="groups">
-                                <colgroup><col class="left" />
-                                    <col class="left" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="left">{{ _('Metric') }}</th>
-                                        <th scope="col" class="left">{{ _('Description') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="left">appABI</td>
-                                        <td class="left">{{ _('Binary interface for XPCOM') }} (<a href="https://developer.mozilla.org/XPCOM_ABI" dir="{{ DIR }}">https://developer.mozilla.org/XPCOM_ABI</a>)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appBuildID</td>
-                                        <td class="left">{{ _('Identifier for this build of the application based on the date the build was started') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appBuildTargetOS</td>
-                                        <td class="left">{{ _('Operating System for which this build was configured') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appDistribution</td>
-                                        <td class="left">{{ _('Identifier for the particular distribution of the application in use. It is taken from the <var>distribution.id</var> preference') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appDistributionVersion</td>
-                                        <td class="left">{{ _('Version of the distribution, taken from the <var>distribution.version</var> preference') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appHotFixVersion</td>
-                                        <td class="left">{{ _('The version number of any Mozilla hotfix applied to the application') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appID</td>
-                                        <td class="left">{{ _('Identifier unique to the application that indicates it is Firefox or Thunderbird, etc. Same for all installations of an application regardless of the value of <var>appName</var>') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appName</td>
-                                        <td class="left">{{ _('The configured name of the application (Firefox/Aurora/Nightly for instance)') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appUpdateChannel</td>
-                                        <td class="left">{{ _('The channel this installation checks for application updates (nightly/aurora/beta/release)') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appVendor</td>
-                                        <td class="left">{{ _('The name of the company/provider who built this version') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appVersion</td>
-                                        <td class="left">{{ _('The current version of the product') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">cpuCount</td>
-                                        <td class="left">{{ _('Number of processor cores') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">isDefaultBrowser</td>
-                                        <td class="left">{{ _('Whether the application is currently configured to be the default browser for the operating system') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">locale</td>
-                                        <td class="left">{{ _('Locale currently being used') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">memSize</td>
-                                        <td class="left">{{ _('Amount of RAM in megabytes') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">osName</td>
-                                        <td class="left">{{ _('Currently running Operating System (kernel) name') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">osVersion</td>
-                                        <td class="left">{{ _('Currently running Operating System (kernel) version') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">platformBuildID</td>
-                                        <td class="left">{{ _('The build identifier of the Gecko platform code') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">platformVersion</td>
-                                        <td class="left">{{ _('The version of the Gecko platform code') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">processorArch</td>
-                                        <td class="left">{{ _('Processor architecture') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">version.date</td>
-                                        <td class="left">{{ _('The date this version was first used with this installation profile') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">version.version</td>
-                                        <td class="left">{{ _('An application version which has been used with this installation profile') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <section>
-                            <h4 id="sec-2-2">2.2) {{ _('Customizations') }}</h4>
-                            <p>{{ _('Add-ons, count and type') }}</p>
-                            <table rules="groups">
-                                <colgroup><col class="left" />
-                                    <col class="left" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="left">{{ _('Metric') }}</th>
-                                        <th scope="col" class="left">{{ _('Description') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="left">addonCounts</td>
-                                        <td class="left">{{ _('The number of add-ons of this type that existed in the profile on this date') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appDisabled</td>
-                                        <td class="left">{{ _('<var>True</var> if the application automatically disabled the add-on') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">foreignInstall</td>
-                                        <td class="left">{{ _('Whether this add-on was installed by the user or automatically by another application') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">hasBinaryComponents</td>
-                                        <td class="left">{{ _('Whether this add-on has native code.') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">id</td>
-                                        <td class="left">{{ _('The identifier of this add-on as defined by the add-on developer') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">installDate</td>
-                                        <td class="left">{{ _('The most recent date this add-on was installed (previous information about an uninstalled add-on is not kept).') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">search</td>
-                                        <td class="left">{{ _('The number of searches performed with this search engine from this part of the UI') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">scope</td>
-                                        <td class="left">{{ _('Whether this add-on was installed in the application directory or profile directory') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">type</td>
-                                        <td class="left">{{ _('Whether this add-on is an extension or a plug-in') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">updateDate</td>
-                                        <td class="left">{{ _('The most recent date this add-on was updated (previous information about an uninstalled add-on is not kept).') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">userDisabled</td>
-                                        <td class="left">{{ _('<var>True</var> if the user manually disabled the add-on') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">version</td>
-                                        <td class="left">{{ _('The current version of this add-on') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <section>
-                            <h4 id="sec-2-3">2.3) {{ _('Performance') }}</h4>
-                            <p>{{ _('Timing of browser events, rendering, session restores') }}</p>
-                            <table rules="groups">
-                                <colgroup><col class="left" />
-                                    <col class="left" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="left">{{ _('Metric') }}</th>
-                                        <th scope="col" class="left">{{ _('Description') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="left">firstPaint</td>
-                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to render the UI and display the window') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">main</td>
-                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to load libraries and finish basic initialization') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">sessionRestored</td>
-                                        <td class="left">{{ _('How long in milliseconds it took during startup for the application to restore tabs from the previous session') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                        <section>
-                            <h4 id="sec-2-4">2.4) {{ _('Wear and Tear') }}</h4>
-                            <p>{{ _('Length of session, how old a profile is, count of crashes, count of pages') }}</p>
-                            <table rules="groups">
-                                <colgroup><col class="left" />
-                                    <col class="left" />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="left">{{ _('Metric') }}</th>
-                                        <th scope="col" class="left">{{ _('Description') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="left">aborted</td>
-                                        <td class="left">{{ _('The number of times the application was run and not cleanly shut down.') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">abortedActiveTime</td>
-                                        <td class="left">{{ _('The time in seconds that the aborted sessions were not idle') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">abortedTime</td>
-                                        <td class="left">{{ _('The time in seconds that the aborted sessions were running') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">appProfileAge</td>
-                                        <td class="left">{{ _('The number of days since this application profile directory was created') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">completed</td>
-                                        <td class="left">{{ _('The number of times the application was run and cleanly shut down.') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">completedActiveTime</td>
-                                        <td class="left">{{ _('The time in seconds that the completed sessions were not idle') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">completedTime</td>
-                                        <td class="left">{{ _('The time in seconds that the completed sessions were running') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">crashCountPending</td>
-                                        <td class="left">{{ _('Total number of crashes that were recorded but not yet submitted') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">crashCountSubmitted</td>
-                                        <td class="left">{{ _('Total number of crashes that have been submitted') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">currentSessionActiveTime</td>
-                                        <td class="left">{{ _('Time in seconds the app has not been idle') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">currentSessionTime</td>
-                                        <td class="left">{{ _('Time in seconds since the app was last started') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">placesBookmarksCount</td>
-                                        <td class="left">{{ _('Total number of bookmarks') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">placesPageCount</td>
-                                        <td class="left">{{ _('Total number of pages listed in the history') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">uptime</td>
-                                        <td class="left">{{ _('How long in minutes the current session has been running') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    </article>
-                </div>
+            <div id="report" class="mainContent" ng-controller="interestProfileCtrl">
+                <p>message: [[message]]</p>
             </div>
         </div>
-        <div class="loading">
-            <img src="img/loading.png" />
-        </div>
 
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery.flot.js"></script>
 
-        <!-- Has to live inside the HTML because of l10n -->
-        <script>
-        // Activation widget
-        var activationWidget = $(".activationWidget"),
-            activationTrigger = $(".activationTrigger"),
-            statusTxt = $(".statusText");
-
-        var showStatusPanel = function(panel, status, showMessage) {
-
-            if(status) {
-                // If the activation panel is currently disabled
-                // then we need to remove the disabled class.
-                if(activationWidget.hasClass('disabled')) {
-                    activationWidget.removeClass("disabled");
-                    statusTxt.removeClass("disabled");
-                }
-                statusTxt.text('{{ _("ON") }}');
-            } else {
-                // If the activation panel is currently active
-                // then we need to add the disabled class.
-                if(!activationWidget.hasClass('disabled')) {
-                    activationWidget.addClass("disabled");
-                    statusTxt.addClass("disabled");
-                }
-                statusTxt.text('{{ _("OFF") }}');
-            }
-
-            if(showMessage) {
-                status ? enableSubmission() : disableSubmission();
-
-                panel.toggleClass("toggled");
-                setTimeout(function() {
-                    panel.toggleClass("toggled");
-                }, 5000);
-            }
-        };
-
-        activationTrigger.click(function() {
-            if (statusTxt.text() === '{{ _("ON") }}') {
-                showStatusPanel($(".disabledPanel"), false, true);
-            } else {
-                showStatusPanel($(".enabledPanel"), true, true);
-            }
-        });
-        </script>
-
-        <script type="text/javascript" src="js/data.js"></script>
-        <script type="text/javascript" src="js/fhr.js"></script>
+        <script src="js/angular.js"></script>
+        <script type="text/javascript" src="js/up.js"></script>
     </body>
 </html>

@@ -13,7 +13,7 @@ if not os.path.exists(LOCALE_DIR):
     LOCALE_DIR = os.path.join(ROOT, 'locale_test')
 
 # .lang file, filename
-LANG_FILENAME = 'fhr.lang'
+LANG_FILENAME = 'up.lang'
 
 # List of languages.
 LANGS = (
