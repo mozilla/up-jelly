@@ -68,26 +68,12 @@ h3 {
   margin: 0 auto;
   overflow: visible;
 }
-.innerContainer {
-  margin-top: 110px;
-  min-height: 50px;
-  width: 100%;
-}
-.sidebar,
-.sidebar_tabs {
-    float: left;
-    background-image: url(../img/sidebarSeparator.png);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 13px 100%;
-    width: 360px;
-}
 /* Only displayed for viewports 768px or less */
 .menu_toggle {
     display: none;
 }
 .mainContent {
-    float: right;
+    float: left;
     margin-top: 30px;
     min-width: 320px;
 }

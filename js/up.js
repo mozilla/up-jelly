@@ -104,7 +104,8 @@ userProfile.controller("activationCtrl", function($scope, dataService) {
     }
   }
 });
-userProfile.controller("interestProfileCtrl", function($scope, dataService) {
+
+userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
   $scope.message = dataService._message;
 
   // refresh the state of the controller
@@ -112,4 +113,7 @@ userProfile.controller("interestProfileCtrl", function($scope, dataService) {
     $scope.message = dataService._message;
   }
   $scope.$on("messageChanged", $scope.refresh);
+});
+
+userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService) {
 });

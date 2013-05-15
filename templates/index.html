@@ -5,6 +5,7 @@
         <title>{{ _('Firefox User Profile') }}</title>
         <link href="css/normalize.css" type="text/css" rel="stylesheet" media="screen" />
         <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen" />
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
         <div class="persistentHeader">
@@ -13,7 +14,7 @@
                     <ul class="nav">
                         <li class="nav-category"><a href="#profile" class="active">{{ _('Firefox User Profile') }}</a></li>
                     </ul>
-                    <div class="blurb">{{ _('Get insights and performance information about your version of Firefox.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf" class="learn_more">{{ _('Learn more...') }}</a>
+                    <div class="blurb">{{ _('Personalize the web to your interests.') }} <a href="https://support.mozilla.org/kb/firefox-health-report-understand-your-browser-perf" class="learn_more">{{ _('Learn more...') }}</a>
                         <a href="//www.mozilla.org/legal/privacy/firefox.html" class="newtab">{{ _('Privacy Policy') }}</a></div>
                 </div>
             </div>
@@ -55,8 +56,21 @@
         </div>
 
         <div class="outerContainer">
-            <div id="report" class="mainContent" ng-controller="interestProfileCtrl">
-                <p>message: [[message]]</p>
+            <div id="report" class="mainContent">
+                <div id="interestsProfile">
+                    <h3>{{ _('INTERESTS PROFILE') }}</h3>
+                    <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
+                    <div ng-controller="interestsProfileCtrl">
+                        <p>[[message]]</p>
+                    </div>
+                </div>
+
+                <div id="personalizedWebsites">
+                    <h3>{{ _('PERSONALIZED WEBSITES') }}</h3>
+                    <p>{{ _('Your Interests are requested by the following websites. Here, you can choose which websites you would like to share your interests with, thus helping them to personalize content specifically for you.') }}</p>
+                    <div ng-controller="personalizedWebsitesCtrl">
+                    </div>
+                </div>
             </div>
         </div>
 
