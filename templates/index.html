@@ -5,7 +5,6 @@
         <title>{{ _('Firefox User Profile') }}</title>
         <link href="css/normalize.css" type="text/css" rel="stylesheet" media="screen" />
         <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen" />
-        <link href="css/barchart.css" type="text/css" rel="stylesheet" media="screen" />
     </head>
     <body>
         <div class="persistentHeader">
@@ -60,11 +59,16 @@
                 <div id="interestsProfile">
                     <h3>{{ _('INTERESTS PROFILE') }}</h3>
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
-                    <div ng-controller="interestsProfileCtrl" class="bar-chart">
-                        <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore">
-                            <dt>[[interest.name]]</dt>
-                            <dd>[[interest.score/10]]</dd>
-                        </dl>
+                    <div class="interestsContent" ng-controller="interestsProfileCtrl">
+                        <div ng-hide="interests.length" class="dataNotAvailable">
+                            <em>{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
+                        </div>
+                        <div ng-show="interests.length" class="bar-chart">
+                            <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore">
+                                <dt>[[interest.name | uppercase]]</dt>
+                                <dd>[[interest.score/10]]</dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
 
@@ -76,7 +80,6 @@
                 </div>
             </div>
         </div>
-
 
         <script src="js/angular.js"></script>
         <script type="text/javascript" src="js/up.js"></script>

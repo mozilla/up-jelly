@@ -624,6 +624,17 @@ tr:nth-child(odd) td {
     left: 50%;
 }
 
+/* --- Interests Profile --- */
+
+.interestsContent {
+    min-height: 19.5em;
+}
+
+.dataNotAvailable {
+    text-align: center;
+    line-height: 19.5em;
+}
+
 @media only screen and (max-width: 768px) {
     .outerContainer {
         min-width: 100%;
@@ -684,6 +695,113 @@ tr:nth-child(odd) td {
     .rawdata-container h2 {
         margin: 0 60px 30px
     }
+}
+
+/* --- bar chart --- */
+
+.bar-chart {
+    width: 20%;
+    padding: 1em 0;
+    position: relative;
+    text-align: left;
+}
+
+.bar-chart dl {
+    display: block;
+    margin: 0 0 1em 0;
+    height: 2.5em;
+    line-height: 2.5em;
+    white-space: nowrap;
+    position: relative;
+}
+
+.bar-chart dl dt,
+.bar-chart dl dd {
+    display: block;
+    margin: 0;
+}
+
+.bar-chart dl dd {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+.bar-chart dl dt {
+    padding-left: 1em;
+}
+
+.bar-chart dl.ratio-10 dt { margin-left: 100%; }
+.bar-chart dl.ratio-10 dd {
+    width: 100%;
+    background: #000;
+}
+
+.bar-chart dl.ratio-9 dt { margin-left: 90%; }
+.bar-chart dl.ratio-9 dd {
+    width: 90%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.bar-chart dl.ratio-8 dt { margin-left: 80%; }
+.bar-chart dl.ratio-8 dd {
+    width: 80%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.bar-chart dl.ratio-7 dt { margin-left: 70%; }
+.bar-chart dl.ratio-7 dd {
+    width: 70%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.bar-chart dl.ratio-6 dt { margin-left: 60%; }
+.bar-chart dl.ratio-6 dd {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.bar-chart dl.ratio-5 dt { margin-left: 50%; }
+.bar-chart dl.ratio-5 dd {
+    width: 50%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.bar-chart dl.ratio-4 dt { margin-left: 40%; }
+.bar-chart dl.ratio-4 dd {
+    width: 40%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.bar-chart dl.ratio-3 dt { margin-left: 30%; }
+.bar-chart dl.ratio-3 dd {
+    width: 30%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.bar-chart dl.ratio-2 dt { margin-left: 20%; }
+.bar-chart dl.ratio-2 dd {
+    width: 20%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.bar-chart dl.ratio-1 dt { margin-left: 10%; }
+.bar-chart dl.ratio-1 dd {
+    width: 10%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.bar-chart dl.ratio-0 dt { margin-left: 1%; }
+.bar-chart dl.ratio-0 dd {
+    width: 1%;
+    padding-left: 0.5em;
+}
+
+@media print { 
+    .bar-chart dd { border: 1px solid #000 }
 }
 
 /* RTL support */
