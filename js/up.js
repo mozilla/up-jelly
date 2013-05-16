@@ -7,7 +7,6 @@ var DataService = function($window, $rootScope) {
   this._prefs = {enabled: false};
   this._isFirstLoad = true;
   this._payload = null;
-  this._message = "";
 }
 
 
@@ -74,7 +73,8 @@ DataService.prototype = {
 
   _populateData: function _populateData(data) {
     //TODO: update data and send message to appropriate controllers
-    this._message = JSON.stringify(data);
+    //this._message = JSON.stringify(data);
+    this._payload = JSON.parse(data);
   },
 }
 
@@ -106,11 +106,13 @@ userProfile.controller("activationCtrl", function($scope, dataService) {
 });
 
 userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
-  $scope.message = dataService._message;
 
   // refresh the state of the controller
   $scope.refresh = function() {
-    $scope.message = dataService._message;
+    $scope.interests = dataService._payload && dataService._payload.length ? dataService._payload[0].slice(0,5) : [];
+    for (var i=0; i < $scope.interests.length; i++) {
+      $scope.interests[i].roundScore = Math.round($scope.interests[i].score / 10);
+    }
   }
   $scope.$on("messageChanged", $scope.refresh);
 });
