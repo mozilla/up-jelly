@@ -23,7 +23,7 @@ DataService.prototype = {
     // the message for this is received do we ask for
     // the payload.
     if (this._isFirstLoad && event.data.type == 'prefs') {
-      this.reqPayload();
+      this.reqPagePayload();
       this._isFirstLoad = false;
     }
 
@@ -40,7 +40,7 @@ DataService.prototype = {
         this.rootScope.$apply(function() {
           var payload = event.data.content;
           that._populateData(payload);
-          that.rootScope.$broadcast("messageChanged");
+          that.rootScope.$broadcast("dataReceived");
         });
         break;
     }
@@ -58,12 +58,24 @@ DataService.prototype = {
     this._sendToBrowser("RequestCurrentPrefs");
   },
 
-  reqPayload: function reqPayload() {
-    this._sendToBrowser("RequestCurrentPayload");
+  reqPagePayload: function reqPagePayload() {
+    // defaults to 5 interests
+    var interestsProfileLimit = 5;
+    this._sendToBrowser("RequestCurrentPagePayload", interestsProfileLimit);
   },
 
-  _sendToBrowser: function _sendToBrowser(type) {
-    var event = new CustomEvent("RemoteUserProfileCommand", {detail: {command: type}});
+  _sendToBrowser: function _sendToBrowser(type, data) {
+    var details = {
+      detail: {
+        command: type
+      }
+    }
+
+    if (data) {
+      details.detail.data = data;
+    }
+
+    var event = new CustomEvent("RemoteUserProfileCommand", details);
     try {
       this.window.document.dispatchEvent(event);
     } catch(e) {
@@ -72,9 +84,9 @@ DataService.prototype = {
   },
 
   _populateData: function _populateData(data) {
-    //TODO: update data and send message to appropriate controllers
-    //this._message = JSON.stringify(data);
-    this._payload = JSON.parse(data);
+    var parsedData = JSON.parse(data);
+    this._interestsProfile = parsedData.interestsProfile;
+    this._interestsHosts = parsedData.interestsHosts;
   },
 }
 
@@ -108,13 +120,26 @@ userProfile.controller("activationCtrl", function($scope, dataService) {
 userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
   // refresh the state of the controller
+  $scope.detailWindowHasContent = false;
+
   $scope.refresh = function() {
-    $scope.interests = dataService._payload && dataService._payload.length ? dataService._payload[0].slice(0,5) : [];
+    $scope.interests = dataService._interestsProfile && dataService._interestsProfile.length ? dataService._interestsProfile : [];
     for (var i=0; i < $scope.interests.length; i++) {
       $scope.interests[i].roundScore = Math.round($scope.interests[i].score / 10);
     }
+    angular.element(document.querySelector("#interestsContent .bar-chart")).removeClass("hidden");
+    angular.element(document.querySelector("#interestsContent .dataNotAvailable")).addClass("hidden");
+    angular.element(document.querySelector("#interestsContent .detailWindow")).removeClass("hidden");
   }
-  $scope.$on("messageChanged", $scope.refresh);
+  $scope.$on("dataReceived", $scope.refresh);
+
+  $scope.updateDetailWindow = function(interest) {
+    document.querySelector("#interestsContent .detailTitle").innerHTML = interest.name.toUpperCase();
+    document.querySelector("#interestsContent .detailScore").innerHTML = interest.score/10;
+    $scope.hosts = dataService._interestsHosts && dataService._interestsHosts.hasOwnProperty(interest.name) ? dataService._interestsHosts[interest.name] : [];
+
+    $scope.detailWindowHasContent = true;
+  }
 });
 
 userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService) {
