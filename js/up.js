@@ -42,6 +42,11 @@ DataService.prototype = {
           var broadcastMessage = that._populateData(payload);
           that.rootScope.$broadcast(broadcastMessage);
         });
+      case "sitePref":
+        this.rootScope.$apply(function() {
+          that._setSitePermission(event.data.content);
+          that.rootScope.$broadcast("sitePrefReceived");
+        });
         break;
     }
   },
@@ -66,6 +71,14 @@ DataService.prototype = {
 
   setInterestSharable: function setInterestSharable(interest, value) {
     this._sendToBrowser("SetInterestSharable", [interest, value]);
+  },
+
+  disableSite: function disableSite(site) {
+    this._sendToBrowser("DisableSite",site);
+  },
+
+  enableSite: function enableSite(site) {
+    this._sendToBrowser("EnableSite",site);
   },
 
   _sendToBrowser: function _sendToBrowser(type, data) {
@@ -99,11 +112,23 @@ DataService.prototype = {
     if(payload.type == "pageload") {
       this._interestsProfile = payload.content.interestsProfile;
       this._interestsHosts = payload.content.interestsHosts;
+      this._requestingSites = payload.content.requestingSites;
       return payload.type+"Received";
     }
     else if(payload.type == "sharableUpdate") {
       var sharables = payload.content.sharable;
       return payload.type+"Received";
+    }
+  },
+
+  _setSitePermission:  function(data) {
+    if (this._requestingSites && this._requestingSites.length) {
+      // find the site and set its premission
+      this._requestingSites.forEach(site => {
+        if (site.name == data.site) {
+          site.isBlocked = data.isBlocked;
+        }
+      });
     }
   },
 }
@@ -163,4 +188,25 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 });
 
 userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService) {
+  $scope.refresh = function() {
+    $scope.sites = [];
+    if (dataService._requestingSites && dataService._requestingSites.length) {
+      $scope.sites = dataService._requestingSites;
+    }
+  }
+
+  $scope.showInterests = function(site) {
+    alert("SHOW " + site);
+  }
+
+  $scope.enableSite = function(site) {
+    dataService.enableSite(site);
+  }
+
+  $scope.disableSite = function(site) {
+    dataService.disableSite(site);
+  }
+
+  $scope.$on("sitePrefReceived", $scope.refresh);
+  $scope.$on("dataReceived", $scope.refresh);
 });
