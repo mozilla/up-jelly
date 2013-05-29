@@ -77,8 +77,6 @@ h3 {
     float: left;
     margin-top: 30px;
     min-width: 320px;
-    max-width: 1200px;
-    padding: 0px 20px 0px 40px;
 }
 .statsBox {
   width: 240px;
@@ -792,8 +790,9 @@ figcaption {
     }
 }
 
+
 .hostDetailContainer {
-    height: 11em;
+    height: 12em;
     border: 1px solid #DDD;
     overflow: auto;
 }
