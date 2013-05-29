@@ -62,9 +62,20 @@
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
                     <div id="interestsContent" ng-controller="interestsProfileCtrl">
 
-                        <div class="detailWindow hidden" ng-show="detailWindowHasContent" ng-animate="'fade'">
-                            <h3 class="detailTitle"></h3>
-                            <p>{{ _('You have a <span class="detailScore"></span>/10 interest in News overall, determined based on your visit to the following sites') }}:</p>
+                        <div class="detailWindow hidden" ng-show="selectedInterest">
+                            <div id="interestDetailHeader">
+                                <h3 class="detailTitle">[[selectedInterest.name | uppercase]]</h3>
+                                <label id="interestToggle" class="toggle android" onclick="">
+                                    <input type="checkbox" ng-model="selectedInterest.meta.sharable" id="interestToggleSwitch" ng-change="updateSharable(selectedInterest)" />
+                                    <p>
+                                        {{ _('Sharing') }}
+                                        <span>{{ _('ON') }}</span>
+                                        <span>{{ _('OFF') }}</span>
+                                    </p>
+                                    <a class="slide-button"></a>
+                                </label>
+                            </div>
+                            <p>{{ _('You have a <span class="detailScore">[[selectedInterest.score/10]]</span>/10 interest in News overall, determined based on your visit to the following sites') }}:</p>
                             <div class="hostDetailContainer">
                                 <table class="hostDetails">
                                     <thead>

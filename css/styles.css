@@ -638,6 +638,158 @@ figcaption {
     box-shadow: 5px 5px 3px #AAA;
 }
 
+/** interest profile window **/
+#interestDetailHeader {
+    height: 3.5em;
+}
+
+#interestDetailHeader .detailTitle {
+    float: left;
+}
+
+#interestToggle {
+    width: 20%;
+    float: right;
+    margin-top: 1.5em;
+}
+
+/** code and theme lifted from: https://github.com/ghinda/css-toggle-switch **/
+.toggle p span {
+	display: none;
+}
+
+@media only screen {
+    .toggle {
+        position: relative;
+        padding: 0;
+        margin-left: 100px;
+        display: block;
+        height: 1em;
+    }
+    .toggle label {
+        position: relative;
+        z-index: 3;
+
+        display: block;
+        width: 100%;
+    }
+    .toggle input {
+        position: absolute;
+        opacity: 0;
+        z-index: 5;
+    }
+
+    .toggle p {
+        position: absolute;
+        left: -100px;
+
+        width: 100%;
+        margin: 0;
+        padding-right: 100px;
+
+        text-align: left;
+    }
+
+    .toggle p span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+
+        display: block;
+        width: 50%;
+        margin-left: 100px;
+
+        text-align: center;
+    }
+
+    .toggle p span:last-child {
+        left: 50%;
+    }
+
+    .toggle .slide-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 4;
+
+        display: block;
+        width: 50%;
+        height: 100%;
+        padding: 0;
+    }
+    .toggle * {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .toggle .slide-button {
+        display: block;
+        transition: all 0.3s ease-out;
+    }
+    .toggle label, .toggle p {
+        line-height: 1em;
+        vertical-align: middle;
+    }
+    .toggle input:checked ~ .slide-button {
+        right: 50%;
+    }
+    .toggle input:focus ~ .slide-button {
+        outline: 1px dotted #888;
+    }
+    .android {
+        background-color: #b6b6b6;
+        color: #fff;
+    }
+
+    .android.toggle {
+        border: 2px solid #b6b6b6;
+    }
+
+    .android.switch {
+        overflow: hidden;
+    }
+
+    .android.switch .slide-button {
+        background-color: #279fca;
+        -webkit-transform: skew(20deg) translateX(10px);
+        -moz-transform: skew(20deg) translateX(10px);
+        -ms-transform: skew(20deg) translateX(10px);
+        -o-transform: skew(20deg) translateX(10px);
+        transform: skew(20deg);
+    }
+
+    .android.toggle .slide-button {
+        border-radius: 2px;
+        background-color: #848484;
+    }
+
+    /* Selected ON toggle */
+    .android.toggle input:first-of-type:checked ~ .slide-button {
+        background-color: rgb(100, 166, 8);
+    }
+
+    .android.switch input:first-of-type:checked ~ .slide-button {
+        -webkit-transform: skew(20deg) translateX(-10px);
+        -moz-transform: skew(20deg) translateX(-10px);
+        -ms-transform: skew(20deg) translateX(-10px);
+        -o-transform: skew(20deg) translateX(-10px);
+        transform: skew(20deg) translateX(-10px);
+    }
+
+    .android p {
+        color: #333;
+    }
+
+    .android span {
+        color: #fff;
+    }
+
+    .android.switch,
+    .android span {
+        text-transform: uppercase;
+    }
+}
+
 .hostDetailContainer {
     height: 12em;
     border: 1px solid #DDD;
