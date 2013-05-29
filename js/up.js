@@ -42,6 +42,11 @@ DataService.prototype = {
           that._populateData(payload);
           that.rootScope.$broadcast("messageChanged");
         });
+      case "sitePref":
+        this.rootScope.$apply(function() {
+          that._setSitePermission(event.data.content);
+          that.rootScope.$broadcast("messageChanged");
+        });
         break;
     }
   },
@@ -62,8 +67,16 @@ DataService.prototype = {
     this._sendToBrowser("RequestCurrentPayload");
   },
 
-  _sendToBrowser: function _sendToBrowser(type) {
-    var event = new CustomEvent("RemoteUserProfileCommand", {detail: {command: type}});
+  disableSite: function disableSite(site) {
+    this._sendToBrowser("DisableSite",site);
+  },
+
+  enableSite: function enableSite(site) {
+    this._sendToBrowser("EnableSite",site);
+  },
+
+  _sendToBrowser: function _sendToBrowser(type,data) {
+    var event = new CustomEvent("RemoteUserProfileCommand", {detail: {command: type, data: data,}});
     try {
       this.window.document.dispatchEvent(event);
     } catch(e) {
@@ -75,6 +88,17 @@ DataService.prototype = {
     //TODO: update data and send message to appropriate controllers
     //this._message = JSON.stringify(data);
     this._payload = JSON.parse(data);
+  },
+
+  _setSitePermission:  function(data) {
+    if (this._payload.sites && this._payload.sites.length) {
+      // find the site and set its premission
+      this._payload.sites.forEach(site => {
+        if (site.name == data.site) {
+          site.isBlocked = data.isBlocked;
+        }
+      });
+    }
   },
 }
 
@@ -109,7 +133,10 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
   // refresh the state of the controller
   $scope.refresh = function() {
-    $scope.interests = dataService._payload && dataService._payload.length ? dataService._payload[0].slice(0,5) : [];
+    $scope.interests = [];
+    if (dataService._payload && dataService._payload.interests) {
+        $scope.interests = dataService._payload.interests.slice(0,5);
+    }
     for (var i=0; i < $scope.interests.length; i++) {
       $scope.interests[i].roundScore = Math.round($scope.interests[i].score / 10);
     }
@@ -118,4 +145,24 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 });
 
 userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService) {
+  $scope.refresh = function() {
+    $scope.sites = [];
+    if (dataService._payload && dataService._payload.sites) {
+      $scope.sites = dataService._payload.sites;
+    }
+  }
+
+  $scope.showInterests = function(site) {
+    alert("SHOW " + site);
+  }
+
+  $scope.enableSite = function(site) {
+    dataService.enableSite(site);
+  }
+
+  $scope.disableSite = function(site) {
+    dataService.disableSite(site);
+  }
+
+  $scope.$on("messageChanged", $scope.refresh);
 });
