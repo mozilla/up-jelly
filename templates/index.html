@@ -103,11 +103,11 @@
                             <em>{{ _('No sites have requested your interests yet.') }}</em>
                         </div>
                         <div ng-show="sites.length" class="bar-chart">
-                            <dl ng-repeat="site in sites" class="">
+                            <div ng-repeat="site in sites" class="">
                                 <span ng-click="showInterests(site.name)">[[site.name]]</span>
                                 <span ng-click="disableSite(site.name)" ng-hide="site.isBlocked" class="statusText">{{ _('ON') }}</span>
                                 <span ng-click="enableSite(site.name)" ng-show="site.isBlocked" class="statusText disabled">{{ _('OFF') }}</span>
-                            </dl>
+                            </div>
                         </div>
                     </div>
                 </div>
