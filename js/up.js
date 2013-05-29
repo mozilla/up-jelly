@@ -39,8 +39,8 @@ DataService.prototype = {
       case "payload":
         this.rootScope.$apply(function() {
           var payload = event.data.content;
-          that._populateData(payload);
-          that.rootScope.$broadcast("dataReceived");
+          var broadcastMessage = that._populateData(payload);
+          that.rootScope.$broadcast(broadcastMessage);
         });
         break;
     }
@@ -64,6 +64,10 @@ DataService.prototype = {
     this._sendToBrowser("RequestCurrentPagePayload", interestsProfileLimit);
   },
 
+  setInterestSharable: function setInterestSharable(interest, value) {
+    this._sendToBrowser("SetInterestSharable", [interest, value]);
+  },
+
   _sendToBrowser: function _sendToBrowser(type, data) {
     var details = {
       detail: {
@@ -83,10 +87,24 @@ DataService.prototype = {
     }
   },
 
+  /*
+   * Unpack data payload, returns broadcast message
+   *
+   * @param     data
+   *            Data payload
+   * @returns   message to broadcast to controllers
+   */
   _populateData: function _populateData(data) {
-    var parsedData = JSON.parse(data);
-    this._interestsProfile = parsedData.interestsProfile;
-    this._interestsHosts = parsedData.interestsHosts;
+    var payload = JSON.parse(data);
+    if(payload.type == "pageload") {
+      this._interestsProfile = payload.content.interestsProfile;
+      this._interestsHosts = payload.content.interestsHosts;
+      return payload.type+"Received";
+    }
+    else if(payload.type == "sharableUpdate") {
+      var sharables = payload.content.sharable;
+      return payload.type+"Received";
+    }
   },
 }
 
@@ -120,7 +138,7 @@ userProfile.controller("activationCtrl", function($scope, dataService) {
 userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
   // refresh the state of the controller
-  $scope.detailWindowHasContent = false;
+  $scope.selectedInterest = null;
 
   $scope.refresh = function() {
     $scope.interests = dataService._interestsProfile && dataService._interestsProfile.length ? dataService._interestsProfile : [];
@@ -131,14 +149,16 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
     angular.element(document.querySelector("#interestsContent .dataNotAvailable")).addClass("hidden");
     angular.element(document.querySelector("#interestsContent .detailWindow")).removeClass("hidden");
   }
-  $scope.$on("dataReceived", $scope.refresh);
+  $scope.$on("pageloadReceived", $scope.refresh);
 
   $scope.updateDetailWindow = function(interest) {
-    document.querySelector("#interestsContent .detailTitle").innerHTML = interest.name.toUpperCase();
-    document.querySelector("#interestsContent .detailScore").innerHTML = interest.score/10;
     $scope.hosts = dataService._interestsHosts && dataService._interestsHosts.hasOwnProperty(interest.name) ? dataService._interestsHosts[interest.name] : [];
+    interest.meta.sharable = interest.meta.sharable ? true : false; // angular expects bool values for checkboxes
+    $scope.selectedInterest = interest;
+  }
 
-    $scope.detailWindowHasContent = true;
+  $scope.updateSharable = function(interest) {
+    dataService.setInterestSharable(interest.name, interest.meta.sharable);
   }
 });
 
