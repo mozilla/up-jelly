@@ -57,14 +57,37 @@
         <div class="outerContainer">
             <div id="report" class="mainContent">
                 <div id="interestsProfile">
+
                     <h3>{{ _('INTERESTS PROFILE') }}</h3>
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
-                    <div class="interestsContent" ng-controller="interestsProfileCtrl">
-                        <div ng-hide="interests.length" class="dataNotAvailable">
+                    <div id="interestsContent" ng-controller="interestsProfileCtrl">
+
+                        <div class="detailWindow hidden" ng-show="detailWindowHasContent" ng-animate="'fade'">
+                            <h3 class="detailTitle"></h3>
+                            <p>{{ _('You have a <span class="detailScore"></span>/10 interest in News overall, determined based on your visit to the following sites') }}:</p>
+                            <div class="hostDetailContainer">
+                                <table class="hostDetails">
+                                    <thead>
+                                        <tr>
+                                            <td class="hostName">{{ _('Host') }}</td>
+                                            <td class="hostData">{{ _('Frecency') }}</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="host in hosts">
+                                        <tr>
+                                            <td class="hostName">[[host.host]]</td>
+                                            <td class="hostData">[[host.frecency]]</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="dataNotAvailable">
                             <em>{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
                         </div>
-                        <div ng-show="interests.length" class="bar-chart">
-                            <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore">
+                        <div class="bar-chart hidden">
+                            <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore" ng-mouseover="updateDetailWindow(interest)">
                                 <dt>[[interest.name | uppercase]]</dt>
                                 <dd>[[interest.score/10]]</dd>
                             </dl>
