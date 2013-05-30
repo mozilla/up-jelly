@@ -62,7 +62,7 @@
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
                     <div id="interestsContent" ng-controller="interestsProfileCtrl">
 
-                        <div class="detailWindow hidden" ng-show="selectedInterest">
+                        <div class="detailWindow" ng-show="selectedInterest" ng-cloak>
                             <div id="interestDetailHeader">
                                 <h3 class="detailTitle">[[selectedInterest.name | uppercase]]</h3>
                                 <label id="interestToggle" class="toggle android" onclick="">
@@ -94,10 +94,10 @@
                             </div>
                         </div>
 
-                        <div class="dataNotAvailable">
-                            <em>{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
+                        <div class="dataNotAvailable" ng-hide="interests">
+                            <em ng-hide="interests">{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
                         </div>
-                        <div class="bar-chart hidden">
+                        <div class="bar-chart" ng-cloak ng-show="interests">
                             <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore" ng-mouseover="updateDetailWindow(interest)">
                                 <dt>[[interest.name | uppercase]]</dt>
                                 <dd>[[interest.score/10]]</dd>
@@ -113,7 +113,7 @@
                         <div ng-hide="sites.length" class="dataNotAvailable">
                             <em>{{ _('No sites have requested your interests yet.') }}</em>
                         </div>
-                        <div ng-show="sites.length" class="bar-chart">
+                        <div ng-show="sites.length" class="bar-chart" ng-cloak>
                             <div ng-repeat="site in sites" class="">
                                 <span ng-click="showInterests(site.name)">[[site.name]]</span>
                                 <span ng-click="disableSite(site.name)" ng-hide="site.isBlocked" class="statusText">{{ _('ON') }}</span>
