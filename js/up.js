@@ -164,15 +164,26 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
   // refresh the state of the controller
   $scope.selectedInterest = null;
+  $scope.interests = null;
 
+  // update interests array with interests with non-zero scores
   $scope.refresh = function() {
-    $scope.interests = dataService._interestsProfile && dataService._interestsProfile.length ? dataService._interestsProfile : [];
-    for (var i=0; i < $scope.interests.length; i++) {
-      $scope.interests[i].roundScore = Math.round($scope.interests[i].score / 10);
+    if (dataService._interestsProfile && dataService._interestsProfile.length) {
+      var interests = [];
+      for (var i=0; i < dataService._interestsProfile.length; i++) {
+        if (dataService._interestsProfile[i].score > 0) {
+          var interest = dataService._interestsProfile[i];
+          interest.roundScore = Math.round(interest.score / 10);
+          interests.push(interest);
+        }
+      }
+      if(interests.length > 0) {
+        $scope.interests = interests;
+      }
     }
-    angular.element(document.querySelector("#interestsContent .bar-chart")).removeClass("hidden");
-    angular.element(document.querySelector("#interestsContent .dataNotAvailable")).addClass("hidden");
-    angular.element(document.querySelector("#interestsContent .detailWindow")).removeClass("hidden");
+    else {
+      $scope.interests = null;
+    }
   }
   $scope.$on("pageloadReceived", $scope.refresh);
 

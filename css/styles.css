@@ -1,6 +1,9 @@
 @import "fonts.css";
 
 /* --- General --- */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none;
+}
 html {
     height: 100%;
 }
@@ -606,10 +609,6 @@ figcaption {
 }
 
 /* --- Interests Profile --- */
-
-.hidden {
-    display: none;
-}
 
 #interestsContent .detailWindow {
     right: 0;
