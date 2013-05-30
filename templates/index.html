@@ -118,6 +118,7 @@
                                 <span ng-click="showInterests(site.name)">[[site.name]]</span>
                                 <span ng-click="disableSite(site.name)" ng-hide="site.isBlocked" class="statusText">{{ _('ON') }}</span>
                                 <span ng-click="enableSite(site.name)" ng-show="site.isBlocked" class="statusText disabled">{{ _('OFF') }}</span>
+                                <span ng-click="enableSite(site.name)" ng-show="site.isPrivileged" class="statusText disabled">{{ _('PRIVILEDGED') }}</span>
                             </div>
                         </div>
                     </div>
