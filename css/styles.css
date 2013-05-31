@@ -646,6 +646,10 @@ figcaption {
     float: left;
 }
 
+#interestsList li {
+    margin-top: 1em;
+}
+
 #interestToggle {
     width: 20%;
     float: right;
@@ -821,6 +825,33 @@ td.hostName {
 
 td.hostData {
     text-align: right;
+}
+
+.interestsMainContent {
+    float: left;
+    width: 100%;
+}
+
+#interestsModeSwitcher {
+    padding-left: 1.5em;
+}
+
+#interestsModeSwitcher span {
+    background-color: #DDD;
+    padding: 0.5em 1em;
+}
+
+.modeSwitch {
+    margin-left: 0.5em;
+}
+
+.modeSwitch:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modeSwitch:focus, .modeSwitch:visited, .modeSwitch:active {
+    color: #AAA;
 }
 
 @media only screen and (max-width: 768px) {

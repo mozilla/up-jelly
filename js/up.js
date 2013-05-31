@@ -64,9 +64,7 @@ DataService.prototype = {
   },
 
   reqPagePayload: function reqPagePayload() {
-    // defaults to 5 interests
-    var interestsProfileLimit = 5;
-    this._sendToBrowser("RequestCurrentPagePayload", interestsProfileLimit);
+    this._sendToBrowser("RequestCurrentPagePayload");
   },
 
   setInterestSharable: function setInterestSharable(interest, value) {
@@ -162,13 +160,14 @@ userProfile.controller("activationCtrl", function($scope, dataService) {
 
 userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
-  // refresh the state of the controller
-  $scope.selectedInterest = null;
   $scope.interests = null;
+  $scope.selectedInterest = null;
+  $scope.showMore = false;
 
-  // update interests array with interests with non-zero scores
+  // refresh the state of the data
   $scope.refresh = function() {
     if (dataService._interestsProfile && dataService._interestsProfile.length) {
+      // update interests array with interests with non-zero scores only
       var interests = [];
       for (var i=0; i < dataService._interestsProfile.length; i++) {
         if (dataService._interestsProfile[i].score > 0) {
@@ -187,14 +186,39 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
   }
   $scope.$on("pageloadReceived", $scope.refresh);
 
-  $scope.updateDetailWindow = function(interest) {
+  /** detail window **/
+  $scope.updateDetailWindow = function(interest, evt) {
+
+    if (evt) {
+      // if event is given, repositioning is requested
+      var elem = evt.target;
+      var yPos = elem.offsetTop - elem.scrollTop;
+      angular.element(document.getElementById("interestDetailWindow")).css("top", yPos+"px");
+    }
+    else {
+      angular.element(document.getElementById("interestDetailWindow")).css("top", "-0.5em");
+    }
+
     $scope.hosts = dataService._interestsHosts && dataService._interestsHosts.hasOwnProperty(interest.name) ? dataService._interestsHosts[interest.name] : [];
     interest.meta.sharable = interest.meta.sharable ? true : false; // angular expects bool values for checkboxes
     $scope.selectedInterest = interest;
   }
 
+  /** update which interest is sharable **/
   $scope.updateSharable = function(interest) {
     dataService.setInterestSharable(interest.name, interest.meta.sharable);
+  }
+
+  /** interests view mode switching **/
+  $scope.toggleInterestMode = function() {
+    if ($scope.showMore) {
+      $scope.selectedInterest = null;
+      $scope.showMore = false;
+    }
+    else {
+      $scope.selectedInterest = null;
+      $scope.showMore = true;
+    }
   }
 });
 

@@ -5,6 +5,7 @@
         <title>{{ _('Firefox User Profile') }}</title>
         <link href="css/normalize.css" type="text/css" rel="stylesheet" media="screen" />
         <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen" />
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
     </head>
     <body>
         <div class="persistentHeader">
@@ -57,51 +58,66 @@
         <div class="outerContainer">
             <div id="report" class="mainContent">
                 <div id="interestsProfile">
-
                     <h3>{{ _('INTERESTS PROFILE') }}</h3>
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
                     <div id="interestsContent" ng-controller="interestsProfileCtrl">
 
-                        <div class="detailWindow" ng-show="selectedInterest" ng-cloak>
-                            <div id="interestDetailHeader">
-                                <h3 class="detailTitle">[[selectedInterest.name | uppercase]]</h3>
-                                <label id="interestToggle" class="toggle android" onclick="">
-                                    <input type="checkbox" ng-model="selectedInterest.meta.sharable" id="interestToggleSwitch" ng-change="updateSharable(selectedInterest)" />
-                                    <p>
-                                        {{ _('Sharing') }}
-                                        <span>{{ _('ON') }}</span>
-                                        <span>{{ _('OFF') }}</span>
-                                    </p>
-                                    <a class="slide-button"></a>
-                                </label>
-                            </div>
-                            <p>{{ _('You have a <span class="detailScore">[[selectedInterest.score/10]]</span>/10 interest in News overall, determined based on your visit to the following sites') }}:</p>
-                            <div class="hostDetailContainer">
-                                <table class="hostDetails">
-                                    <thead>
-                                        <tr>
-                                            <td class="hostName">{{ _('Host') }}</td>
-                                            <td class="hostData">{{ _('Frecency') }}</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody ng-repeat="host in hosts">
-                                        <tr>
-                                            <td class="hostName">[[host.host]]</td>
-                                            <td class="hostData">[[host.frecency]]</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <div class="interestsMainContent">
 
-                        <div class="dataNotAvailable" ng-hide="interests">
-                            <em ng-hide="interests">{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
+                            <!-- Detail window -->
+                            <div id="interestDetailWindow" class="detailWindow" ng-show="selectedInterest" ng-cloak>
+                                <div id="interestDetailHeader">
+                                    <h3 class="detailTitle">[[selectedInterest.name | uppercase]]</h3>
+                                    <label id="interestToggle" class="toggle android" onclick="">
+                                        <input type="checkbox" ng-model="selectedInterest.meta.sharable" id="interestToggleSwitch" ng-change="updateSharable(selectedInterest)" />
+                                        <p>
+                                            {{ _('Sharing') }}
+                                            <span>{{ _('ON') }}</span>
+                                            <span>{{ _('OFF') }}</span>
+                                        </p>
+                                        <a class="slide-button"></a>
+                                    </label>
+                                </div>
+                                <p>{{ _('You have a <span class="detailScore">[[selectedInterest.score/10]]</span>/10 interest in News overall, determined based on your visit to the following sites') }}:</p>
+                                <div class="hostDetailContainer">
+                                    <table class="hostDetails">
+                                        <thead>
+                                            <tr>
+                                                <td class="hostName">{{ _('Host') }}</td>
+                                                <td class="hostData">{{ _('Frecency') }}</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="host in hosts">
+                                            <tr>
+                                                <td class="hostName">[[host.host]]</td>
+                                                <td class="hostData">[[host.frecency]]</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="dataNotAvailable" ng-hide="interests">
+                                <em ng-hide="interests">{{ _('Interest data not available yet. Please check back after making sure Data Sharing is enabled and after your history is analyzed.') }}</em>
+                            </div>
+
+                            <!-- top interest mode -->
+                            <div class="bar-chart" ng-cloak ng-show="interests && !showMore">
+                                <dl ng-repeat="interest in interests.slice(0,5)" ng-class="'ratio-' + interest.roundScore" ng-mouseover="updateDetailWindow(interest)">
+                                    <dt>[[interest.name | uppercase]]</dt>
+                                    <dd>[[interest.score/10]]</dd>
+                                </dl>
+                            </div>
+
+                            <!-- all interests mode -->
+                            <ol id="interestsList" ng-cloak ng-show="interests && showMore">
+                                <li ng-repeat="interest in interests" ng-mouseover="updateDetailWindow(interest, $event)">[[interest.name | uppercase]] ([[interest.score/10]]/10)</li>
+                            </ol>
                         </div>
-                        <div class="bar-chart" ng-cloak ng-show="interests">
-                            <dl ng-repeat="interest in interests" ng-class="'ratio-' + interest.roundScore" ng-mouseover="updateDetailWindow(interest)">
-                                <dt>[[interest.name | uppercase]]</dt>
-                                <dd>[[interest.score/10]]</dd>
-                            </dl>
+                        <!-- mode switcher -->
+                        <div id="interestsModeSwitcher" ng-cloak ng-show="interests && interests.length > 5">
+                            <span ng-hide="showMore"><i class="icon-caret-down"></i><a class="modeSwitch" ng-click="toggleInterestMode()">{{ _('show all interests') }}</a></span>
+                            <span ng-cloak ng-show="showMore"><i class="icon-caret-up"></i><a class="modeSwitch" ng-click="toggleInterestMode()">{{ _('view only top interests') }}</a></span>
                         </div>
                     </div>
                 </div>
