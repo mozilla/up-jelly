@@ -832,8 +832,13 @@ td.hostData {
     width: 100%;
 }
 
+#interestsList {
+    margin-bottom: 2em;
+}
+
 #interestsModeSwitcher {
     padding-left: 1.5em;
+    margin-bottom: 3.5em;
 }
 
 #interestsModeSwitcher span {
