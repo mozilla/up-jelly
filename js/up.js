@@ -188,16 +188,35 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
 
   /** detail window **/
   $scope.updateDetailWindow = function(interest, evt) {
+    var detailElem = document.getElementById("interestDetailWindow");
+    var yPosStr = "-0.5em";
 
     if (evt) {
       // if event is given, repositioning is requested
       var elem = evt.target;
+
+      var listElem = document.getElementById("interestsList");
+      var yListTop = (listElem.offsetTop - listElem.scrollTop);
+      var yListBottom = yListTop + listElem.offsetHeight;
+
       var yPos = elem.offsetTop - elem.scrollTop;
-      angular.element(document.getElementById("interestDetailWindow")).css("top", yPos+"px");
+      var detailElemHeight = detailElem.offsetHeight || 296; // element has no height if it hasn't been drawn yet. set a minimum size
+
+      if (yPos+detailElemHeight >= yListBottom) {
+        // prevent detailWindow from displaying below list
+        yPos = yListBottom - detailElemHeight;
+        if (yPos < yListTop) {
+          // do not place detailWindow higher than the top element
+          yPos = undefined;
+        }
+      }
+
+      if(yPos) {
+        yPosStr = yPos+"px";
+      }
     }
-    else {
-      angular.element(document.getElementById("interestDetailWindow")).css("top", "-0.5em");
-    }
+
+    angular.element(detailElem).css("top", yPosStr);
 
     $scope.hosts = dataService._interestsHosts && dataService._interestsHosts.hasOwnProperty(interest.name) ? dataService._interestsHosts[interest.name] : [];
     interest.meta.sharable = interest.meta.sharable ? true : false; // angular expects bool values for checkboxes
