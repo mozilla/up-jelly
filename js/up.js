@@ -246,19 +246,16 @@ userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService)
     $scope.sites = [];
     if (dataService._requestingSites && dataService._requestingSites.length) {
       $scope.sites = dataService._requestingSites;
+      $scope.sites.forEach(site => {
+        site.blockedClass = (site.isBlocked)?"site-block":"site-share";
+        site.priviledgedClass = (site.isPriviledged)?"site-priviledged":"";
+      });
     }
   }
 
-  $scope.showInterests = function(site) {
-    alert("SHOW " + site);
-  }
-
-  $scope.enableSite = function(site) {
-    dataService.enableSite(site);
-  }
-
-  $scope.disableSite = function(site) {
-    dataService.disableSite(site);
+  $scope.toggleSite = function(site) {
+    if (site.isBlocked) dataService.enableSite(site.name);
+    else                dataService.disableSite(site.name);
   }
 
   $scope.$on("sitePrefReceived", $scope.refresh);

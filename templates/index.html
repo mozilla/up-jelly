@@ -129,12 +129,20 @@
                         <div ng-hide="sites.length" class="dataNotAvailable">
                             <em>{{ _('No sites have requested your interests yet.') }}</em>
                         </div>
-                        <div ng-show="sites.length" class="bar-chart" ng-cloak>
-                            <div ng-repeat="site in sites" class="">
-                                <span ng-click="showInterests(site.name)">[[site.name]]</span>
-                                <span ng-click="disableSite(site.name)" ng-hide="site.isBlocked" class="statusText">{{ _('ON') }}</span>
-                                <span ng-click="enableSite(site.name)" ng-show="site.isBlocked" class="statusText disabled">{{ _('OFF') }}</span>
-                                <span ng-click="enableSite(site.name)" ng-show="site.isPrivileged" class="statusText disabled">{{ _('PRIVILEDGED') }}</span>
+                        <div ng-show="sites.length" class="site-list">
+                            <div class="site-item">
+                                <span class="site-host">{{ _('Sites') }}</span>
+                                <span style="position: absolute; right: 0px;">
+                                  {{ _('Interests Shared') }}
+                                </span>
+                            </div>
+                            <div ng-repeat="site in sites" class="site-item">
+                               <span ng-click="showInterests(site.name)" class="site-host">[[site.name]]</span>
+                               <span ng-show="site.isPrivileged">{{ _('(Privileged)') }}</span>
+                               <span class="site-toggle-position" ng-click="toggleSite(site)">
+                                 <span ng-class="'site-on ' + site.blockedClass">{{ _('ON') }}</span>
+                                 <span ng-class="'site-off ' + site.blockedClass">{{ _('OFF') }}</span>
+                               </span>
                             </div>
                         </div>
                     </div>
