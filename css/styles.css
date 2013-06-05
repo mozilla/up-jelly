@@ -648,6 +648,7 @@ figcaption {
 
 #interestsList li {
     margin-top: 1em;
+    width: 250px;
 }
 
 #interestToggle {
@@ -937,7 +938,7 @@ td.hostData {
     padding: 1em 0;
     position: relative;
     text-align: left;
-    width: 300px;
+    width: 500px;
 }
 
 .site-item {
@@ -951,7 +952,7 @@ td.hostData {
 }
 
 .site-host {
-  width: 300px;
+  width: 500px;
 }
 
 .site-tooltip {
