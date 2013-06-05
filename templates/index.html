@@ -138,7 +138,9 @@
                             </div>
                             <div ng-repeat="site in sites" class="site-item">
                                <span ng-click="showInterests(site.name)" class="site-host">[[site.name]]</span>
-                               <span ng-show="site.isPrivileged">{{ _('(Privileged)') }}</span>
+                               <span ng-show="site.isPrivileged" title-string="Mozilla trusted site: ALL interests are accessible." class="site-tooltip">
+                                {{ _('(Privileged)') }}
+                               </span>
                                <span class="site-toggle-position" ng-click="toggleSite(site)">
                                  <span ng-class="'site-on ' + site.blockedClass">{{ _('ON') }}</span>
                                  <span ng-class="'site-off ' + site.blockedClass">{{ _('OFF') }}</span>

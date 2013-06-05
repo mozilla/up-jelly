@@ -954,15 +954,24 @@ td.hostData {
   width: 300px;
 }
 
- .tooltip {
-    display:none;
-    background:transparent url(/media/img/tooltip/black_arrow.png);
-    font-size:12px;
+.site-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.site-tooltip:hover:before {
+    content: attr(title-string);
+    position: absolute;
+    background:transparent url(../img/black_arrow.png);
+    white-space: pre-wrap;
     height:70px;
     width:160px;
     padding:25px;
     color:#eee;
-  }
+    left: -60px;
+    top: -110px;
+    z-index: 500;
+}
 
 .site-toggle-position {
   position: absolute;
