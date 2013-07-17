@@ -239,6 +239,24 @@ userProfile.controller("interestsProfileCtrl", function($scope, dataService) {
       $scope.showMore = true;
     }
   }
+
+  /** get rid of interest detail window **/
+  $scope.deselectInterests = function(evt) {
+    if (evt) {
+      // make sure evt is not interestDetailWindow
+      var detailElem = document.getElementById("interestDetailWindow");
+      var elem = evt.target;
+      while (elem) {
+        if (elem == detailElem) {
+          return;
+        }
+        elem = elem.parentNode;
+      }
+      // since we did not return - diselect an interest
+      $scope.selectedInterest = null;
+    }
+  }
+
 });
 
 userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService) {

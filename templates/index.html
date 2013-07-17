@@ -57,10 +57,10 @@
 
         <div class="outerContainer">
             <div id="report" class="mainContent">
-                <div id="interestsProfile">
+                <div id="interestsProfile" ng-controller="interestsProfileCtrl" ng-click="deselectInterests($event)">
                     <h3>{{ _('INTERESTS PROFILE') }}</h3>
                     <p>{{ _('Your Interest Profile is generated based on your browsing history. You can understand what your interests are and how they have changed over time. By opting in, you share your (anonymized) profile with websites, and help them to offer an experience personalized just for you.') }}</p>
-                    <div id="interestsContent" ng-controller="interestsProfileCtrl">
+                    <div id="interestsContent">
 
                         <div class="interestsMainContent">
 
@@ -138,7 +138,7 @@
                             </div>
                             <div ng-repeat="site in sites" class="site-item">
                                <span ng-click="showInterests(site.name)" class="site-host">[[site.name]]</span>
-                               <span ng-show="site.isPrivileged" title-string="Mozilla trusted site: ALL interests are accessible." class="site-tooltip">
+                               <span ng-show="site.isPrivileged" title-string="{{ _('Mozilla trusted site: ALL interests are accessible.') }}" class="site-tooltip">
                                 {{ _('(Privileged)') }}
                                </span>
                                <span class="site-toggle-position" ng-click="toggleSite(site)">
