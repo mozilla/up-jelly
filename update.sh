@@ -4,8 +4,8 @@ CODE_DIR=$(cd `dirname $0`; pwd)
 WEB_DIR="$CODE_DIR/web-output"
 ENV=$(echo "$CODE_DIR" | cut -f3 -d'/')
 SITE=$(echo "$CODE_DIR" | cut -f5 -d'/')
-APP=fhr-jelly
-LOCALE_REPO="https://svn.mozilla.org/projects/l10n-misc/trunk/firefoxhealthreport/locale"
+APP=up-jelly
+#LOCALE_REPO="https://svn.mozilla.org/projects/l10n-misc/trunk/userprofile/locale"
 
 
 ### No edits needed below here ###
@@ -30,12 +30,12 @@ pushd $CODE_DIR/$APP
 
 git pull
 
-if [ ! -d "locale" ]; then
-    svn checkout ${LOCALE_REPO}
-fi
-pushd locale
-svn up
-popd
+#if [ ! -d "locale" ]; then
+#    svn checkout ${LOCALE_REPO}
+#fi
+#pushd locale
+#svn up
+#popd
 
 ./generate.py --output-dir $WEB_DIR -f --nowarn
 checkretval
