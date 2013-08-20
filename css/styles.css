@@ -657,6 +657,11 @@ figcaption {
     margin-top: 1.5em;
 }
 
+.hostToggle {
+    width: 120px;
+    float: right;
+}
+
 /** code and theme lifted from: https://github.com/ghinda/css-toggle-switch **/
 .toggle p span {
 	display: none;
@@ -952,11 +957,12 @@ td.hostData {
 }
 
 .site-host {
-  width: 500px;
+    float: left;
 }
 
 .site-tooltip {
-    position: relative;
+    float: left;
+    margin-left: 5px;
     cursor: pointer;
 }
 
@@ -972,50 +978,6 @@ td.hostData {
     left: -60px;
     top: -110px;
     z-index: 500;
-}
-
-.site-toggle-position {
-  position: absolute;
-  background-color: #ACACAC;
-  right: 0px;
-  color: #FFFFFF;
-  width: 100px;
-}
-
-.site-on {
-  padding: 2px;
-  text-align: center;
-  position: absolute;
-  left: 0px;
-  width: 50px;
-  background-color: #ACACAC;
-}
-
-.site-off {
-  padding: 2px;
-  text-align: center;
-  position: absolute;
-  right: 0px;
-  width: 50px;
-  background-color: #ACACAC;
-}
-
-.site-on.site-share {
-  transition:background-color 1s;
-  background-color: green;
-}
-
-.site-on.site-block {
-  transition:background-color 1s;
-}
-
-.site-off.site-share {
-  transition:background-color 1s;
-}
-
-.site-off.site-block {
-  background-color: red;
-  transition:background-color 1s;
 }
 
 /* --- bar chart --- */

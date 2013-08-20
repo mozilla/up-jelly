@@ -69,7 +69,7 @@
                                 <div id="interestDetailHeader">
                                     <h3 class="detailTitle">[[selectedInterest.name | uppercase]]</h3>
                                     <label id="interestToggle" class="toggle android" onclick="">
-                                        <input type="checkbox" ng-model="selectedInterest.meta.sharable" id="interestToggleSwitch" ng-change="updateSharable(selectedInterest)" />
+                                        <input type="checkbox" ng-model="selectedInterest.meta.sharable" ng-change="updateSharable(selectedInterest)" />
                                         <p>
                                             {{ _('Sharing') }}
                                             <span>{{ _('ON') }}</span>
@@ -141,10 +141,14 @@
                                <span ng-show="site.isPrivileged" title-string="{{ _('Mozilla trusted site: ALL interests are accessible.') }}" class="site-tooltip">
                                 {{ _('(Privileged)') }}
                                </span>
-                               <span class="site-toggle-position" ng-click="toggleSite(site)">
-                                 <span ng-class="'site-on ' + site.blockedClass">{{ _('ON') }}</span>
-                                 <span ng-class="'site-off ' + site.blockedClass">{{ _('OFF') }}</span>
-                               </span>
+                               <label class="hostToggle toggle android" onclick="">
+                                    <input type="checkbox" ng-model="site.isPersonalized" ng-change="toggleSite(site)" />
+                                    <p>
+                                        <span>{{ _('ON') }}</span>
+                                        <span>{{ _('OFF') }}</span>
+                                    </p>
+                                    <a class="slide-button"></a>
+                               </label>
                             </div>
                         </div>
                     </div>

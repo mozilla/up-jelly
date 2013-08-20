@@ -40,8 +40,9 @@ DataService.prototype = {
         this.rootScope.$apply(function() {
           var payload = event.data.content;
           var broadcastMessage = that._populateData(payload);
-          that.rootScope.$broadcast(broadcastMessage);
+          that.rootScope.$broadcast("pageloadReceived");
         });
+        break;
       case "sitePref":
         this.rootScope.$apply(function() {
           that._setSitePermission(event.data.content);
@@ -111,17 +112,12 @@ DataService.prototype = {
       this._interestsProfile = payload.content.interestsProfile;
       this._interestsHosts = payload.content.interestsHosts;
       this._requestingSites = payload.content.requestingSites;
-      return payload.type+"Received";
-    }
-    else if(payload.type == "sharableUpdate") {
-      var sharables = payload.content.sharable;
-      return payload.type+"Received";
     }
   },
 
   _setSitePermission:  function(data) {
     if (this._requestingSites && this._requestingSites.length) {
-      // find the site and set its premission
+      // find the site and set its permissions
       this._requestingSites.forEach(site => {
         if (site.name == data.site) {
           site.isBlocked = data.isBlocked;
@@ -265,17 +261,24 @@ userProfile.controller("personalizedWebsitesCtrl", function($scope, dataService)
     if (dataService._requestingSites && dataService._requestingSites.length) {
       $scope.sites = dataService._requestingSites;
       $scope.sites.forEach(site => {
-        site.blockedClass = (site.isBlocked)?"site-block":"site-share";
-        site.priviledgedClass = (site.isPriviledged)?"site-priviledged":"";
+        site.isPersonalized = site.isBlocked ? false : true;
       });
     }
   }
 
   $scope.toggleSite = function(site) {
-    if (site.isBlocked) dataService.enableSite(site.name);
-    else                dataService.disableSite(site.name);
+    // the site.isPersonalized value is changed upon the user clicking
+    // this handler is to actually propagate the change in Firefox
+    if (site.isPersonalized) {
+      dataService.enableSite(site.name);
+      site.isBlocked = true;
+    }
+    else {
+      dataService.disableSite(site.name);
+      site.isBlocked = false;
+    }
   }
 
   $scope.$on("sitePrefReceived", $scope.refresh);
-  $scope.$on("dataReceived", $scope.refresh);
+  $scope.$on("pageloadReceived", $scope.refresh);
 });
