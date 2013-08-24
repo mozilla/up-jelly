@@ -78,18 +78,20 @@
                                         <a class="slide-button"></a>
                                     </label>
                                 </div>
-                                <p>{{ _('You have a <span class="detailScore">[[selectedInterest.score/10]]</span>/10 interest in [[selectedInterest.name]] overall, determined based on your visits to the following sites') }}:</p>
+                                <p>{{ _('Your [[selectedInterest.name]] interest is based on how many days you visited these sites') }}:</p>
                                 <div class="hostDetailContainer">
                                     <table class="hostDetails">
                                         <thead>
                                             <tr>
                                                 <td class="hostName">{{ _('Host') }}</td>
-                                                <td class="hostData">{{ _('Visits (last 30 days)') }}</td>
+                                                <td class="hostData">{{ _('Days Visited') }}</td>
+                                                <td class="hostData">{{ _('Pages Visited') }}</td>
                                             </tr>
                                         </thead>
                                         <tbody ng-repeat="host in hosts">
                                             <tr>
                                                 <td class="hostName">[[host.host]]</td>
+                                                <td class="hostData">[[host.days]]</td>
                                                 <td class="hostData">[[host.visits]]</td>
                                             </tr>
                                         </tbody>
