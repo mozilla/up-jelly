@@ -107,13 +107,13 @@
                             <div class="bar-chart" ng-cloak ng-show="interests && !showMore">
                                 <dl ng-repeat="interest in interests.slice(0,5)" ng-class="'ratio-' + interest.roundScore" ng-mouseover="updateDetailWindow(interest)">
                                     <dt>[[interest.name | uppercase]]</dt>
-                                    <dd>[[interest.score/10]]</dd>
+                                    <dd>&nbsp;</dd>
                                 </dl>
                             </div>
 
                             <!-- all interests mode -->
                             <ol id="interestsList" ng-cloak ng-show="interests && showMore">
-                                <li ng-repeat="interest in interests" ng-mouseover="updateDetailWindow(interest, $event)">[[interest.name | uppercase]] ([[interest.score/10]]/10)</li>
+                                <li ng-repeat="interest in interests" ng-mouseover="updateDetailWindow(interest, $event)">[[interest.name | uppercase]]</li>
                             </ol>
                         </div>
                         <!-- mode switcher -->
