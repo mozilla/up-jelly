@@ -831,6 +831,7 @@ td.hostName {
 
 td.hostData {
     text-align: right;
+    width: 25%;
 }
 
 .interestsMainContent {
