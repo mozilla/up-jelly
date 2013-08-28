@@ -69,7 +69,7 @@ describe("DataService", function() {
     dispatchMessage({type: "prefs", content: {enabled: false}});
     expect(dataService.handleEvent).toHaveBeenCalled();
     expect(dataService._prefs.enabled).toBe(false);
-    expect(dataService.rootScope.$broadcast).not.toHaveBeenCalledWith("prefChanged");
+    expect(dataService.rootScope.$broadcast).not.toHaveBeenCalled();
 
     // pref change
     dispatchMessage({type: "prefs", content: {enabled: true}});
