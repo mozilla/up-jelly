@@ -78,7 +78,9 @@ describe("DataService", function() {
     expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("prefChanged");
 
     /** pageload **/
-    //TODO
+    dispatchMessage(UPTestData.payloadSample);
+    expect(dataService.handleEvent).toHaveBeenCalled();
+    expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("pageloadReceived");
   });
 
   it("_sendToBrowser and friends : should send structured data to the browser", function() {

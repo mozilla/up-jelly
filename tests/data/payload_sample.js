@@ -376,5 +376,5 @@ UPTestData.payloadSample = {
       }
     ]
   }, 
-  "type": "pageload"
+  "type": "payload"
 }
