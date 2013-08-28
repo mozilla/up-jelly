@@ -119,7 +119,7 @@
       if (this._requestingSites && this._requestingSites.length) {
         // find the site and set its permissions
         this._requestingSites.forEach(function(site) {
-          if (site.name == data.site) {
+          if (site.name == data.site && typeof(data.isBlocked) == "boolean") {
             site.isBlocked = data.isBlocked;
           }
         });

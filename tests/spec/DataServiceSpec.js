@@ -24,6 +24,26 @@ describe("DataService", function() {
     expect(dataService._requestingSites).toBe(true);
   });
 
+  it("_setSitePermission : should change a given site's permissions", function() {
+    spyOn(dataService, "_setSitePermission").andCallThrough();
+
+    // no content
+    dataService._requestingSites = [];
+    dataService._setSitePermission({site: "example.com", isBlocked: true});
+    expect(dataService._requestingSites).toBeIdenticalTo([]);
+
+    // request to change something that doesn't exist
+    dataService._requestingSites = [{name: "example.com", isBlocked: false}];
+    dataService._setSitePermission({site: "example2.com", isBlocked: true});
+    expect(dataService._requestingSites).toBeIdenticalTo([{name: "example.com", isBlocked: false}]);
+
+    // flipping permissions
+    dataService._requestingSites = [{name: "example.com", isBlocked: false}, {name: "example2.com", isBlocked: true}];
+    dataService._setSitePermission({site: "example.com", isBlocked: true});
+    expect(dataService._requestingSites).toBeIdenticalTo([{name: "example.com", isBlocked: true}, {name: "example2.com", isBlocked: true}]);
+
+  });
+
   it("_sendToBrowser++ : should send structured data to the browser", function() {
     var eventHandler = jasmine.createSpy("eventHandler");
     window.document.addEventListener("RemoteUserProfileCommand", eventHandler, false);
@@ -66,5 +86,12 @@ describe("DataService", function() {
 
     dataService.disableSite();
     testEvent(eventHandler, {command: "DisableSite"});
+    dataService.disableSite("example.com");
+    testEvent(eventHandler, {command: "DisableSite", data: "example.com"});
+
+    dataService.enableSite();
+    testEvent(eventHandler, {command: "EnableSite"});
+    dataService.enableSite("example.com");
+    testEvent(eventHandler, {command: "EnableSite", data: "example.com"});
   });
 });
