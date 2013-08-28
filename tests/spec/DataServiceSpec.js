@@ -8,7 +8,7 @@ describe("DataService", function() {
     });
   });
 
-  it("_populateData : should parse JSON payload and populate payload data", function() {
+  it("_populateData : should populate payload data", function() {
     var data = {
       type: "pageload",
       content: {
@@ -18,7 +18,7 @@ describe("DataService", function() {
       }
     }
     spyOn(dataService, "_populateData").andCallThrough();
-    dataService._populateData(JSON.stringify(data));
+    dataService._populateData(data);
     expect(dataService._interestsProfile).toBe(true);
     expect(dataService._interestsHosts).toBe(true);
     expect(dataService._requestingSites).toBe(true);
@@ -44,7 +44,44 @@ describe("DataService", function() {
 
   });
 
-  it("_sendToBrowser++ : should send structured data to the browser", function() {
+  it("handleEvent : should handle events sent by the browser", function() {
+
+    function dispatchMessage(data) {
+      evt = new Event("message");
+      evt.data = data;
+      window.dispatchEvent(evt);
+    }
+
+    spyOn(dataService, "handleEvent").andCallThrough();
+    spyOn(dataService.rootScope, "$broadcast").andCallThrough();
+
+    /** first load **/
+    spyOn(dataService, "reqPagePayload");
+    expect(dataService._isFirstLoad).toBe(true);
+    dispatchMessage({type: "prefs"});
+    expect(dataService._isFirstLoad).toBe(false);
+    expect(dataService.reqPagePayload).toHaveBeenCalled();
+
+    /** prefs **/
+    expect(dataService._prefs.enabled).toBe(false);
+
+    // no change
+    dispatchMessage({type: "prefs", content: {enabled: false}});
+    expect(dataService.handleEvent).toHaveBeenCalled();
+    expect(dataService._prefs.enabled).toBe(false);
+    expect(dataService.rootScope.$broadcast).not.toHaveBeenCalledWith("prefChanged");
+
+    // pref change
+    dispatchMessage({type: "prefs", content: {enabled: true}});
+    expect(dataService.handleEvent).toHaveBeenCalled();
+    expect(dataService._prefs.enabled).toBe(true);
+    expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("prefChanged");
+
+    /** pageload **/
+    //TODO
+  });
+
+  it("_sendToBrowser and friends : should send structured data to the browser", function() {
     var eventHandler = jasmine.createSpy("eventHandler");
     window.document.addEventListener("RemoteUserProfileCommand", eventHandler, false);
 

@@ -22,7 +22,7 @@
       // only requesting prefs in init and then only once
       // the message for this is received do we ask for
       // the payload.
-      if (this._isFirstLoad && event.data.type == 'prefs') {
+      if (this._isFirstLoad && event.data.type == "prefs") {
         this.reqPagePayload();
         this._isFirstLoad = false;
       }
@@ -32,8 +32,10 @@
       switch (event.data.type) {
         case "prefs":
           this.rootScope.$apply(function() {
-            that._prefs = event.data.content;
-            that.rootScope.$broadcast("prefChanged");
+            if (typeof(event.data.content.enabled) == "boolean" && that._prefs.enabled != event.data.content.enabled) {
+              that._prefs.enabled = event.data.content.enabled;
+              that.rootScope.$broadcast("prefChanged");
+            }
           });
           break;
         case "payload":
@@ -106,8 +108,7 @@
      *            Data payload
      * @returns   message to broadcast to controllers
      */
-    _populateData: function _populateData(data) {
-      var payload = JSON.parse(data);
+    _populateData: function _populateData(payload) {
       if(payload.type == "pageload") {
         this._interestsProfile = payload.content.interestsProfile;
         this._interestsHosts = payload.content.interestsHosts;
