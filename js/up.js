@@ -1,4 +1,5 @@
 "use strict";
+
 (function() {
   var DataService = function($window, $rootScope) {
     this.window = $window;
@@ -41,7 +42,7 @@
         case "payload":
           this.rootScope.$apply(function() {
             var payload = event.data.content;
-            var broadcastMessage = that._populateData(payload);
+            that._populateData(payload);
             that.rootScope.$broadcast("pageloadReceived");
           });
           break;
@@ -142,7 +143,7 @@
     $scope.refresh = function() {
       $scope.prefs = dataService._prefs;
     }
-    $scope.$on("prefChanged", $scope.refresh);
+    $scope.$on("prefChanged", function(){$scope.refresh();});
 
     // tell firefox we want to flip the service's state
     $scope.toggle = function() {
@@ -181,7 +182,7 @@
         $scope.interests = null;
       }
     }
-    $scope.$on("pageloadReceived", $scope.refresh);
+    $scope.$on("pageloadReceived", function(){$scope.refresh();});
 
     /** detail window **/
     $scope.updateDetailWindow = function(interest, evt) {
@@ -280,7 +281,7 @@
       }
     }
 
-    $scope.$on("sitePrefReceived", $scope.refresh);
-    $scope.$on("pageloadReceived", $scope.refresh);
+    $scope.$on("sitePrefReceived", function(){$scope.refresh;});
+    $scope.$on("pageloadReceived", function(){$scope.refresh;});
   });
 })();
