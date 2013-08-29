@@ -8,7 +8,7 @@ describe("DataService", function() {
     });
   });
 
-  it("_populateData : should populate payload data", function() {
+  it("should populate payload data", function() {
     var data = {
       type: "pageload",
       content: {
@@ -17,16 +17,13 @@ describe("DataService", function() {
         requestingSites: true,
       }
     }
-    spyOn(dataService, "_populateData").andCallThrough();
     dataService._populateData(data);
     expect(dataService._interestsProfile).toBe(true);
     expect(dataService._interestsHosts).toBe(true);
     expect(dataService._requestingSites).toBe(true);
   });
 
-  it("_setSitePermission : should change a given site's permissions", function() {
-    spyOn(dataService, "_setSitePermission").andCallThrough();
-
+  it("should change a given site's permissions", function() {
     // no content
     dataService._requestingSites = [];
     dataService._setSitePermission({site: "example.com", isBlocked: true});
@@ -44,7 +41,7 @@ describe("DataService", function() {
 
   });
 
-  it("handleEvent : should handle events sent by the browser", function() {
+  it("should handle messages sent by the browser", function() {
 
     function dispatchMessage(data) {
       evt = new Event("message");
@@ -88,14 +85,14 @@ describe("DataService", function() {
     expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("sitePrefReceived");
   });
 
-  it("_sendToBrowser and friends : should send structured data to the browser", function() {
+  it("should send structured data to the browser", function() {
     var eventHandler = jasmine.createSpy("eventHandler");
     window.document.addEventListener("RemoteUserProfileCommand", eventHandler, false);
 
     var testIndex = 0;
-    function testEvent(eventSpy, expectedResult) {
-      var evt = eventSpy.argsForCall[testIndex][0];
-      expect(eventSpy).toHaveBeenCalled();
+    function testEvent(expectedResult) {
+      var evt = eventHandler.argsForCall[testIndex][0];
+      expect(eventHandler).toHaveBeenCalled();
       expect(typeof(evt)).toBe("object");
       expect(evt.detail).toBeIdenticalTo(expectedResult);
       testIndex += 1;
@@ -103,39 +100,39 @@ describe("DataService", function() {
 
     // test the raw _sendToBrowser function
     dataService._sendToBrowser("Joke", "rigmarole");
-    testEvent(eventHandler, {command: "Joke", data: "rigmarole"});
+    testEvent({command: "Joke", data: "rigmarole"});
 
     // test wrappers for sentToBrowser
     
     dataService.disableUP();
-    testEvent(eventHandler, {command: "DisableUP"});
+    testEvent({command: "DisableUP"});
 
     dataService.enableUP();
-    testEvent(eventHandler, {command: "EnableUP"});
+    testEvent({command: "EnableUP"});
 
     dataService.reqPrefs();
-    testEvent(eventHandler, {command: "RequestCurrentPrefs"});
+    testEvent({command: "RequestCurrentPrefs"});
 
     dataService.reqPagePayload();
-    testEvent(eventHandler, {command: "RequestCurrentPagePayload"});
+    testEvent({command: "RequestCurrentPagePayload"});
 
     dataService.setInterestSharable("coffee", true);
-    testEvent(eventHandler, {command: "SetInterestSharable", data: ["coffee", true]});
+    testEvent({command: "SetInterestSharable", data: ["coffee", true]});
     dataService.setInterestSharable("meetings", false);
-    testEvent(eventHandler, {command: "SetInterestSharable", data: ["meetings", false]});
+    testEvent({command: "SetInterestSharable", data: ["meetings", false]});
     dataService.setInterestSharable("meetings");
-    testEvent(eventHandler, {command: "SetInterestSharable", data: ["meetings", undefined]});
+    testEvent({command: "SetInterestSharable", data: ["meetings", undefined]});
     dataService.setInterestSharable();
-    testEvent(eventHandler, {command: "SetInterestSharable", data: [undefined, undefined]});
+    testEvent({command: "SetInterestSharable", data: [undefined, undefined]});
 
     dataService.disableSite();
-    testEvent(eventHandler, {command: "DisableSite"});
+    testEvent({command: "DisableSite"});
     dataService.disableSite("example.com");
-    testEvent(eventHandler, {command: "DisableSite", data: "example.com"});
+    testEvent({command: "DisableSite", data: "example.com"});
 
     dataService.enableSite();
-    testEvent(eventHandler, {command: "EnableSite"});
+    testEvent({command: "EnableSite"});
     dataService.enableSite("example.com");
-    testEvent(eventHandler, {command: "EnableSite", data: "example.com"});
+    testEvent({command: "EnableSite", data: "example.com"});
   });
 });
