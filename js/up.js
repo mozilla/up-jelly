@@ -160,6 +160,7 @@
 
     $scope.interests = null;
     $scope.selectedInterest = null;
+    $scope.hosts = null;
     $scope.showMore = false;
 
     // refresh the state of the data
@@ -228,14 +229,8 @@
 
     /** interests view mode switching **/
     $scope.toggleInterestMode = function() {
-      if ($scope.showMore) {
-        $scope.selectedInterest = null;
-        $scope.showMore = false;
-      }
-      else {
-        $scope.selectedInterest = null;
-        $scope.showMore = true;
-      }
+      $scope.selectedInterest = null;
+      $scope.showMore = !$scope.showMore;
     }
 
     /** get rid of interest detail window **/
@@ -250,7 +245,7 @@
           }
           elem = elem.parentNode;
         }
-        // since we did not return - diselect an interest
+        // since we did not return - deselect an interest
         $scope.selectedInterest = null;
       }
     }
