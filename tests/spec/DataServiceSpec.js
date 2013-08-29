@@ -81,6 +81,11 @@ describe("DataService", function() {
     dispatchMessage(UPTestData.payloadSample);
     expect(dataService.handleEvent).toHaveBeenCalled();
     expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("pageloadReceived");
+
+    /** site prefs **/
+    dispatchMessage({type: "sitePref", content: {site: "example.com", isBlocked: true}});
+    expect(dataService.handleEvent).toHaveBeenCalled();
+    expect(dataService.rootScope.$broadcast).toHaveBeenCalledWith("sitePrefReceived");
   });
 
   it("_sendToBrowser and friends : should send structured data to the browser", function() {
