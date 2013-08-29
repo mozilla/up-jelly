@@ -821,15 +821,17 @@ figcaption {
 }
 
 .hostDetails td {
-    padding: 0.5em 2em 0 2em;
+    padding: 0.5em 0.5em 0;
     border: 0 !important;
 }
 
 td.hostName {
+    padding-left: 1.5em;
     text-align: left;
 }
 
 td.hostData {
+    padding-right: 1.5em;
     text-align: right;
     width: 25%;
 }
