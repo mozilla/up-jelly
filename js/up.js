@@ -276,7 +276,7 @@
       }
     }
 
-    $scope.$on("sitePrefReceived", function(){$scope.refresh;});
-    $scope.$on("pageloadReceived", function(){$scope.refresh;});
+    $scope.$on("sitePrefReceived", function(){$scope.refresh();});
+    $scope.$on("pageloadReceived", function(){$scope.refresh();});
   });
 })();
