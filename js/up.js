@@ -55,12 +55,12 @@
       }
     },
 
-    disableUP: function disableUP() {
-      this._sendToBrowser("DisableUP");
+    disableAPI: function disableAPI() {
+      this._sendToBrowser("DisableAPI");
     },
 
-    enableUP: function enableUP() {
-      this._sendToBrowser("EnableUP");
+    enableAPI: function enableAPI() {
+      this._sendToBrowser("EnableAPI");
     },
 
     reqPrefs: function reqPrefs() {
@@ -148,10 +148,10 @@
     // tell firefox we want to flip the service's state
     $scope.toggle = function() {
       if ($scope.prefs.enabled) {
-        dataService.disableUP();
+        dataService.disableAPI();
       }
       else {
-        dataService.enableUP();
+        dataService.enableAPI();
       }
     }
   });

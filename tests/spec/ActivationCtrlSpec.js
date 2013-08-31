@@ -56,10 +56,10 @@ describe("Activation Controller", function() {
 
     expect($scope.prefs.enabled).toBe(false);
     $scope.toggle();
-    testEvent({command: "EnableUP"});
+    testEvent({command: "EnableAPI"});
 
     $scope.prefs.enabled = true;
     $scope.toggle();
-    testEvent({command: "DisableUP"});
+    testEvent({command: "DisableAPI"});
   });
 });

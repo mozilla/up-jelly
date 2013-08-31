@@ -104,11 +104,11 @@ describe("DataService", function() {
 
     // test wrappers for sentToBrowser
     
-    dataService.disableUP();
-    testEvent({command: "DisableUP"});
+    dataService.disableAPI();
+    testEvent({command: "DisableAPI"});
 
-    dataService.enableUP();
-    testEvent({command: "EnableUP"});
+    dataService.enableAPI();
+    testEvent({command: "EnableAPI"});
 
     dataService.reqPrefs();
     testEvent({command: "RequestCurrentPrefs"});
