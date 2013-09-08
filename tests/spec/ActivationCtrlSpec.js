@@ -44,6 +44,7 @@ describe("Activation Controller", function() {
   it("should tell the browser to enable/disable personalization based on local pref settings upon toggle", function() {
     var eventHandler = jasmine.createSpy("eventHandler");
     window.document.addEventListener("RemoteUserProfileCommand", eventHandler, false);
+    $scope.interestsAPIDetected = true; // to make test run in browsers that don't implement the interest API
 
     var testIndex = 0;
     function testEvent(expectedResult) {
@@ -61,5 +62,25 @@ describe("Activation Controller", function() {
     $scope.prefs.enabled = true;
     $scope.toggle();
     testEvent({command: "DisableAPI"});
+  });
+
+  it("should not send any message to the browser when the web API is not detected", function() {
+    var eventHandler = jasmine.createSpy("eventHandler");
+    window.document.addEventListener("RemoteUserProfileCommand", eventHandler, false);
+    $scope.interestsAPIDetected = false;
+    $scope.toggle();
+    expect(eventHandler).not.toHaveBeenCalled();
+  });
+
+  it("should correctly detect if the interest API exists or not", function() {
+    var answer;
+
+    navigator.interests = true;
+    answer = $scope.detectAPI();
+    expect(answer).toBe(true);
+
+    navigator.interests = undefined;
+    answer = $scope.detectAPI();
+    expect(answer).toBe(false);
   });
 });

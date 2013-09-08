@@ -138,7 +138,12 @@
 
   userProfile.controller("activationCtrl", function($scope, dataService) {
     $scope.prefs = dataService._prefs;
-    $scope.interestsAPIAvailable = navigator.interests ? true : false;
+
+    // detect if interest API is present
+    $scope.detectAPI = function() {
+      return navigator.interests ? true : false;
+    }
+    $scope.interestsAPIDetected = $scope.detectAPI();
 
     // refresh the state of the controller
     $scope.refresh = function() {
@@ -148,7 +153,8 @@
 
     // tell firefox we want to flip the service's state
     $scope.toggle = function() {
-      if (!$scope.interestsAPIAvailable) {
+      // disable functionality of API is not detected
+      if (!$scope.interestsAPIDetected) {
         return;
       }
 
