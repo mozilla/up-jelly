@@ -70,6 +70,10 @@ describe("Activation Controller", function() {
     $scope.interestsAPIDetected = false;
     $scope.toggle();
     expect(eventHandler).not.toHaveBeenCalled();
+
+    $scope.interestsAPIDetected = true;
+    $scope.toggle();
+    expect(eventHandler).toHaveBeenCalled();
   });
 
   it("should correctly detect if the interest API exists or not", function() {
